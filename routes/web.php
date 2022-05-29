@@ -25,3 +25,4 @@ use App\Http\Controllers\Web;
         Route::get('/',[Web::class,'index'])->name('index');
     
     /***********************/
+
