@@ -17,6 +17,8 @@ class Web extends Controller
     public function dashboard(){
 
         return view('admin.layouts.admin');
+
+        // return view('dashboard');
         
     }
 
