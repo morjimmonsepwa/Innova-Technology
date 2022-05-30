@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 class Reportes extends Controller
 {
+ 
+    /**
+     * Control de Acceso
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +26,17 @@ class Reportes extends Controller
     {
         return view('admin.pages.reportes.reportes');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexinfor()
     {
         return view('admin.pages.reportes.informes');
     }
+    
 
     /**
      * Show the form for creating a new resource.

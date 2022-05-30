@@ -26,29 +26,20 @@ use App\Http\Controllers\QuejasController;
 
     /* Rutas Administrador Users*/
         
-        Route::get('/admin/users',[Roles::class,'index'])->name('index.users');
+        Route::get('/admin/users',[Roles::class,'indexuser'])->name('index.users');
+        Route::get('/admin/role',[Roles::class,'indexrole'])->name('index.role');
+
+    /***********************/
+
+    /* Rutas Administrador Reportes*/
+    
+        Route::get('/admin/reportes',[Reportes::class,'indexrepor'])->name('index.reportes');
+        Route::get('/admin/informes',[Reportes::class,'indexinfor'])->name('index.informes');
+
     /***********************/
     
-
     /* Rutas Web */
     
         Route::get('/',[Web::class,'index'])->name('index');
     
     /***********************/
-
-    /* Rutas reportes*/
-        
-    Route::get('/admin/reportes',[Reportes::class,'indexrepor'])->name('index.reportes');
-    Route::get('/admin/informes',[Reportes::class,'indexinfor'])->name('index.informes');
-    /***********************/
-     /* Rutas Grupos*/
-        
-     Route::get('/admin/grupos',[GruposController::class,'index'])->name('index.grupos');
-    
-     /***********************/
-
-     /* Rutas Quejas*/
-        
-     Route::get('/admin/quejas',[QuejasController::class,'index'])->name('index.quejas');
-    
-     /***********************/
