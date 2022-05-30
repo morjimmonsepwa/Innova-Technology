@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web;
 use App\Http\Controllers\Roles;
-
+use App\Http\Controllers\Reportes;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,10 +25,8 @@ use App\Http\Controllers\Roles;
     /* Rutas Administrador Users*/
         
         Route::get('/admin/users',[Roles::class,'index'])->name('index.users');
-
-    
     /***********************/
-
+    
 
     /* Rutas Web */
     
@@ -36,3 +34,8 @@ use App\Http\Controllers\Roles;
     
     /***********************/
 
+    /* Rutas reportes*/
+        
+    Route::get('/admin/reportes',[Reportes::class,'indexrepor'])->name('index.reportes');
+    Route::get('/admin/informes',[Reportes::class,'indexinfor'])->name('index.informes');
+    /***********************/

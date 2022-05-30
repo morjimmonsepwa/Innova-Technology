@@ -32,14 +32,7 @@
                             <th>Opciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Rol</th>
-                            <th>Opciones</th>
-                        </tr>
-                    </tfoot>
+                    
                     <tbody>
                         <tr>
                             <td>Tiger Nixon</td>
