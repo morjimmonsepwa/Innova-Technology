@@ -25,17 +25,18 @@ use App\Http\Controllers\Reportes;
     /* Rutas Administrador Users*/
         
         Route::get('/admin/users',[Roles::class,'index'])->name('index.users');
+
+    /***********************/
+
+    /* Rutas Administrador Reportes*/
+    
+        Route::get('/admin/reportes',[Reportes::class,'indexrepor'])->name('index.reportes');
+        Route::get('/admin/informes',[Reportes::class,'indexinfor'])->name('index.informes');
+
     /***********************/
     
-
     /* Rutas Web */
     
         Route::get('/',[Web::class,'index'])->name('index');
     
-    /***********************/
-
-    /* Rutas reportes*/
-        
-    Route::get('/admin/reportes',[Reportes::class,'indexrepor'])->name('index.reportes');
-    Route::get('/admin/informes',[Reportes::class,'indexinfor'])->name('index.informes');
     /***********************/
