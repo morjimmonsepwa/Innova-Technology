@@ -82,15 +82,10 @@
                 </a>
             </li>
             <li class="nav-item">
-<<<<<<< HEAD
                 <a class="nav-link" href="{{ route('index.quejas')}}">
                     <i class="fas fa-fw fa-users"></i>
-=======
-                <a class="nav-link" href="#">
-                    <i class="fas fa-envelope"></i>
->>>>>>> b2e314d994c34d22130cfcfad0642a18522219d2
                     <span>
-                       Quejas y Devoluciones
+                        Quejas y Devoluciones
                     </span>
                 </a>
             </li>

@@ -43,3 +43,14 @@ use App\Http\Controllers\QuejasController;
         Route::get('/',[Web::class,'index'])->name('index');
     
     /***********************/
+    /* Rutas Administrador Users*/
+        
+    Route::get('/admin/grupos',[GruposController::class,'index'])->name('index.grupos');
+
+    /***********************/
+    /* Rutas Administrador Users*/
+        
+    Route::get('/admin/quejas',[QuejasController::class,'index'])->name('index.quejas');
+    
+
+    /***********************/
