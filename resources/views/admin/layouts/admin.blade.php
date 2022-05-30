@@ -68,7 +68,7 @@
 
             <!-- Nav Item - Usuarios -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('index.grupos')}}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>
                         Grupos de Trabajo
@@ -78,7 +78,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('index.quejas')}}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>
                        Quejas y Devoluciones
