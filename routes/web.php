@@ -24,7 +24,8 @@ use App\Http\Controllers\Reportes;
 
     /* Rutas Administrador Users*/
         
-        Route::get('/admin/users',[Roles::class,'index'])->name('index.users');
+        Route::get('/admin/users',[Roles::class,'indexuser'])->name('index.users');
+        Route::get('/admin/role',[Roles::class,'indexrole'])->name('index.role');
 
     /***********************/
 

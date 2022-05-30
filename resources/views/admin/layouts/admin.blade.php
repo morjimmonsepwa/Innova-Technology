@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin</div>
+                <div class="sidebar-brand-text mx-3">Innova Technology</div>
             </a>
 
             <!-- Divider -->
@@ -58,12 +58,18 @@
 
             <!-- Nav Item - Usuarios -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('index.users') }}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>
-                        Usuarios
-                    </span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+                    aria-expanded="true" aria-controls="collapseUsers">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Usuarios</span>
                 </a>
+                <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item"  href="{{ route('index.users') }}">Usuarios</a>
+                        <a class="collapse-item" href="{{ route('index.role') }}">Roles & Permisos</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Usuarios -->
@@ -75,22 +81,19 @@
                     </span>
                 </a>
             </li>
-
-
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-envelope"></i>
                     <span>
                        Quejas y Devoluciones
                     </span>
                 </a>
             </li>
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-file"></i>
                     <span>Reportes e Informes</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"

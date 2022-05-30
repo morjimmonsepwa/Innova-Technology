@@ -14,7 +14,7 @@ class Roles extends Controller
      */
     public function __construct()
     {
-            $this->middleware('auth');
+        $this->middleware('auth');
     
     }
 
@@ -24,9 +24,20 @@ class Roles extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexuser()
     {
-        return view('admin.pages.users.index');
+        return view('admin.pages.users.users.index');
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexrole()
+    {
+        return view('admin.pages.users.roles.index');
     }
 
     /**
