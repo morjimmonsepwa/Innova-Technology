@@ -42,13 +42,11 @@
                             <td>001</td>
                             <td>Queja</td>
                             <td>Producto roto</td>
-                            <td>Tiger Nixon</td>
+                            <td>Tyler Joseph</td>
                             <td>3</td>
-                            <td>Liby Wilde</td>
+                            <td>Jazmin Meza</td>
                             <td>
-                        <a class="btn btn-danger">
-                            Cerrado
-                        </a>
+                            <p class="text-danger">Cerrado</p>
                     </td>
                             <td>
                             <a href="" class="btn btn-primary btn-circle p-2">
@@ -63,14 +61,12 @@
                         <tr>
                             <td>002</td>
                             <td>Devolución</td>
-                            <td>Producto roto</td>
-                            <td>Tiger Nixon</td>
-                            <td>3</td>
-                            <td>Liby Wilde</td>
+                            <td>Producto en mal estado</td>
+                            <td>Josh Dun</td>
+                            <td>5</td>
+                            <td>Andrea Sánchez</td>
                             <td>
-                            <a class="btn btn-success">
-                            Abierto
-                        </a>
+                            <p class="text-success">Abierto</p>
                     </td>
                             <td>
                                 <a href="" class="btn btn-primary btn-circle p-2">
@@ -84,14 +80,33 @@
                         </tr>
                         <tr>
                             <td>003</td>
-                            <td>Queja y Devolución</td>
+                            <td>Queja</td>
                             <td>Producto roto</td>
-                            <td>Tiger Nixon</td>
-                            <td>3</td>
-                            <td>Liby Wilde</td>
+                            <td>Justin Bieber</td>
+                            <td>4</td>
+                            <td>Luis Montes</td>
                             <td>
-                            <a class="btn btn-warning">
-                            Proceso
+                            <p class="text-warning">En proceso</p>
+                    </td>
+                            <td>
+                            <a href="" class="btn btn-primary btn-circle p-2">
+                                    <i class="fas fa-highlighter"></i>
+                                </a>
+                                <a href="" class="btn btn-dark btn-circle p-2">
+                                    <i class="fas fa-duotone fa-trash"></i>
+                                </a>
+                            </td>
+            
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Devolución</td>
+                            <td>Producto defectuoso</td>
+                            <td>Maatt Hunter</td>
+                            <td>6</td>
+                            <td>Monserrat Morales</td>
+                            <td>
+                            <p class="text-danger">Cerrado</p>
                         </a>
                     </td>
                             <td>
