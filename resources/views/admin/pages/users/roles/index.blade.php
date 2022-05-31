@@ -17,7 +17,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div>
-                    <button type="button" class="btn btn-success">Agregar</button>
+                    <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
                 </div>
             </div>
         <div class="card-body">
@@ -25,18 +25,15 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Rol</th>
+                            <th>Nombre Rol</th>
+                            <th>Fecha Creación</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
-                    
                     <tbody>
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -49,7 +46,6 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -62,7 +58,6 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -75,7 +70,6 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -88,7 +82,6 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -101,7 +94,6 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -114,7 +106,6 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -127,7 +118,6 @@
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>System Architect</td>
-                            <td>Edinburgh</td>
                             <td>
                                 <a href="" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
@@ -145,6 +135,41 @@
 
     </div>
     <!-- /.container-fluid -->
+
+    <!-- Modales -->
+
+        <!-- Modal Agregar -->
+            <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Agregar Usuario</h5>
+                        </div>
+                        <form>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <!-- Modal Agregar -->
+    
+    <!-- Modales -->
 
     
 @endsection

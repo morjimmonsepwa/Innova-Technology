@@ -13,13 +13,10 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('libs/sbadmin/fontawesome/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('libs/sbadmin/css/admin.css')}}" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -296,7 +293,7 @@
 
 
 </body>
-
+        
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('libs/sbadmin/jquery/jquery.min.js')  }}"></script>
     <script src="{{ asset('libs/sbadmin/bootstrap/js/bootstrap.bundle.min.js')  }}"></script>
@@ -313,5 +310,8 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('libs/sbadmin/js/demo/chart-area-demo.js')  }}"></script>
     <script src="{{ asset('libs/sbadmin/js/demo/chart-pie-demo.js')  }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
 </html>
