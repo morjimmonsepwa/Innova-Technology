@@ -38,13 +38,11 @@
                     <td>1</td>
                     <td>Luis</td>
                     <td>informe diario</td>
-                    <td>Juanito</td>
+                    <td>Nico</td>
                     <td>001</td>
                     <td>Email</td>
                     <td>
-                        <a class="btn btn-danger">
-                            Abierto
-                        </a>
+                    <p class="text-danger">Cerrado</p>
                     </td>
                 </tr>
                 <tr>
@@ -53,11 +51,9 @@
                     <td>informe diario</td>
                     <td>Clancy</td>
                     <td>002</td>
-                    <td>Telefonica</td>
+                    <td>Telefónica</td>
                     <td>
-                        <a class="btn btn-success">
-                            Proceso
-                        </a>
+                    <p class="text-success">Abierto</p>
                     </td>
                 </tr>
                 <tr>
@@ -65,15 +61,23 @@
                     <td>Monse</td>
                     <td>informe diario</td>
                     <td>Nedsito</td>
-                    <td>002</td>
+                    <td>003</td>
                     <td>Email</td>
                     <td>
-                        <a class="btn btn-warning">
-                            Cerrado
-                        </a>
+                    <p class="text-warning">Proceso</p>
                     </td>
                 </tr>
-                
+                <tr>
+                    <td>4</td>
+                    <td>Andrea</td>
+                    <td>informe diario</td>
+                    <td>Trash</td>
+                    <td>004</td>
+                    <td>Telefónica</td>
+                    <td>
+                    <p class="text-danger">Cerrado</p>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

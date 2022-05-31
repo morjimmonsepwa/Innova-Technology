@@ -101,168 +101,136 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Posición</th>
-                            <th>Oficina</th>
-                            <th>Año</th>
+                            <th>Folio</th>
+                            <th>Asunto</th>
+                            <th>Cliente</th>
+                            <th>Vía</th>
+                            <th>Producto</th>
+                            <th>Generado Por</th>
                             <th>Status</th>
-                            <th>Salario</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Posición</th>
-                            <th>Oficina</th>
-                            <th>Año</th>
+                            <th>Folio</th>
+                            <th>Asunto</th>
+                            <th>Cliente</th>
+                            <th>Vía Queja</th>
+                            <th>Producto</th>
+                            <th>Generado Por</th>
                             <th>Status</th>
-                            <th>Salario</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <tr>
+                            <td>01</td>
+                            <td>Queja</td>
+                            <td>Mayka</td>
+                            <td>Email</td>
+                            <td>Laptop</td>
+                            <td>Luis Montes</td>
+                            <td>
+                            <p class="text-danger">Cerrado</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Devolución</td>
+                            <td>Ned</td>
+                            <td>Telefónica</td>
+                            <td>TV</td>
+                            <td>Jazmin Meza</td>
+                            <td>
+                            <p class="text-success">Abierto</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>Queja</td>
+                            <td>Trash</td>
+                            <td>Email</td>
+                            <td>PC</td>
                             <td>Monserrat Morales</td>
-                            <td>Arquitecto de Sistema</td>
-                            <td>México</td>
-                            <td>22</td>
                             <td>
-                                <a class="btn btn-danger">
-                                    Cerrado
-                                </a>
+                            <p class="text-warning">Proceso</p>
                             </td>
-                            <td>$320,800</td>
                         </tr>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
+                            <td>04</td>
+                            <td>Devolución</td>
+                            <td>Clancy</td>
+                            <td>Telefónica</td>
+                            <td>Laptop</td>
+                            <td>Andrea Sánchez</td>
                             <td>
-                                <a class="btn btn-success">
-                                    Abierto
-                                </a>
+                            <p class="text-danger">Cerrado</p>
                             </td>
-                            <td>$320,800</td>
                         </tr>
                         <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
+                            <td>05</td>
+                            <td>Queja</td>
+                            <td>Tyler</td>
+                            <td>Email</td>
+                            <td>TV</td>
+                            <td>Luis Montes</td>
                             <td>
-                                <a class="btn btn-warning">
-                                    Proceso
-                                </a>
+                            <p class="text-success">Abierto</p>
                             </td>
-                            <td>$86,000</td>
                         </tr>
                         <tr>
+                            <td>06</td>
+                            <td>Devolución</td>
+                            <td>Josh</td>
+                            <td>Telefónica</td>
+                            <td>Laptop</td>
+                            <td>Luis Montes</td>
+                            <td>
+                            <p class="text-warning">Proceso</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>07</td>
+                            <td>Queja</td>
+                            <td>Jenna</td>
+                            <td>Email</td>
+                            <td>TV</td>
+                            <td>Jazmin Meza</td>
+                            <td>
+                            <p class="text-danger">Cerrado</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>08</td>
+                            <td>Devolución</td>
+                            <td>Debby</td>
+                            <td>Telefónica</td>
+                            <td>Laptop</td>
                             <td>Monserrat Morales</td>
-                            <td>Arquitecto de Sistema</td>
-                            <td>México</td>
-                            <td>22</td>
                             <td>
-                                <a class="btn btn-danger">
-                                    Cerrado
-                                </a>
+                            <p class="text-success">Abierto</p>
                             </td>
-                            <td>$320,800</td>
                         </tr>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
+                            <td>09</td>
+                            <td>Queja</td>
+                            <td>Gerardo</td>
+                            <td>Email</td>
+                            <td>TV</td>
+                            <td>Andrea Sánchez</td>
                             <td>
-                                <a class="btn btn-success">
-                                    Abierto
-                                </a>
+                            <p class="text-warning">Proceso</p>
                             </td>
-                            <td>$320,800</td>
                         </tr>
                         <tr>
-                            <td>Monserrat Morales</td>
-                            <td>Arquitecto de Sistema</td>
-                            <td>México</td>
-                            <td>22</td>
+                            <td>010</td>
+                            <td>Devolución</td>
+                            <td>Miguel</td>
+                            <td>Telefónica</td>
+                            <td>Laptop</td>
+                            <td>Luis Montes</td>
                             <td>
-                                <a class="btn btn-warning">
-                                    Cerrado
-                                </a>
+                            <p class="text-danger">Cerrado</p>
                             </td>
-                            <td>$86,000</td>
-                        </tr>
-                        <tr>
-                            <td>Monserrat Morales</td>
-                            <td>Arquitecto de Sistema</td>
-                            <td>México</td>
-                            <td>22</td>
-                            <td>
-                                <a class="btn btn-danger">
-                                    Cerrado
-                                </a>
-                            </td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>
-                                <a class="btn btn-success">
-                                    Abierto
-                                </a>
-                            </td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-                            <td>
-                                <a class="btn btn-warning">
-                                    Proceso
-                                </a>
-                            </td>
-                            <td>$86,000</td>
-                        </tr>
-                        <tr>
-                            <td>Monserrat Morales</td>
-                            <td>Arquitecto de Sistema</td>
-                            <td>México</td>
-                            <td>22</td>
-                            <td>
-                                <a class="btn btn-danger">
-                                    Cerrado
-                                </a>
-                            </td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>
-                                <a class="btn btn-success">
-                                    Abierto
-                                </a>
-                            </td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-                            <td>
-                                <a class="btn btn-warning">
-                                    Proceso
-                                </a>
-                            </td>
-                            <td>$86,000</td>
                         </tr>
                     </tbody>
                 </table>
