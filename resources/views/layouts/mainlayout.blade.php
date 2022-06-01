@@ -55,7 +55,7 @@
               <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg">
                   <a class="navbar-brand" href="{{route('index')}}">
-                    <img src="{{ asset('libs/index/img/logo/logo.svg')}}" alt="Logo" />
+                    <img src="{{ asset('libs/index/img/logo/logo2.jpeg')}}" alt="Logo" width="75" height="75"/>
                   </a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="toggler-icon"></span>
@@ -66,22 +66,22 @@
                   <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent2">
                     <ul id="nav2" class="navbar-nav ml-auto">
                       <li class="nav-item">
-                        <a class="page-scroll active" href="#home">Home</a>
+                        <a class="page-scroll active" href="#home">Inicio</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">Servicios</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">Sobre</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact">Contacto</a>
                       </li>
                       <li class="nav-item">
                         <a class="page-scroll" href="{{ route('register')}}">Registrar</a>
                       </li>
                     </ul>
-                    <a href="{{ route('login') }}" class="button button-sm radius-10 d-none d-lg-flex">Login</a>
+                    <a href="{{ route('login') }}" class="button button-sm radius-10 d-none d-lg-flex">Iniciar Sesión</a>
                   </div>
                   <!-- navbar collapse -->
                 </nav>

@@ -6,42 +6,42 @@
             <div class="row">
                 <div class="col-md-6">
                 <div class="single-input">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" class="form-input" placeholder="Name">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Nombre">
                     <i class="lni lni-user"></i>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="single-input">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="Email">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Correo Electrónico">
                     <i class="lni lni-envelope"></i>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="single-input">
-                    <label for="number">Number</label>
-                    <input type="text" id="number" name="number" class="form-input" placeholder="Number">
+                    <label for="number">Número</label>
+                    <input type="text" id="number" name="number" class="form-input" placeholder="Número">
                     <i class="lni lni-phone"></i>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="single-input">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject">
+                    <label for="subject">Tema</label>
+                    <input type="text" id="subject" name="subject" class="form-input" placeholder="Tema">
                     <i class="lni lni-text-format"></i>
                 </div>
                 </div>
                 <div class="col-md-12">
                 <div class="single-input">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" class="form-input" placeholder="Message" rows="6"></textarea>
+                    <label for="message">Mensaje</label>
+                    <textarea name="message" id="message" class="form-input" placeholder="Mensaje" rows="6"></textarea>
                     <i class="lni lni-comments-alt"></i>
                 </div>
                 </div>
                 <div class="col-md-12">
                 <div class="form-button">
-                    <button type="submit" class="button radius-10">Submit <i class="lni lni-telegram-original"></i> </button>
+                    <button type="submit" class="button radius-10">Enviar<i class="lni lni-telegram-original"></i> </button>
                 </div>
                 </div>
             </div>
@@ -51,8 +51,8 @@
         <div class="col-lg-5 order-first order-lg-last">
         <div class="left-wrapper">
             <div class="section-title mb-40">
-            <h3 class="mb-15">Get in touch</h3>
-            <p>Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
+            <h3 class="mb-15">Contactanos</h3>
+            <p>Comience a administrar sus grupos de trabajo, tickets e informes de una manera sencilla.</p>
             </div>
             <div class="row">
             <div class="col-lg-12 col-md-6">
@@ -61,7 +61,7 @@
                     <i class="lni lni-phone"></i>
                 </div>
                 <div class="text">
-                    <p>0045939863784</p>
+                    <p>0445584688443</p>
                 </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                     <i class="lni lni-envelope"></i>
                 </div>
                 <div class="text">
-                    <p>yourmail@gmail.com</p>
+                    <p>innovatechnology@gmail.com</p>
                 </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     <i class="lni lni-map-marker"></i>
                 </div>
                 <div class="text">
-                    <p>John's House, 13/5 Road, Sidny United State Of America</p>
+                    <p>Col. Benito Juárez, Cuarta Av., CP. 57000</p>
                 </div>
                 </div>
             </div>

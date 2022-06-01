@@ -5,9 +5,7 @@
             <h4 class="wow fadeInUp" data-wow-delay=".2s">Innova Technology</h4>
             <h2 class="mb-30 wow fadeInUp" data-wow-delay=".4s">Control de Tickets</h2>
             <p class="mb-50 wow fadeInUp" data-wow-delay=".6s">&nbsp;</p>
-            <div class="buttons">
-            <a href="https://rebrand.ly/flat-ud/" rel="nofollow" target="blank" class="button button-lg radius-10 wow fadeInUp" data-wow-delay=".7s">Purchase Now</a>
-            </div>
+            <p class="mb-50 wow fadeInUp" data-wow-delay=".6s">Gestiona las quejas y devoluciones de tus productos en tu empresa.</p>
         </div>
         </div>
         <div class="col-lg-6">
