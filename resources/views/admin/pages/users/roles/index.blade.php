@@ -36,7 +36,7 @@
                             <td>{{ $role->name}}</td>
                             <td>{{ $role->created_at}}</td>
                             <td>
-                                <a href="{{ route('edit.role',$role->id) }}" class="btn btn-warning btn-circle p-2">
+                                <a href="{{ route('edit.role',$role->id) }}" class="btn btn-primary btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
                                 <form action="{{ route('destroy.role',$role->id) }}" method="post">
@@ -71,7 +71,7 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="name" name="name" id="name"  class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" aria-describedby="nombre">
+                                    <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre">
                                 </div>
                                 <label for="permisos" class="form-label">Permisos:</label>
                                 <div class="mb-3">

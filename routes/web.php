@@ -34,6 +34,12 @@ use App\Http\Controllers\QuejasController;
     /* Rutas Administrador Users*/
         
         Route::get('/admin/users',[Users::class,'index'])->name('index.users');
+        Route::get('/admin/users/create',[Users::class,'create'])->name('create.users');
+        Route::post('/admin/users',[Users::class,'store'])->name('store.users');
+        Route::get('/admin/users/{id}',[Users::class,'show'])->name('show.users');
+        Route::get('/admin/users/{id}/edit',[Users::class,'edit'])->name('edit.users');
+        Route::patch('/admin/users/{id}',[Users::class,'update'])->name('update.users');
+        Route::put('/admin/users/{id}',[Users::class,'destroy'])->name('destroy.users');
        
 
     /***********************/

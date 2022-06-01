@@ -34,118 +34,32 @@
                     </thead>
                     
                     <tbody>
+                        @foreach ($users as $user)
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
+                            <td class="text-center">
+                                <div class="avatar flex justify-center">
+                                    <div class="w-24 rounded-full">
+                                        <img src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->rol->name ?? 'Sin Rol'}}</td>
                             <td>
-                                <a for="#editar" data-bs-toggle="modal" data-bs-target="#editar" class="btn btn-warning btn-circle p-2">
+                                <a href="{{ route('edit.users',$user->id) }}" class="btn btn-primary btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                                <form action="{{ route('destroy.users',$user->id) }}" method="post">
+                                    @csrf
+                                    {{ method_field('PUT')}}
+                                    <button  type="submit" class="btn btn-danger btn-circle p-2">
+                                        <i class="fas fa-duotone fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -162,34 +76,34 @@
                         <div class="modal-header">
                             <h5 class="modal-title">Agregar Usuario</h5>
                         </div>
-                        <form>
+                        <form action="{{ route('store.users')}}" method="POST">
+                            @csrf
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" aria-describedby="emailHelp">
+                                    <label for="exampleInputEmail1" id="name" name="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp"  id="name" name="name">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                    <input type="text" class="form-control" >
+                                    <label for="exampleInputPassword1" id="email" name="email" class="form-label">Correo</label>
+                                    <input type="text" class="form-control"  id="email" name="email" >
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" >
+                                    <label for="exampleInputPassword1" id="passsword" name="passsword"  class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="passsword" name="passsword">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Rol</label>
-                                    <select name="encargado" class="form-control" required>
+                                    <select name="encargado" class="form-control" id="rol" name="rol" required>
                                         <option>Seleccione una opción:</option>
-                                        <option value="">Monserrat Morales</option>
-                                        <option value="">Luis Montes</option>
-                                        <option value="">Andrea Sánchez</option>
-                                        <option value="">Jazmin Meza</option>
+                                        @foreach ($roles as  $role)
+                                            <option value="{{ $role->id}}">{{ $role->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="name" name="name" id="name" class="form-label">Nombre</label>
-                                <input type="text"  value="{{$rol->name}}" class="form-control" aria-describedby="nombre">
+                                <input type="text"  name="name" id="name" value="{{$rol->name}}" class="form-control" aria-describedby="nombre">
                             </div>
                             <label for="permisos" class="form-label">Permisos:</label>
                             <div class="mb-3">

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Role;
+
 
 class Users extends Controller
 {   
@@ -23,8 +27,15 @@ class Users extends Controller
      */
     public function index()
     {
-        $user=User::list_users();
-        return view('admin.pages.users.users.index');
+        $user=User::all();
+        $rol = Role::all();
+
+        $param['users'] = $user;
+        $param['roles'] = $user;
+
+        return view('admin.pages.users.users.index',$param);
+
+
     }
 
     /**
@@ -45,7 +56,16 @@ class Users extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $new = new User();
+        $new->name = $request->input('name');
+        $new->email = $request->input('email');
+        $new->password = bcrypt($request->input('password'));
+        $new->id_rol = $request->input('rol');
+        $new->save();
+
+        return redirect()->route('index.users');
+
     }
 
     /**
@@ -66,8 +86,16 @@ class Users extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {           
+
+        $user = User::findOrFail($id);
+        $rol = Role::all();
+  
+        $param['roles'] = $rol;
+        $param['user']=$user;
+
+        
+        return view('admin.pages.users.users.edit',$param);
     }
 
     /**
@@ -79,7 +107,18 @@ class Users extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $user = User::find($id);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->id_rol = $request->input('rol');
+        $user->save();
+
+        return redirect()->route('index.users');
+
+
     }
 
     /**
@@ -90,6 +129,10 @@ class Users extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $rol = User::destroy('id', $id);
+
+        return redirect()->route('index.users');
+
     }
 }
