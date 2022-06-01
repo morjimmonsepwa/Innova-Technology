@@ -18,7 +18,7 @@
             <div class="card-header py-3">
                 <h6 class="m-2 font-weight-bold text-primary">Módulo de Reportes</h6>
                 <div>
-                    <button type="button" class="btn btn-danger">Generar Reporte Nuevo</button>
+                    <button type="button" class="btn btn-primary">Generar Reporte Nuevo</button>
                 </div>
             </div>
         <div class="card-body">
@@ -52,7 +52,7 @@
                             <a href="" class="btn btn-primary btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
-                                <a href="" class="btn btn-dark btn-circle p-2">
+                                <a href="" class="btn btn-danger btn-circle p-2">
                                     <i class="fas fa-duotone fa-trash"></i>
                                 </a>
                             </td>
@@ -72,7 +72,7 @@
                                 <a href="" class="btn btn-primary btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
-                                <a href="" class="btn btn-dark btn-circle p-2">
+                                <a href="" class="btn btn-danger btn-circle p-2">
                                     <i class="fas fa-duotone fa-trash"></i>
                                 </a>
                             </td>
@@ -92,7 +92,7 @@
                             <a href="" class="btn btn-primary btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
-                                <a href="" class="btn btn-dark btn-circle p-2">
+                                <a href="" class="btn btn-danger btn-circle p-2">
                                     <i class="fas fa-duotone fa-trash"></i>
                                 </a>
                             </td>
@@ -113,7 +113,7 @@
                             <a href="" class="btn btn-primary btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
-                                <a href="" class="btn btn-dark btn-circle p-2">
+                                <a href="" class="btn btn-danger btn-circle p-2">
                                     <i class="fas fa-duotone fa-trash"></i>
                                 </a>
                             </td>
