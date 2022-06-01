@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Permisos;
-use Illuminate\Support\Fascades\Validator;
-use App\Models\Role;
 
-
-class Roles extends Controller
-{    
-    
-    /**
+class Users extends Controller
+{   
+        /**
      * Control de Acceso
      *
      */
@@ -28,13 +23,8 @@ class Roles extends Controller
      */
     public function index()
     {
-
-
-        $param['permisos'] = Permisos::get(true);
-        $param['roles'] = Role::all();
-
-
-        return view('admin.pages.users.roles.index',$param);
+        $user=User::list_users();
+        return view('admin.pages.users.users.index');
     }
 
     /**
@@ -44,7 +34,7 @@ class Roles extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -55,31 +45,7 @@ class Roles extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:posts|max:255',
-        ]);
-
-        $new = new Role();
-
-        $new->name = $request->input('name');
-
-        $valores_permisos = $request->input('permisos');
-
-        if($request->input('permisos')!=''){
-            
-            foreach($valores_permisos as $key=>$value){
-                $permisos [$value] = true;
-            }
-
-            $new->permisos = json_encode($permisos);
-        }else{
-            $new->permisos=null;
-        }
-
-        $new->save();
-
-        return redirect()->route('index.role');
-
+        //
     }
 
     /**
@@ -101,8 +67,7 @@ class Roles extends Controller
      */
     public function edit($id)
     {
-        $param['permisos'] = Permisos::get(true);
-        return view('admin.pages.users.roles.edit',$param);
+        //
     }
 
     /**

@@ -31,11 +31,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($roles as $role )
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
+                            <td>{{ $role->name}}</td>
+                            <td>{{ $role->created_at}}</td>
                             <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
+                                <a href="{{ route('edit.role',$role->id) }}" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
                                 <a href="" class="btn btn-danger btn-circle p-2">
@@ -43,96 +44,12 @@
                                 </a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <a href="" class="btn btn-warning btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
     </div>
     <!-- /.container-fluid -->
 
@@ -143,26 +60,34 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Agregar Usuario</h5>
+                            <h5 class="modal-title">Agregar Rol</h5>
                         </div>
-                        <form>
+                        <form action="{{ route('store.role')}}" method="POST">
+                            @csrf
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" aria-describedby="emailHelp">
+                                    <label for="name" name="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" aria-describedby="nombre">
                                 </div>
+                                <label for="permisos" class="form-label">Permisos:</label>
                                 <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                                <div class="container overflow-hidden">
+                                    <div class="container">
+                                        <div class="row row-cols-3">
+                                            @foreach ($permisos as $key=>$value ) 
+                                                <div class="col">
+                                                    <input class="form-check-input" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ str_replace('.',' ',$key ) }}</label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>
                     </div>
                 </div>
@@ -171,5 +96,4 @@
     
     <!-- Modales -->
 
-    
 @endsection
