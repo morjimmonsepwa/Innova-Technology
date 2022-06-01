@@ -19,12 +19,13 @@
             </div>
         <div class="card-body">
             <div class="table-responsive">
-                    <form action="{{ route('update.role')}}" method="POST">
+                    <form action="{{ route('update.role',$rol->id) }} " method="POST">
                         @csrf
+                        {{ method_field('PATCH') }}
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="name" name="name" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" aria-describedby="nombre">
+                                <label for="name" name="name" id="name" class="form-label">Nombre</label>
+                                <input type="text"  value="{{$rol->name}}" class="form-control" aria-describedby="nombre">
                             </div>
                             <label for="permisos" class="form-label">Permisos:</label>
                             <div class="mb-3">
@@ -33,7 +34,20 @@
                                         <div class="row row-cols-3">
                                             @foreach ($permisos as $key=>$value ) 
                                                 <div class="col">
-                                                    <input class="form-check-input" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                                    <input class="form-check-input" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                                    
+                                                        @if( $rol->permisos == null)
+                                                        @else
+                                                            @foreach( $rol->permisos as $key1 => $boolean)
+                                
+                                                                @if($key1==$key)
+                                                                    checked
+                                                                @endif
+
+                                                            @endforeach
+                                                        @endif
+                                                        >                                                  
+                
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">{{ str_replace('.',' ',$key ) }}</label>
                                                 </div>
                                             @endforeach
@@ -42,7 +56,7 @@
                                 </div>
                         </div>
                         <div class="modal-footer">
-                        <a href="{{ route('index.role') }}" class="btn btn-secondary" data-bs-dismiss="modal">Regresar</a>
+                        <a href="{{ route('index.role') }}" class="btn btn-secondary">Regresar</a>
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </form>
                 </div>

@@ -55,9 +55,6 @@ class Roles extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:posts|max:255',
-        ]);
 
         $new = new Role();
 
@@ -101,7 +98,13 @@ class Roles extends Controller
      */
     public function edit($id)
     {
+        $rol = Role::findOrFail($id);
+        $rol->permisos = json_decode($rol->permisos,true);
+
+
         $param['permisos'] = Permisos::get(true);
+        $param['rol']=$rol;
+
         return view('admin.pages.users.roles.edit',$param);
     }
 
@@ -114,7 +117,30 @@ class Roles extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = Role::find($id);
+
+        $valores_permisos = $request->input('permisos');
+
+        if($request->input('permisos')!=''){
+
+            foreach($valores_permisos as $key => $item) {
+
+                $permisos [$item] = true;
+                    
+            }
+                $rol->permisos = json_encode($permisos);
+
+        }else{
+
+            $rol->permisos = null;
+        }
+
+        $rol->name = $request->input('name');
+        
+        $rol->save();
+        
+        return redirect()->route('index.role');
+
     }
 
     /**
@@ -125,6 +151,11 @@ class Roles extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $rol = Role::destroy('id', $id);
+
+
+        return redirect()->route('index.role');
+
     }
 }

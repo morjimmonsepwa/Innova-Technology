@@ -39,9 +39,13 @@
                                 <a href="{{ route('edit.role',$role->id) }}" class="btn btn-warning btn-circle p-2">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                                <form action="{{ route('destroy.role',$role->id) }}" method="post">
+                                    @csrf
+                                    {{ method_field('PUT')}}
+                                    <button  type="submit" class="btn btn-danger btn-circle p-2">
+                                        <i class="fas fa-duotone fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
@@ -66,7 +70,7 @@
                             @csrf
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="name" name="name" class="form-label">Nombre</label>
+                                    <label for="name" name="name" id="name"  class="form-label">Nombre</label>
                                     <input type="text" class="form-control" aria-describedby="nombre">
                                 </div>
                                 <label for="permisos" class="form-label">Permisos:</label>
