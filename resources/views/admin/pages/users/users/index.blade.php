@@ -2,10 +2,11 @@
 
 @section('cabecera')
 
-        <!-- Page Cabecera -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
-    </div>
+    <!-- Page Cabecera -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
+        </div>
+    <!-- Page Cabecera -->
 
 @endsection
 
@@ -32,7 +33,6 @@
                             <th>Opciones</th>
                         </tr>
                     </thead>
-                    
                     <tbody>
                         @foreach ($users as $user)
                         <tr>

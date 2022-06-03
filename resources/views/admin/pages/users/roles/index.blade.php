@@ -2,15 +2,15 @@
 
 @section('cabecera')
 
-        <!-- Page Cabecera -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Roles & Permisos</h1>
-    </div>
+    <!-- Page Cabecera -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Roles & Permisos</h1>
+        </div>
+     <!-- Page Cabecera -->
 
 @endsection
 
 @section('contenido')
-
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- DataTales Example -->
@@ -129,7 +129,6 @@
     <!-- /.container-fluid -->
 
     <!-- Modales -->
-
         <!-- Modal Agregar -->
             <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -168,7 +167,6 @@
                 </div>
             </div>
         <!-- Modal Agregar -->
-    
     <!-- Modales -->
 
 @endsection
