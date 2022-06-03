@@ -31,6 +31,7 @@ class Roles extends Controller
 
 
         $param['permisos'] = Permisos::get(true);
+     
         $param['roles'] = Role::all();
 
 

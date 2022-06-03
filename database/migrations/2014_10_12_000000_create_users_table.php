@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_rol')->unsigned()->nullable();
+            $table->bigInteger('id_rol')->unsigned()->nullable()->default(1);
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -36,7 +36,7 @@ return new class extends Migration
 
         $new = new User();
         $new->name='innova';
-        $new->id_rol=1;
+        $new->id_rol=2;
         $new->email='dev@innova.com';
         $new->password = bcrypt('1234567890');
         $new->save();

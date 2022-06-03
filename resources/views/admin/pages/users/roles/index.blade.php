@@ -36,18 +36,89 @@
                             <td>{{ $role->name}}</td>
                             <td>{{ $role->created_at}}</td>
                             <td>
-                                <a href="{{ route('edit.role',$role->id) }}" class="btn btn-primary btn-circle p-2">
+                                <a for="#editar-{{$role->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$role->id}}">
                                     <i class="fas fa-highlighter"></i>
                                 </a>
-                                <form action="{{ route('destroy.role',$role->id) }}" method="post">
-                                    @csrf
-                                    {{ method_field('PUT')}}
-                                    <button  type="submit" class="btn btn-danger btn-circle p-2">
-                                        <i class="fas fa-duotone fa-trash"></i>
-                                    </button>
-                                </form>
+                                <a for="#eliminar-{{$role->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$role->id}}">
+                                    <i class="fas fa-duotone fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
+                        <!-- Modales -->
+                            <!-- Modal Editar -->
+                                <div class="modal fade" id="editar-{{$role->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Editar Usuario</h5>
+                                            </div>
+                                            <form action="{{ route('update.role',$role->id) }}" method="POST">
+                                                @csrf
+                                                {{ method_field('PATCH') }}
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="name" name="name" id="name"  class="form-label">Nombre</label>
+                                                        <input type="text" value="{{$role->name}}" name="name" id="name" class="form-control" aria-describedby="nombre">
+                                                    </div>
+                                                    <label for="permisos" class="form-label">Permisos:</label>
+                                                    <div class="mb-3">
+                                                    <div class="container overflow-hidden">
+                                                        <div class="container">
+                                                            <div class="row row-cols-3">
+                                                                @foreach ($permisos as $key=>$value ) 
+                                                                    <div class="col">
+                                                                        <input class="form-check-input" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                                                        @if( $role->permisos == null)
+                                                                        @else
+                                                                            @foreach( json_decode($role->permisos,true) as $key1 => $boolean)
+                                                                                @if($key1==$key)
+                                                                                    checked
+                                                                                @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                        > 
+                                                                        <label class="form-check-label" for="flexSwitchCheckDefault">{{ str_replace('.',' ',$key ) }}</label>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- Modal Editar -->           
+                            <!-- Modal Eliminar -->
+                                <div class="modal fade" tabindex="-2" id="eliminar-{{$role->id}}">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">¡Atención!</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Estas Seguro de Eliminar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <form action="{{ route('destroy.role',$role->id) }}" method="post">
+                                                @csrf
+                                                {{ method_field('PUT')}}
+                                                <button  type="submit" class="btn btn-primary">
+                                                    Eliminar
+                                                </button>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- Modal Editar -->
+                         <!-- Modales -->
                         @endforeach
                     </tbody>
                 </table>

@@ -23,6 +23,10 @@ return new class extends Migration
         });
 
         $new = new Role();
+        $new->name = 'Sin Rol';
+        $new->save();
+
+        $new = new Role();
         $new->name = 'Administrador';
         $new->permisos = Permisos::get();
         $new->save();

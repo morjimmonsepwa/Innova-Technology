@@ -31,7 +31,7 @@ class Users extends Controller
         $rol = Role::all();
 
         $param['users'] = $user;
-        $param['roles'] = $user;
+        $param['roles'] = $rol;
 
         return view('admin.pages.users.users.index',$param);
 
@@ -131,7 +131,6 @@ class Users extends Controller
     {
         
         $rol = User::destroy('id', $id);
-
         return redirect()->route('index.users');
 
     }
