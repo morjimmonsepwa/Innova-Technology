@@ -1,0 +1,2 @@
+# Innova-Technology
+Innova Technology tiene como objetivo crear una aplicación web la cual permitirá llevar una mejor gestión sobre las quejas y devoluciones de los productos que ofrecen las empresas, un manejo más fácil de reportes e informes, y la gestión de sus grupos de trabajo, así como de la asignación de roles y permisos a usuarios, de tal manera que el equipo de trabajo pueda acceder a la aplicación desde un navegador web. 
