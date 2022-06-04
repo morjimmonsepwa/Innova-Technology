@@ -41,9 +41,8 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
                 <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
+                    {{ __('Login') }}
                 </x-jet-button>
             </div>
         </form>

@@ -66,19 +66,20 @@
                   <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent2">
                     <ul id="nav2" class="navbar-nav ml-auto">
                       <li class="nav-item">
-                        <a class="page-scroll active" href="#home">Inicio</a>
+                        <a class="page-scroll" href="@if(Route::current()->uri() == 'register' or Route::current()->uri() == 'login' ) {{route('index')}} @else #home @endif">Inicio
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" href="#services">Servicios</a>
+                        <a class="page-scroll" href="@if(Route::current()->uri() == 'register' or Route::current()->uri() == 'login' ) {{route('index')}} @else #services @endif">Servicios</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" href="#about">Sobre</a>
+                        <a class="page-scroll" href="@if(Route::current()->uri() == 'register' or Route::current()->uri() == 'login' ) {{route('index')}} @else #about @endif">Sobre</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" href="#contact">Contacto</a>
+                        <a class="page-scroll " href="@if(Route::current()->uri() == 'register' or Route::current()->uri() == 'login' ) {{route('index')}} @else #contact @endif">Contacto</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll" href="{{ route('register')}}">Registrar</a>
+                        <a class="page-scroll @if(Route::current()->uri() == 'register') active @endif"  href="{{ route('register')}}">Registrar</a>
                       </li>
                     </ul>
                     <a href="{{ route('login') }}" class="button button-sm radius-10 d-none d-lg-flex">Iniciar Sesión</a>
