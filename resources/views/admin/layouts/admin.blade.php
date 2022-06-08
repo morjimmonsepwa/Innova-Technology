@@ -40,7 +40,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item @if(Route::current()->uri() == 'dashboard') active @endif">
                 <a class="nav-link" href="{{ route('dashboard')  }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -55,7 +55,7 @@
             </div>
 
             <!-- Nav Item - Usuarios -->
-            <li class="nav-item">
+            <li class="nav-item  @if(Route::current()->uri() == 'admin/users' or Route::current()->uri() == 'admin/role' ) active @endif">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
                     aria-expanded="true" aria-controls="collapseUsers">
                     <i class="fas fa-fw fa-user"></i>
@@ -71,7 +71,7 @@
             </li>
 
             <!-- Nav Item - Usuarios -->
-            <li class="nav-item">
+            <li class="nav-item  @if(Route::current()->uri() == 'admin/grupos' ) active @endif">
                 <a class="nav-link" href="{{ route('index.grupos')}}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>
@@ -79,7 +79,7 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' ) active @endif">
                 <a class="nav-link" href="{{ route('index.quejas')}}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>
@@ -88,7 +88,7 @@
                 </a>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' or Route::current()->uri() == 'admin/informes' ) active @endif">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-file"></i>
