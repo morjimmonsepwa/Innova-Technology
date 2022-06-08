@@ -14,71 +14,43 @@
     <div class="container-fluid">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Grupos de Trabajo</h6>
+                <div>
+                    <button for="#agregar" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                </div>
             </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Grupo</th>
-                            <th>Líder</th>
-                            <th>Informe</th>
-                            <th>Cliente</th>
-                            <th>No. Queja</th>
-                            <th>Vía Queja</th>
-                            <th>Estado de Ticket</th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Luis</td>
-                            <td>informe diario</td>
-                            <td>Nico</td>
-                            <td>001</td>
-                            <td>Email</td>
-                            <td>
-                            <p class="text-danger">Cerrado</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jaz</td>
-                            <td>informe diario</td>
-                            <td>Clancy</td>
-                            <td>002</td>
-                            <td>Telefónica</td>
-                            <td>
-                            <p class="text-success">Abierto</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Monse</td>
-                            <td>informe diario</td>
-                            <td>Nedsito</td>
-                            <td>003</td>
-                            <td>Email</td>
-                            <td>
-                            <p class="text-warning">Proceso</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Andrea</td>
-                            <td>informe diario</td>
-                            <td>Trash</td>
-                            <td>004</td>
-                            <td>Telefónica</td>
-                            <td>
-                            <p class="text-danger">Cerrado</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="card-body row row-cols-3">
+            <!-- Dropdown Card Example -->
+                <div class="col">
+                    <div class="card shadow mb-4 border-left-info">
+                        <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between col">
+                                <h6 class="m-0 font-weight-bold text-primary">Grupo de Trabajo:  INNOVA</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">Opciones:</div>
+                                        <a class="dropdown-item" href="#">Editar</a>
+                                        <a class="dropdown-item" href="#">Eliminar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <span class="avatar p-2 text-primary" title="3 más">
+                                +3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <!-- Dropdown Card Example -->
         </div>
     </div>
     <!-- /.container-fluid -->
