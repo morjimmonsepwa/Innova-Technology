@@ -37,15 +37,17 @@
                         @foreach ($users as $user)
                         <tr>
                             <td class="text-center">
-                                <div class="avatar flex justify-center">
-                                    <div class="w-24 rounded-full">
-                                        <img class="circle" src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
-                                    </div>
-                                </div>
+                                <img class="circle" src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
                             </td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->rol->name ?? 'Sin Rol'}}</td>
+                            <td>
+                                {{$user->name}}
+                            </td>
+                            <td>
+                                {{$user->email}}
+                            </td>
+                            <td>
+                                {{$user->rol->name ?? 'Sin Rol'}}
+                            </td>
                             <td >
                                 <a for="#editar-{{$user->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$user->id}}">
                                     <i class="fas fa-highlighter"></i>

@@ -51,6 +51,102 @@
                     </div>
                 </div>
             <!-- Dropdown Card Example -->
+                        <!-- Dropdown Card Example -->
+                        <div class="col">
+                            <div class="card shadow mb-4 border-left-info">
+                                <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between col">
+                                        <h6 class="m-0 font-weight-bold text-primary">Grupo de Trabajo:  INNOVA</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Opciones:</div>
+                                                <a class="dropdown-item" href="#">Editar</a>
+                                                <a class="dropdown-item" href="#">Eliminar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <span class="avatar p-2 text-primary" title="3 más">
+                                        +3
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Dropdown Card Example -->
+                                <!-- Dropdown Card Example -->
+                <div class="col">
+                    <div class="card shadow mb-4 border-left-info">
+                        <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between col">
+                                <h6 class="m-0 font-weight-bold text-primary">Grupo de Trabajo:  INNOVA</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">Opciones:</div>
+                                        <a class="dropdown-item" href="#">Editar</a>
+                                        <a class="dropdown-item" href="#">Eliminar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            <span class="avatar p-2 text-primary" title="3 más">
+                                +3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <!-- Dropdown Card Example -->
+                        <!-- Dropdown Card Example -->
+                        <div class="col">
+                            <div class="card shadow mb-4 border-left-info">
+                                <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between col">
+                                        <h6 class="m-0 font-weight-bold text-primary">Grupo de Trabajo:  INNOVA</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Opciones:</div>
+                                                <a class="dropdown-item" href="#">Editar</a>
+                                                <a class="dropdown-item" href="#">Eliminar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                    <span class="avatar p-2 text-primary" title="3 más">
+                                        +3
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Dropdown Card Example -->
         </div>
     </div>
     <!-- /.container-fluid -->
