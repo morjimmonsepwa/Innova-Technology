@@ -64,37 +64,12 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Agregar Usuario</h5>
                     </div>
-                    <form action="{{ route('store.users')}}" method="POST">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp"  id="name" name="name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                <input type="text" class="form-control"  id="email" name="email" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="passsword" name="passsword">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Rol</label>
-                                <select class="form-control" id="rol" name="rol" required>
-                                    <option>Seleccione una opción:</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </form>
+                    <div class="modal-body">
+
+                    </div>   
                 </div>
             </div>
         </div>
     <!-- Modal Agregar -->
 <!-- Modales -->
-
-
 @endsection
