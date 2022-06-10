@@ -33,8 +33,9 @@
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                         aria-labelledby="dropdownMenuLink">
                                         <div class="dropdown-header">Opciones:</div>
-                                        <a class="dropdown-item" href="#">Editar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
+                                        <a class="dropdown-item" for="#editar" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#editar">Editar</a>
+                                        <a class="dropdown-item" for="#eliminar" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</a>
+                                        <a class="dropdown-item" for="#usuarios" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#usuarios">Asinar Usuarios</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,18 +59,132 @@
 
     <!-- Modales -->
         <!-- Modal Agregar -->
-        <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Agregar Usuario</h5>
+            <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Agregar Grupo</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="mb-3">
+                                    <label for="name" name="name" id="name"  class="form-label">Nombre del Equipo</label>
+                                    <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </div>
+                        </div>   
                     </div>
-                    <div class="modal-body">
-
-                    </div>   
                 </div>
             </div>
-        </div>
-    <!-- Modal Agregar -->
-<!-- Modales -->
+        <!-- Modal Agregar -->
+        <!-- Modal Editar -->
+            <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Editar Grupo</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="mb-3">
+                                    <label for="name" name="name" id="name"  class="form-label">Nombre del Equipo</label>
+                                    <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        <!-- Modal Editar -->
+        <!-- Modal Eliminar -->
+            <div class="modal fade" tabindex="-2" id="eliminar">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">¡Atención!</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estas Seguro de Eliminar?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <form action="#" method="post">
+                            @csrf
+                            {{ method_field('PUT')}}
+                            <button  type="submit" class="btn btn-primary">
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Modal Eliminar -->
+        <!-- Modal Usuarios -->
+            <div class="modal fade" id="usuarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Asignar Usuarios</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <input class="form-control mb-4" id="tableSearch" type="text"
+                                placeholder="Nombre Usuario">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Firstname</th>
+                                            <th>Rol</th>
+                                            <th>Estatus</th>
+                                            <th>Opción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        <tr>
+                                            <td>
+                                                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                                John
+                                            </td>
+                                            <td>Administrador</td>
+                                            <td class="text text-success">Sin Asignar</td>
+                                            <td>
+                                                <button type="submit" class="btn btn-primary">
+                                                    Agregar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                                Mary
+                                            </td>
+                                            <td>
+                                                Usuario
+                                            </td>
+                                            <td class="text text-danger">Asignado</td>
+                                            <td>
+                                                <button type="submit" class="btn btn-danger">
+                                                    Eliminar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        <!-- Modal Usuarios -->
+    <!-- Modales -->
+
 @endsection
