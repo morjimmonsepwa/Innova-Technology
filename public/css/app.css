@@ -2400,3 +2400,12 @@ select {
   }
 }
 
+.btn-primary {
+  background-color: #4e73df;
+  border-color: #4e73df;
+}
+
+.btn-secondary {
+  background-color: #858796;
+  border-color: #858796;
+}

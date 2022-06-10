@@ -202,7 +202,7 @@
                                     {{ Auth::user()->name}}
                                 </span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{  Auth::user()->profile_photo_url }}" alt="{{  Auth::user()->name }}">
+                                    src="@if(Auth::user()->profile_photo_path != null) {{asset('storage/'.Auth::user()->profile_photo_path)}}@else {{Auth::user()->profile_photo_url}} @endif" alt="{{  Auth::user()->name }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
