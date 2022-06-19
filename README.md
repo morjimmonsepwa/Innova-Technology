@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -62,3 +63,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# Innova-Technology
+Innova Technology tiene como objetivo crear una aplicación web la cual nos permitirá llevar una mejor gestión sobre las quejas y devoluciones de los productos que ofrecen las empresas, un manejo más fácil de reportes e informes, y la gestión de sus grupos de trabajo, así como de la asignación de roles y permisos a usuarios, de tal manera que el equipo de trabajo pueda acceder a la aplicación desde un navegador web. 
+>>>>>>> a4864b9378009f9b3ff320526d351ca5b60c86f8
