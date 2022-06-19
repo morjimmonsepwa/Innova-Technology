@@ -77,7 +77,18 @@
                                                                             @endforeach
                                                                         @endif
                                                                         > 
-                                                                        <label class="form-check-label" for="flexSwitchCheckDefault">{{ str_replace('.',' ',$key ) }}</label>
+                                                                        <label class="form-check-label" for="flexSwitchCheckDefault">
+                                                                            {{  
+                                                                                str_replace('create','crear',
+                                                                                str_replace('create','crear',
+                                                                                str_replace('edit','editar',
+                                                                                str_replace('index','inicio',
+                                                                                str_replace('role','roles',
+                                                                                str_replace('destroy','eliminar',
+                                                                                str_replace('.',' ',
+                                                                                $key )))))))
+                                                                            }}
+                                                                        </label>
                                                                     </div>
                                                                 @endforeach
                                                             </div>
@@ -151,7 +162,18 @@
                                             @foreach ($permisos as $key=>$value ) 
                                                 <div class="col">
                                                     <input class="form-check-input" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ str_replace('.',' ',$key ) }}</label>
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                                        {{  
+                                                            str_replace('create','crear',
+                                                            str_replace('create','crear',
+                                                            str_replace('edit','editar',
+                                                            str_replace('index','inicio',
+                                                            str_replace('role','roles',
+                                                            str_replace('destroy','eliminar',
+                                                            str_replace('.',' ',
+                                                            $key )))))))
+                                                        }}
+                                                    </label>
                                                 </div>
                                             @endforeach
                                         </div>
