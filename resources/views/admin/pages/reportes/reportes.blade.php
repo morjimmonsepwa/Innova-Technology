@@ -16,9 +16,9 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-2 font-weight-bold text-primary">Módulo de Reportes</h6>
+                
                 <div>
-                    <button type="button" class="btn btn-primary">Generar Reporte Nuevo</button>
+                    <button type="button" class="btn btn-primary">Reporte General</button>
                 </div>
             </div>
         <div class="card-body">
@@ -30,7 +30,7 @@
                             <th>Asunto</th>
                             <th>Motivo</th>
                             <th>Cliente</th>
-                            <th>Solicitudes</th>
+                            <th>Asignado a</th>
                             <th>Generado por</th>
                             <th>Status</th>
                             <th>Acciones</th>
@@ -49,12 +49,7 @@
                             <p class="text-danger">Cerrado</p>
                     </td>
                             <td>
-                            <a href="" class="btn btn-primary btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                            
                             </td>
             
                         </tr>
@@ -69,12 +64,10 @@
                             <p class="text-success">Abierto</p>
                     </td>
                             <td>
-                                <a href="" class="btn btn-primary btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
+                                <a href="" class="btn btn-danger">
+                                    <i class="fas fa-file-pdf"></i>
                                 </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                                
                             </td>
             
                         </tr>
@@ -89,12 +82,8 @@
                             <p class="text-warning">En proceso</p>
                     </td>
                             <td>
-                            <a href="" class="btn btn-primary btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                           
+                                
                             </td>
             
                         </tr>
@@ -110,12 +99,7 @@
                         </a>
                     </td>
                             <td>
-                            <a href="" class="btn btn-primary btn-circle p-2">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a href="" class="btn btn-danger btn-circle p-2">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                           
                             </td>
             
                         </tr>

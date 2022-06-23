@@ -80,26 +80,20 @@
             </li>
             <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' ) active @endif">
                 <a class="nav-link" href="{{ route('index.quejas')}}">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-clipboard-list"></i>
                     <span>
                         Quejas y Devoluciones
                     </span>
                 </a>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' or Route::current()->uri() == 'admin/informes' ) active @endif">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-file"></i>
-                    <span>Reportes e Informes</span>
+            <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' ) active @endif">
+                <a class="nav-link" href="{{ route('index.reportes')}}">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>
+                        Reportes
+                    </span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item"  href="{{route('index.reportes')}}">Reportes</a>
-                        <a class="collapse-item" href="{{route('index.informes')}}">Informes</a>
-                    </div>
-                </div>
             </li>
 
             <!-- Divider -->
