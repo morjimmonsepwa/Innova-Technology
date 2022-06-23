@@ -80,7 +80,7 @@
             </li>
             <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' ) active @endif">
                 <a class="nav-link" href="{{ route('index.quejas')}}">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-clipboard-list"></i>
                     <span>
                         Quejas y Devoluciones
                     </span>
@@ -89,7 +89,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' ) active @endif">
                 <a class="nav-link" href="{{ route('index.reportes')}}">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-file-pdf"></i>
                     <span>
                         Reportes
                     </span>
