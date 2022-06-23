@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('work_groups', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->integer('id_lider');
+            $table->bigInteger('id_leader')->unsigned()->nullable();
             $table->timestamps();
+
+            $table->foreign('id_leader')->references('id')->on('users')
+                ->onDelete('SET NULL')
+                ->onUpdate('CASCADE');
         });
     }
 
