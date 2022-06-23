@@ -1103,16 +1103,28 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
+<<<<<<< HEAD
 .ml-auto {
   margin-left: auto;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> AndreaAbigail
+>>>>>>> fdb682370e32d422f9ce9ac98da4f61b21f38076
 .mb-40 {
   margin-bottom: 10rem;
 }
 .mb-60 {
   margin-bottom: 15rem;
 }
+<<<<<<< HEAD
+=======
+.ml-auto {
+  margin-left: auto;
+}
+>>>>>>> AndreaAbigail
 .mr-auto {
   margin-right: auto;
 }
