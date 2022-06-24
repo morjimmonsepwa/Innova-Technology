@@ -29,8 +29,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard')  }}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon rotate-n-0">
+                    <img src="http://127.0.0.1:8000/libs/index/img/logo/logo2.jpeg" alt="Logo" width="50" height="50">
                 </div>
                 <div class="sidebar-brand-text mx-3">Innova Technology</div>
             </a>
