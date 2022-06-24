@@ -16,27 +16,27 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('asunto');
-            $table->string('motivo');
-            $table->string('cliente');
+            $table->integer('affair');
+            $table->string('reason');
+            $table->string('client');
             $table->integer('via');
-            $table->bigInteger('id_empresa')->unsigned()->nullable();
-            $table->string('producto');
-            $table->bigInteger('id_encargado')->unsigned()->nullable();
-            $table->bigInteger('id_asignado')->unsigned()->nullable();
+            $table->bigInteger('id_business')->unsigned()->nullable();
+            $table->string('product');
+            $table->bigInteger('id_manager')->unsigned()->nullable();
+            $table->bigInteger('id_assigned')->unsigned()->nullable();
             $table->integer('status');
             $table->timestamps();
 
 
-            $table->foreign('id_empresa')->references('id')->on('companies')
+            $table->foreign('id_business')->references('id')->on('companies')
                 ->onDelete('SET NULL')
                 ->onUpdate('CASCADE');
 
-            $table->foreign('id_encargado')->references('id')->on('users')
+            $table->foreign('id_manager')->references('id')->on('users')
                 ->onDelete('SET NULL')
                 ->onUpdate('CASCADE');
 
-            $table->foreign('id_asignado')->references('id')->on('users')
+            $table->foreign('id_assigned')->references('id')->on('users')
                 ->onDelete('SET NULL')
                 ->onUpdate('CASCADE');
         });
