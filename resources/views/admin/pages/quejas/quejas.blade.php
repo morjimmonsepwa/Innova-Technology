@@ -50,7 +50,7 @@
                                 <a for="#eliminar" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
                                     <i class="fas fa-duotone fa-trash"></i>
                                 </a>
-                                <a for="#ver" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#ver">
+                                <a for="#ver" type="button" class="btn btn-circle btn-warning" data-bs-toggle="modal" data-bs-target="#ver">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>
