@@ -3,10 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Work_group;
+use App\Models\Detail_group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class WorkGroupController extends Controller
 {
+
+    /**
+     * Control de Acceso
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,17 +28,14 @@ class WorkGroupController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $groups = Work_group::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $details = Detail_group::all()->take($groups->count()*4);
+
+        $param['groups'] = $groups;
+        $param['details'] = $details;
+
+        return view('admin.pages.grupos.grupos',$param);
     }
 
     /**
@@ -35,29 +46,14 @@ class WorkGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        
+        $group = new Work_group();
+        $group->name = $request->name;
+        $group->id_leader = Auth::id();
+        $group->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Work_group  $work_group
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Work_group $work_group)
-    {
-        //
-    }
+        return redirect()->route('index.grupos');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Work_group  $work_group
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Work_group $work_group)
-    {
-        //
     }
 
     /**
@@ -67,9 +63,13 @@ class WorkGroupController extends Controller
      * @param  \App\Models\Work_group  $work_group
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Work_group $work_group)
+    public function update(Request $request,$id)
     {
-        //
+        $group = Work_group::find($id);
+        $group->name=$request->name;
+        $group->save();
+
+        return redirect()->route('index.grupos');
     }
 
     /**
@@ -78,8 +78,11 @@ class WorkGroupController extends Controller
      * @param  \App\Models\Work_group  $work_group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Work_group $work_group)
+    public function destroy($id)
     {
-        //
+        Work_group::destroy('id', $id);
+        return redirect()->route('index.grupos');
     }
+
+    
 }

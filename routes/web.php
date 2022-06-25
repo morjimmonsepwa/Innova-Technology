@@ -70,6 +70,8 @@ use App\Http\Controllers\QuejasController;
         
         Route::get('/admin/grupos',[WorkGroupController::class,'index'])->name('index.grupos');
         Route::post('/admin/grupos',[WorkGroupController::class,'store'])->name('store.grupos');
+        Route::put('/admin/grupos/{id}',[WorkGroupController::class,'destroy'])->name('destroy.grupos');
+        Route::patch('/admin/grupos/{id}',[WorkGroupController::class,'update'])->name('update.grupos');
 
     /***********************/
 

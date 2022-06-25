@@ -17,6 +17,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('libs/sbadmin/css/admin.css')}}" rel="stylesheet">
     <link href="{{asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    @livewireStyles
 </head>
 
 <body id="page-top">
@@ -279,7 +280,7 @@
         </div>
     </div>
 
-
+    @livewireScripts
 </body>
         
     <!-- Bootstrap core JavaScript-->

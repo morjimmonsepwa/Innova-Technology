@@ -18,34 +18,46 @@
                             </tr>
                         </thead>
                         <tbody id="myTable">
-                            <tr>
-                                <td>
-                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                                    John
-                                </td>
-                                <td>Administrador</td>
-                                <td class="text text-success">Sin Asignar</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">
-                                        Agregar
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                                    Mary
-                                </td>
-                                <td>
-                                    Usuario
-                                </td>
-                                <td class="text text-danger">Asignado</td>
-                                <td>
-                                    <button type="submit" class="btn btn-danger">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>
+                                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                        {{$user->name}}
+                                    </td>
+                                    <td>
+                                        {{$user->rol->name}}
+                                    </td>
+                                    <td class="text text-success">Sin Asignar</td>
+                                    <td>
+                                        <button wire:click="asigned_user({{$user->id}})" type="submit" class="btn btn-primary">
+                                            Agregar
+                                        </button>
+                                    </td>
+                                </tr>
+                              @endforeach
+                            @foreach ($details as $detail)
+                                <tr>
+                                    <td>
+                                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                        {{$detail->user->name}}
+                                    </td>
+                                    <td>
+                                        @foreach ($roles as $rol)
+                                            @if($detail->user->id_rol == $rol->id)
+                                                {{$rol->name}}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td class="text text-danger">
+                                        Asignado
+                                    </td>
+                                    <td>
+                                        <button wire:click="delete_user({{$detail->id}})" type="submit" class="btn btn-danger">
+                                            Eliminar
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
