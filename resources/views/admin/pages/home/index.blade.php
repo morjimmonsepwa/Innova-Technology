@@ -107,6 +107,7 @@
                             <th>Vía</th>
                             <th>Producto</th>
                             <th>Generado Por</th>
+                            <th>Asignado a</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -118,6 +119,7 @@
                             <th>Vía Queja</th>
                             <th>Producto</th>
                             <th>Generado Por</th>
+                            <th>Asignado a</th>
                             <th>Status</th>
                         </tr>
                     </tfoot>
@@ -130,6 +132,13 @@
                             <td>Laptop</td>
                             <td>Luis Montes</td>
                             <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
+                            <td>
                             <p class="text-danger">Cerrado</p>
                             </td>
                         </tr>
@@ -140,6 +149,13 @@
                             <td>Telefónica</td>
                             <td>TV</td>
                             <td>Jazmin Meza</td>
+                            <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
                             <td>
                             <p class="text-success">Abierto</p>
                             </td>
@@ -152,6 +168,13 @@
                             <td>PC</td>
                             <td>Monserrat Morales</td>
                             <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
+                            <td>
                             <p class="text-warning">Proceso</p>
                             </td>
                         </tr>
@@ -162,6 +185,13 @@
                             <td>Telefónica</td>
                             <td>Laptop</td>
                             <td>Andrea Sánchez</td>
+                            <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
                             <td>
                             <p class="text-danger">Cerrado</p>
                             </td>
@@ -174,6 +204,13 @@
                             <td>TV</td>
                             <td>Luis Montes</td>
                             <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
+                            <td>
                             <p class="text-success">Abierto</p>
                             </td>
                         </tr>
@@ -184,6 +221,13 @@
                             <td>Telefónica</td>
                             <td>Laptop</td>
                             <td>Luis Montes</td>
+                            <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
                             <td>
                             <p class="text-warning">Proceso</p>
                             </td>
@@ -196,6 +240,13 @@
                             <td>TV</td>
                             <td>Jazmin Meza</td>
                             <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
+                            <td>
                             <p class="text-danger">Cerrado</p>
                             </td>
                         </tr>
@@ -206,6 +257,13 @@
                             <td>Telefónica</td>
                             <td>Laptop</td>
                             <td>Monserrat Morales</td>
+                            <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
                             <td>
                             <p class="text-success">Abierto</p>
                             </td>
@@ -218,6 +276,13 @@
                             <td>TV</td>
                             <td>Andrea Sánchez</td>
                             <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
+                            <td>
                             <p class="text-warning">Proceso</p>
                             </td>
                         </tr>
@@ -228,6 +293,13 @@
                             <td>Telefónica</td>
                             <td>Laptop</td>
                             <td>Luis Montes</td>
+                            <td>
+                            <select class="form-control col-lg-6" id="rol" name="rol" required>
+                                <option>Seleccione una opción: </option>
+                                <option value="">Monserrat</option>
+                                <option value="">Luis</option>
+                            </select>
+                            </td>
                             <td>
                             <p class="text-danger">Cerrado</p>
                             </td>

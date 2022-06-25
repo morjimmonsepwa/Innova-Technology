@@ -13,10 +13,32 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tickers', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('affair');
+            $table->string('reason');
+            $table->string('client');
+            $table->integer('via');
+            $table->bigInteger('id_business')->unsigned()->nullable();
+            $table->string('product');
+            $table->bigInteger('id_manager')->unsigned()->nullable();
+            $table->bigInteger('id_assigned')->unsigned()->nullable();
+            $table->integer('status');
             $table->timestamps();
+
+
+            $table->foreign('id_business')->references('id')->on('companies')
+                ->onDelete('SET NULL')
+                ->onUpdate('CASCADE');
+
+            $table->foreign('id_manager')->references('id')->on('users')
+                ->onDelete('SET NULL')
+                ->onUpdate('CASCADE');
+
+            $table->foreign('id_assigned')->references('id')->on('users')
+                ->onDelete('SET NULL')
+                ->onUpdate('CASCADE');
         });
     }
 
@@ -27,6 +49,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickers');
+        Schema::dropIfExists('tickets');
     }
 };
