@@ -5,7 +5,7 @@ use App\Http\Controllers\Web;
 use App\Http\Controllers\Roles;
 use App\Http\Controllers\Users;
 use App\Http\Controllers\Reportes;
-use App\Http\Controllers\GruposController;
+use App\Http\Controllers\WorkGroupController;
 use App\Http\Controllers\QuejasController;
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ use App\Http\Controllers\QuejasController;
 
     /* Rutas Administrador */
         
-        Route::get('/dashboard',[Web::class,'dashboard'])->name('dashboard')->middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->middleware('permisos:dashboard');
+        Route::get('/dashboard',[Web::class,'dashboard'])->name('dashboard')->middleware(['auth:sanctum',config('jetstream.auth_session'),'verified']);
     
     /***********************/
 
@@ -68,7 +68,8 @@ use App\Http\Controllers\QuejasController;
 
     /* Rutas Administrador Grupos*/
         
-        Route::get('/admin/grupos',[GruposController::class,'index'])->name('index.grupos');
+        Route::get('/admin/grupos',[WorkGroupController::class,'index'])->name('index.grupos');
+        Route::post('/admin/grupos',[WorkGroupController::class,'store'])->name('store.grupos');
 
     /***********************/
 
