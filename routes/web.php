@@ -24,13 +24,13 @@ use App\Http\Controllers\CompanyController;
     
     Route::get('/',[Web::class,'index'])->name('index');
     
-    /***********************/
+    /*********/
 
     /* Rutas Administrador */
         
         Route::get('/dashboard',[Web::class,'dashboard'])->name('dashboard')->middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->middleware('permisos:dashboard');
 
-    /***********************/
+    /*********/
 
 
     /* Rutas Administrador Users*/
@@ -40,7 +40,7 @@ use App\Http\Controllers\CompanyController;
         Route::patch('/admin/users/{id}',[Users::class,'update'])->name('update.users')->middleware('permisos:usuarios.update');
         Route::put('/admin/users/{id}',[Users::class,'destroy'])->name('destroy.users')->middleware('permisos:usuarios.destroy');
 
-    /***********************/
+    /*********/
 
 
      /* Rutas Administrador Roles*/
@@ -50,16 +50,15 @@ use App\Http\Controllers\CompanyController;
         Route::patch('/admin/role/{id}',[Roles::class,'update'])->name('update.role')->middleware('permisos:role.update');
         Route::put('/admin/role/{id}',[Roles::class,'destroy'])->name('destroy.role')->middleware('permisos:role.destroy');
 
-    /***********************/
+    /*********/
 
     /* Rutas Administrador Reportes*/
     
-        Route::get('/admin/reportes',[Reportes::class,'indexrepor'])->name('index.reportes')->middleware('permisos:reportes.index');
-        Route::post('/admin/reportes',[Reportes::class,'store'])->name('store.reportes')->middleware('permisos:reportes.store');
-        Route::patch('/admin/reportes/{id}',[Reportes::class,'update'])->name('update.reportes')->middleware('permisos:reportes.update');
-        Route::put('/admin/reportes/{id}',[Reportes::class,'destroy'])->name('destroy.reportes')->middleware('permisos:reportes.destroy');
+        Route::get('/admin/reportes',[Reportes::class,'index'])->name('index.reportes')->middleware('permisos:reportes.index');
+        Route::get('/admin/reportes/pdf/{id}',[Reportes::class,'pdf'])->name('pdf.reportes')->middleware('permisos:reportes.index');
+        Route::get('/admin/reportes/excel',[Reportes::class,'excel'])->name('excel.reportes')->middleware('permisos:reportes.index');
 
-    /***********************/
+    /*********/
     
 
     /* Rutas Administrador Grupos*/
@@ -70,7 +69,7 @@ use App\Http\Controllers\CompanyController;
         Route::put('/admin/grupos/{id}',[WorkGroupController::class,'destroy'])->name('destroy.grupos')->middleware('permisos:grupos.destroy');
         
 
-    /***********************/
+    /*********/
 
     /* Rutas Administrador Quejas*/
         
@@ -80,7 +79,7 @@ use App\Http\Controllers\CompanyController;
         Route::put('/admin/quejas/{id}',[QuejasController::class,'destroy'])->name('destroy.quejas')->middleware('permisos:quejas.destroy');
        
 
-    /***********************/
+    /*********/
 
 
     /* Rutas Administrador Empresas*/
@@ -90,4 +89,4 @@ use App\Http\Controllers\CompanyController;
         Route::patch('/admin/empresas/{id}',[CompanyController::class,'update'])->name('update.empresas')->middleware('permisos:empresas.update');
         Route::put('/admin/empresas/{id}',[CompanyController::class,'destroy'])->name('destroy.empresas')->middleware('permisos:empresas.destroy');
        
-    /***********************/
+    /*********/
