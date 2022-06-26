@@ -14,17 +14,12 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $empresas = Company::all();
+        
+        $param['empresas'] = $empresas;
+        
+        return view('admin.pages.empresas.empresas',$param);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -35,29 +30,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $empresa = new Company();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Company $company)
-    {
-        //
-    }
+        $empresa->name = $request->name;
+        $empresa->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Company $company)
-    {
-        //
+        return redirect()->route('index.empresas');
+
     }
 
     /**
@@ -67,9 +46,15 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request,$id)
     {
-        //
+        $empresa = Company::findOrFail($id);
+
+        $empresa->name = $request->name;
+        $empresa->save();
+
+        return redirect()->route('index.empresas');
+
     }
 
     /**
@@ -78,8 +63,14 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy(Company $company,$id)
     {
-        //
+
+        $empresa = Company::destroy('id', $id);
+       
+        return redirect()->route('index.empresas');
+
     }
+
+
 }

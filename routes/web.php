@@ -7,6 +7,8 @@ use App\Http\Controllers\Users;
 use App\Http\Controllers\Reportes;
 use App\Http\Controllers\WorkGroupController;
 use App\Http\Controllers\QuejasController;
+use App\Http\Controllers\CompanyController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +28,8 @@ use App\Http\Controllers\QuejasController;
 
     /* Rutas Administrador */
         
+        // Route::get('/dashboard',[Web::class,'dashboard'])->name('dashboard')->middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->middleware('permisos:dashboard');
         Route::get('/dashboard',[Web::class,'dashboard'])->name('dashboard')->middleware(['auth:sanctum',config('jetstream.auth_session'),'verified']);
-    
     /***********************/
 
 
@@ -78,6 +80,19 @@ use App\Http\Controllers\QuejasController;
     /* Rutas Administrador Quejas*/
         
         Route::get('/admin/quejas',[QuejasController::class,'index'])->name('index.quejas');
+        Route::post('/admin/quejas',[QuejasController::class,'store'])->name('store.quejas');
+        Route::put('/admin/quejas/{id}',[QuejasController::class,'destroy'])->name('destroy.quejas');
+        Route::patch('/admin/quejas/{id}',[QuejasController::class,'update'])->name('update.quejas');
 
     /***********************/
 
+
+    /* Rutas Administrador Empresas*/
+        
+        Route::get('/admin/empresas',[CompanyController::class,'index'])->name('index.empresas');
+        Route::post('/admin/empresas',[CompanyController::class,'store'])->name('store.empresas');
+        Route::patch('/admin/empresas/{id}',[CompanyController::class,'update'])->name('update.empresas');
+        Route::put('/admin/empresas/{id}',[CompanyController::class,'destroy'])->name('destroy.empresas');
+       
+
+    /***********************/

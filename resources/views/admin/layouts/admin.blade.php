@@ -79,7 +79,7 @@
                     </span>
                 </a>
             </li>
-            <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' ) active @endif">
+            <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' || Route::current()->uri() == 'admin/empresas' ) active @endif">
                 <a class="nav-link" href="{{ route('index.quejas')}}">
                     <i class="fas fa-clipboard-list"></i>
                     <span>
