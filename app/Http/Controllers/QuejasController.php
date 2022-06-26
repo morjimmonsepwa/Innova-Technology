@@ -23,6 +23,16 @@ class QuejasController extends Controller
             // 2 = Devolución
 
     /**
+     * Control de Acceso
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

@@ -18,7 +18,7 @@
             <div class="card-header py-3">
                 
                 <div>
-                    <button type="button" class="btn btn-primary">Reporte General</button>
+                <a href="{{route('excel.reportes')}}"><button type="button" class="btn btn-primary">Reporte General</button></a>
                 </div>
             </div>
         <div class="card-body">
@@ -32,85 +32,59 @@
                             <th>Cliente</th>
                             <th>Asignado a</th>
                             <th>Generado por</th>
+                            <th>N° Reportado</th>
                             <th>Status</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    
                     <tbody>
+                    @foreach ($tickets as $ticket)
                         <tr>
-                            <td>001</td>
-                            <td>Queja</td>
-                            <td>Producto roto</td>
-                            <td>Tyler Joseph</td>
-                            <td>3</td>
-                            <td>Jazmin Meza</td>
                             <td>
-                            <p class="text-danger">Cerrado</p>
-                    </td>
-                            <td>
-                            
+                                {{$ticket->id}}
                             </td>
-            
-                        </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Devolución</td>
-                            <td>Producto en mal estado</td>
-                            <td>Josh Dun</td>
-                            <td>5</td>
-                            <td>Andrea Sánchez</td>
                             <td>
-                            <p class="text-success">Abierto</p>
-                    </td>
+                                {{$ticket->affair}}
+                            </td>
                             <td>
-                                <a href="" class="btn btn-danger">
+                                {{$ticket->reason}}
+                            </td>
+                            <td>
+                                {{$ticket->client}}
+                            </td>
+                            <td>
+                                {{$ticket->asignado->name}}
+                            </td>
+                            <td>
+                                {{$ticket->generado->name}}
+                            </td>
+                            <td>
+                               1
+                            </td>
+                            <td>
+                                @if ($ticket->status == 1)
+                                    <p class="text-success">Abierto</p>
+                                @endif
+                                @if ($ticket->status == 2)
+                                    <p class="text-warning">Proceso</p>
+                                @endif
+                                @if ($ticket->status == 3)
+                                    <p class="text-danger">Cerrado</p>
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                <a href="{{route('pdf.reportes',$ticket->id)}}" class="btn btn-danger">
                                     <i class="fas fa-file-pdf"></i>
                                 </a>
-                                
                             </td>
-            
                         </tr>
-                        <tr>
-                            <td>003</td>
-                            <td>Queja</td>
-                            <td>Producto roto</td>
-                            <td>Justin Bieber</td>
-                            <td>4</td>
-                            <td>Luis Montes</td>
-                            <td>
-                            <p class="text-warning">En proceso</p>
-                    </td>
-                            <td>
-                           
-                                
-                            </td>
-            
-                        </tr>
-                        <tr>
-                            <td>004</td>
-                            <td>Devolución</td>
-                            <td>Producto defectuoso</td>
-                            <td>Maatt Hunter</td>
-                            <td>6</td>
-                            <td>Monserrat Morales</td>
-                            <td>
-                            <p class="text-danger">Cerrado</p>
-                        </a>
-                    </td>
-                            <td>
-                           
-                            </td>
-            
-                        </tr>
-                        
+                    @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-    </div>
+</div>
     <!-- /.container-fluid -->
 
     

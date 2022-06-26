@@ -28,7 +28,7 @@ class WorkGroupController extends Controller
      */
     public function index()
     {
-        $groups = Work_group::all();
+        $groups = Work_group::all()->where('id_leader',Auth::id());
 
         $details = Detail_group::all()->take($groups->count()*4);
 
