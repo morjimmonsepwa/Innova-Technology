@@ -18,10 +18,27 @@ class Detail_group extends Model
             function ($query) use ($id){
                 $query->select('id_user')
                 ->from('detail_groups')
-                ->where('id_group',$id)
                 ->get();
             }
         )->get();
     }
+
+    public static function propios($id){
+        return user::whereIn('id',
+             function ($query) use ($id){
+                 $query->select('id_user')
+                 ->from('detail_groups')
+                 ->whereIn('id_group',
+                    function ($query) use ($id){
+                        $query->select('id')
+                        ->from('work_groups')
+                        ->where('id_leader',$id)
+                        ->get();
+                    }
+                 )
+                 ->get();
+             }
+         )->get();
+     }
 
 }
