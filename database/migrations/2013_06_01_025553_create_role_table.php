@@ -18,18 +18,18 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->text('name')->nullable();
-            $table->text('permissions');
+            $table->text('permisos');
             $table->timestamps();
         });
 
         $new = new Role();
         $new->name = 'Sin Rol';
-        $new->permissions = '';
+        $new->permisos = '';
         $new->save();
 
         $new = new Role();
         $new->name = 'Administrador';
-        $new->permissions = Permisos::get();
+        $new->permisos = Permisos::get();
         $new->save();
 
     }
