@@ -3,9 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
+use App\Models\User;
+use App\Models\Ticket;
+use Illuminate\Support\Facades\Auth;
+
 
 class QuejasController extends Controller
 {
+        // Status
+            // 1 = Abierto
+            // 2 = Proceso
+            // 3 = Cerrado
+
+            // 1 = Email
+            // 2 = Llamada
+
+            // 1 = Queja
+            // 2 = Devolución
+
     /**
      * Display a listing of the resource.
      *
@@ -13,17 +29,17 @@ class QuejasController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.quejas.quejas');
-    }
+        $tickets = Ticket::where('id_generate',Auth::id())->get();
+        $empresas = Company::all();
+        $usuarios = User::where('id_rol',2)->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+
+        $param['empresas'] = $empresas;
+        $param['usuarios'] = $usuarios;
+        $param['tickets'] = $tickets;
+
+        return view('admin.pages.quejas.quejas',$param);
+        
     }
 
     /**
@@ -34,29 +50,22 @@ class QuejasController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+       
+        $ticket = new Ticket();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $ticket->affair = $request->asunto;
+        $ticket->reason = $request->motivo;   
+        $ticket->client = $request->cliente;   
+        $ticket->via = $request->via;   
+        $ticket->id_business = $request->empresa;   
+        $ticket->product = $request->producto;
+        $ticket->id_generate = Auth::id();      
+        $ticket->id_manager = $request->encargado;    
+        $ticket->status = 1;   
+        $ticket->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+       return redirect()->route('index.quejas');
+        
     }
 
     /**
@@ -68,7 +77,20 @@ class QuejasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $ticket = Ticket::findOrFail($id);
+
+        $ticket->affair = $request->asunto;
+        $ticket->reason = $request->motivo;   
+        $ticket->client = $request->cliente;   
+        $ticket->via = $request->via;   
+        $ticket->id_business = $request->empresa;   
+        $ticket->product = $request->producto;   
+        $ticket->id_manager = $request->encargado;    
+        $ticket->save();
+
+       return redirect()->route('index.quejas');
+
     }
 
     /**
@@ -79,6 +101,10 @@ class QuejasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $ticket = Ticket::destroy('id', $id);
+       
+        return redirect()->route('index.quejas');   
+
     }
 }
