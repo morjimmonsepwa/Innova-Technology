@@ -12,29 +12,34 @@ class Permisos extends Controller
         $permisos['dashboard'] = true;
 
         $permisos['usuarios.index'] = true;
-        $permisos['usuarios.create'] = true;
+        $permisos['usuarios.store'] = true;
         $permisos['usuarios.destroy'] = true;
-        $permisos['usuarios.edit'] = true;
+        $permisos['usuarios.update'] = true;
 
         $permisos['role.index'] = true;
-        $permisos['role.create'] = true;
+        $permisos['role.store'] = true;
         $permisos['role.destroy'] = true;
-        $permisos['role.edit'] = true;
+        $permisos['role.update'] = true;
+
+        $permisos['grupos.index'] = true;
+        $permisos['grupos.store'] = true;
+        $permisos['grupos.destroy'] = true;
+        $permisos['grupos.update'] = true;
 
         $permisos['quejas.index'] = true;
-        $permisos['quejas.create'] = true;
+        $permisos['quejas.store'] = true;
         $permisos['quejas.destroy'] = true;
-        $permisos['quejas.edit'] = true;
+        $permisos['quejas.update'] = true;
 
         $permisos['reportes.index'] = true;
-        $permisos['reportes.create'] = true;
+        $permisos['reportes.store'] = true;
         $permisos['reportes.destroy'] = true;
-        $permisos['reportes.edit'] = true;
+        $permisos['reportes.update'] = true;
 
-        $permisos['informes.index'] = true;
-        $permisos['informes.create'] = true;
-        $permisos['informes.destroy'] = true;
-        $permisos['informes.edit'] = true;
+        $permisos['empresas.index'] = true;
+        $permisos['empresas.store'] = true;
+        $permisos['empresas.destroy'] = true;
+        $permisos['empresas.update'] = true;
 
         
         if ( $array ) {
