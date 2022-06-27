@@ -48,10 +48,10 @@ class Reportes extends Controller
         $param['usuarios'] = $usuarios;
 
         $pdf = PDF::loadView('admin.pages.reportes.reporte-pdf',compact('ticket'),$param);
-        //return $pdf->download('invoice.pdf');
+        return $pdf->download('invoice.pdf');
 
 
-        return view('admin.pages.reportes.reporte-pdf',compact('ticket'),$param);
+        // return view('admin.pages.reportes.reporte-pdf',compact('ticket'),$param);
         
     }
 
