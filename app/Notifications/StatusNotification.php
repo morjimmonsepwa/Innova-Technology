@@ -58,6 +58,7 @@ class StatusNotification extends Notification
         return [
             'id_ticket' => $this->ticket->id,
             'asunto' =>  $this->ticket->affair,
+            'razon' => $this->ticket->reason,
             'message' => 'Cambio de estatus',
             'status' => $this->ticket->status,
         ];
