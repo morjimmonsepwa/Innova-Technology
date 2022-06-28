@@ -36,7 +36,7 @@
                                             <div class="dropdown-header">Opciones:</div>
                                             <a class="dropdown-item" for="#editar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#editar-{{$group->id}}">Editar</a>
                                             <a class="dropdown-item" for="#eliminar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#eliminar-{{$group->id}}">Eliminar</a>
-                                            <a class="dropdown-item" for="#usuarios-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#usuarios-{{$group->id}}">Asinar Usuarios</a>
+                                            <a class="dropdown-item" for="#usuarios-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#usuarios-{{$group->id}}">Asignar Usuarios</a>
                                         </div>
                                     </div>
                                 </div>
@@ -52,38 +52,45 @@
                     </div>
             
             <!-- Modal Editar -->
-                <div class="modal fade" id="editar-{{$group->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Editar Grupo</h5>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container">
-                                    <form action="{{route('update.grupos',$group->id)}}" method="POST">
-                                        @csrf
-                                        {{ method_field('PATCH')}}
-                                        <div class="mb-3">
-                                            <label for="name" name="name" id="name"  class="form-label">Nombre del Equipo</label>
-                                            <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre" value="{{$group->name}}">
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>   
+            <div class= "center">
+            <div class="modal fade" id="editar-{{$group->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Editar Grupo</h5>
                         </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <form action="{{route('update.grupos',$group->id)}}" method="POST">
+                                @csrf
+                                {{ method_field('PATCH')}}
+                                    <div class="mb-3">
+                                        <label for="name" name="name" id="name"  class="form-label">Nombre del Equipo</label>
+                                        <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre" value="{{$group->name}}">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>   
                     </div>
                 </div>
+            </div>
+            </div>
             <!-- Modal Editar -->
             <!-- Modal Usuarios -->
+            <div class= "center">
                 <div class="modal fade" id="usuarios-{{$group->id}}" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     @livewire('asigneusers',['id_group'=>$group->id])
+
                 </div>
+            </div>
+                
             <!-- Modal Usuarios -->
             <!-- Modal Eliminar -->
+            <div class="Center">
                 <div class="modal fade" tabindex="-3" id="eliminar-{{$group->id}}">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -107,6 +114,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             <!-- Modal Editar -->
                 @endforeach
              <!-- Dropdown Card Example -->
