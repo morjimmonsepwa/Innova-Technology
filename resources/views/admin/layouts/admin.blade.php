@@ -155,33 +155,73 @@
                                         Centro de Alertas
                                     </h6>
                                     @foreach (auth()->user()->unreadNotifications as $notificaion)
-                                        <a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="mr-3">
-                                                <div class="icon-circle bg-primary">
-                                                    <i class="fas fa-file-alt text-white"></i>
+                                        @if ($notificaion->type == "App\Notifications\TicketNotification")
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class="mr-3">
+                                                    <div class="icon-circle bg-primary">
+                                                        <i class="fas fa-file-alt text-white"></i>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div>
-                                                <div class="small text-gray-500">
-                                                    {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
+                                                <div>
+                                                    <div class="small text-gray-500">
+                                                        {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
+                                                    </div>
+                                                    <span class="font-weight-bold">
+                                                        <small>
+                                                            @if ($notificaion->data['asunto'] == 1)
+                                                                Queja
+                                                            @endif
+                                                            @if ($notificaion->data['asunto'] == 2)
+                                                                Devolución
+                                                            @endif
+                                                        </small>
+                                                            {{$notificaion->data['razon']}}
+                                                        <small>
+                                                            <br>
+                                                            {{$notificaion->created_at->diffForHumans()}}
+                                                        </small>
+                                                    </span>
                                                 </div>
-                                                <span class="font-weight-bold">
-                                                    <small>
-                                                        @if ($notificaion->data['asunto'] == 1)
-                                                            Queja
-                                                        @endif
-                                                        @if ($notificaion->data['asunto'] == 2)
-                                                            Devolución
-                                                        @endif
-                                                    </small>
-                                                    {{$notificaion->data['razon']}}
-                                                    <small>
-                                                        <br>
-                                                        {{$notificaion->created_at->diffForHumans()}}
-                                                    </small>
-                                                </span>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        @endif
+                                        @if ($notificaion->type == "App\Notifications\StatusNotification")
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class="mr-3">
+                                                    <div class="icon-circle bg-primary">
+                                                        <i class="fas fa-file-alt text-white"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="small text-gray-500">
+                                                        {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
+                                                    </div>
+                                                    <span class="font-weight-bold">
+                                                        <small>
+                                                            @if ($notificaion->data['asunto'] == 1)
+                                                                Queja
+                                                            @endif
+                                                            @if ($notificaion->data['asunto'] == 2)
+                                                                Devolución
+                                                            @endif
+                                                        </small>
+                                                            {{$notificaion->data['message']}} a
+                                                            @if ($notificaion->data['status'] == 1)
+                                                                Abierto
+                                                            @endif
+                                                            @if ($notificaion->data['status'] == 2)
+                                                                Proceso
+                                                            @endif
+                                                            @if ($notificaion->data['status'] == 3)
+                                                                Cerrado
+                                                            @endif
+                                                        <small>
+                                                            <br>
+                                                            {{$notificaion->created_at->diffForHumans()}}
+                                                        </small>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        @endif
                                     @endforeach
                                     @if (count(auth()->user()->unreadNotifications) == 0)
                                         <br>

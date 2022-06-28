@@ -8,6 +8,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Events\TicketEvent;
 use App\Listeners\TicketListener;
+use App\Events\StatusEvent;
+use App\Listeners\StatusListener;
 
 
 class EventServiceProvider extends ServiceProvider
@@ -23,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         TicketEvent::class => [
             TicketListener::class,
+        ],
+        StatusEvent::class => [
+            StatusListener::class,
         ],
     ];
 

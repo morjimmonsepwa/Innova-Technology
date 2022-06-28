@@ -53,10 +53,10 @@
                                 {{$ticket->client}}
                             </td>
                             <td>
-                                {{$ticket->asignado->name}}
+                                {{$ticket->asignado->name ?? 'Sin asignación' }}
                             </td>
                             <td>
-                                {{$ticket->generado->name}}
+                                {{$ticket->generado->name ?? 'Sin Generado'   }}
                             </td>
                             <td>
                                1

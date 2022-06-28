@@ -66,7 +66,7 @@
                                 </td>
                                 <td>
                                     <select wire:change="asignar($event.target.value,{{$ticket->id}})" class="form-control col-lg-8" id="asignado" name="asignado">
-                                        <option>Sin Asignación</option>
+                                        <option value="0">Sin Asignación</option>
                                         @foreach ($users as $user)
                                             @if ($ticket->id_assigned == $user->id)
                                                 <option selected value="{{$user->id}}">{{$user->name}}</option>
@@ -74,18 +74,39 @@
                                                 <option value="{{$user->id}}">{{$user->name}}</option>
                                             @endif
                                         @endforeach
+                                       
                                     </select>
                                 </td>
                                 <td>
-                                    @if ($ticket->status == 1)
-                                        <p class="text-success">Abierto</p>
-                                    @endif
-                                    @if ($ticket->status == 2)
-                                        <p class="text-warning">Proceso</p>
-                                    @endif
-                                    @if ($ticket->status == 3)
-                                        <p class="text-danger">Cerrado</p>
-                                    @endif
+                                    <select wire:change="status_ticket($event.target.value,{{$ticket->id}})" 
+                                        class="form-control col-lg-8 border 
+                                            @if ($ticket->status == 1)
+                                                border-success
+                                            @endif
+                                            @if ($ticket->status == 2)
+                                                border-warning
+                                            @endif
+                                            @if ($ticket->status == 3)
+                                                border-danger
+                                            @endif
+                                        " id="asignado" name="asignado">
+                                        <option value="0">Sin Asignación</option>
+                                            @if ($ticket->status == 1)
+                                                <option  value="1" selected class="text-success">Abierto</option>
+                                                <option  value="2" class="text-warning">Proceso</option>
+                                                <option  value="3" class="text-danger">Cerrado</option>
+                                            @endif
+                                            @if ($ticket->status == 2)
+                                                <option  value="1" class="text-success">Abierto</option>
+                                                <option  value="2" selected class="text-warning">Proceso</option>
+                                                <option  value="3" class="text-danger">Cerrado</option>
+                                            @endif
+                                            @if ($ticket->status == 3)
+                                                <option  value="1" class="text-success">Abierto</option>
+                                                <option  value="2" class="text-warning">Proceso</option>
+                                                <option  value="3" selected class="text-danger">Cerrado</option>
+                                            @endif
+                                    </select>
                                 </td>
                             </tr>
                         @endforeach
