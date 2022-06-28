@@ -4,7 +4,7 @@
 
         <!-- Page Cabecera -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Quejas y Devoluciones</h1>
+        <h1 class="h3 mb-0 text-gray-800">Tickets</h1>
     </div>
 
 @endsection
@@ -296,7 +296,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Agregar una Queja o Devolución</h5>
+                            <h5 class="modal-title">Agregar Ticket </h5>
                         </div>
                         <form action="{{route('store.quejas')}}" method="POST">
                         @csrf
