@@ -137,58 +137,70 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bell fa-fw"></i>
+                                    <!-- Counter - Alerts -->
+                                    @if (count(auth()->user()->unreadNotifications))
+                                        <span class="badge badge-danger badge-counter">
+                                            {{count(auth()->user()->unreadNotifications)}}+
+                                        </span>
+                                    @endif
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>
+                                <!-- Dropdown - Alerts -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="alertsDropdown">
+                                    <h6 class="dropdown-header">
+                                        Centro de Alertas
+                                    </h6>
+                                    @foreach (auth()->user()->unreadNotifications as $notificaion)
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="mr-3">
+                                                <div class="icon-circle bg-primary">
+                                                    <i class="fas fa-file-alt text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="small text-gray-500">
+                                                    {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
+                                                </div>
+                                                <span class="font-weight-bold">
+                                                    <small>
+                                                        @if ($notificaion->data['asunto'] == 1)
+                                                            Queja
+                                                        @endif
+                                                        @if ($notificaion->data['asunto'] == 2)
+                                                            Devolución
+                                                        @endif
+                                                    </small>
+                                                    {{$notificaion->data['razon']}}
+                                                    <small>
+                                                        <br>
+                                                        {{$notificaion->created_at->diffForHumans()}}
+                                                    </small>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    @endforeach
+                                    @if (count(auth()->user()->unreadNotifications) == 0)
+                                        <br>
+                                        <center>
+                                            <h6 class="font-weight-bold">
+                                                Sin Notificaciones
+                                            </h6>
+                                        </center>
+                                    @endif
+                                    @if (count(auth()->user()->unreadNotifications) != 0)
+                                        <a class="dropdown-item text-center small text-gray-500" href="{{route('notificaciones.leidas')}}">
+                                            Marcar leídas
+                                        </a>
+                                    @endif
+                                </div>
+                            </li>
+                         <!-- Nav Item - Alerts -->
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"

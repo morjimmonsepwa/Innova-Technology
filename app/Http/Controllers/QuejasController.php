@@ -7,6 +7,9 @@ use App\Models\Company;
 use App\Models\User;
 use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\TicketNotification;
+use App\Events\TicketEvent;
+
 
 
 class QuejasController extends Controller
@@ -73,6 +76,11 @@ class QuejasController extends Controller
         $ticket->id_manager = $request->encargado;    
         $ticket->status = 1;   
         $ticket->save();
+
+        // Se consulta el id del usuario encargado para envio de notificacion
+        // User::findOrFail($request->encargado)->notify(new TicketNotification($ticket));
+
+        event(new TicketEvent($ticket));
 
        return redirect()->route('index.quejas');
         

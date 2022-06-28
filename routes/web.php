@@ -90,3 +90,11 @@ use App\Http\Controllers\CompanyController;
         Route::put('/admin/empresas/{id}',[CompanyController::class,'destroy'])->name('destroy.empresas')->middleware('permisos:empresas.destroy');
        
     /*********/
+
+    /* Ruta Marcar ver notificaicones*/ 
+
+    Route::get('markAsRead',function(){
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    })->name('notificaciones.leidas');
+    /*** */
