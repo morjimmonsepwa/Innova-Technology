@@ -83,7 +83,7 @@
                 <a class="nav-link" href="{{ route('index.quejas')}}">
                     <i class="fas fa-clipboard-list"></i>
                     <span>
-                        Quejas y Devoluciones
+                        Tickets
                     </span>
                 </a>
             </li>
