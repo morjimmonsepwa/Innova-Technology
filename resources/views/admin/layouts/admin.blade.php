@@ -158,8 +158,8 @@
                                         @if ($notificaion->type == "App\Notifications\TicketNotification")
                                             <a class="dropdown-item d-flex align-items-center" href="#">
                                                 <div class="mr-3">
-                                                    <div class="icon-circle bg-primary">
-                                                        <i class="fas fa-file-alt text-white"></i>
+                                                    <div class="icon-circle bg-success">
+                                                        <i class="fas fa-check text-white"></i>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -167,15 +167,16 @@
                                                         {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
                                                     </div>
                                                     <span class="font-weight-bold">
-                                                        <small>
-                                                            @if ($notificaion->data['asunto'] == 1)
-                                                                Queja
-                                                            @endif
-                                                            @if ($notificaion->data['asunto'] == 2)
-                                                                Devolución
-                                                            @endif
-                                                        </small>
+                                                            Registro de 
                                                             {{$notificaion->data['razon']}}
+                                                            <small>
+                                                                @if ($notificaion->data['asunto'] == 1)
+                                                                    (Queja)
+                                                                @endif
+                                                                @if ($notificaion->data['asunto'] == 2)
+                                                                    (Devolución)
+                                                                @endif
+                                                            </small>
                                                         <small>
                                                             <br>
                                                             {{$notificaion->created_at->diffForHumans()}}
@@ -187,8 +188,8 @@
                                         @if ($notificaion->type == "App\Notifications\StatusNotification")
                                             <a class="dropdown-item d-flex align-items-center" href="#">
                                                 <div class="mr-3">
-                                                    <div class="icon-circle bg-primary">
-                                                        <i class="fas fa-file-alt text-white"></i>
+                                                    <div class="icon-circle bg-warning">
+                                                        <i class="fas fa-exclamation text-white"></i>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -196,15 +197,7 @@
                                                         {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
                                                     </div>
                                                     <span class="font-weight-bold">
-                                                        <small>
-                                                            @if ($notificaion->data['asunto'] == 1)
-                                                                Queja
-                                                            @endif
-                                                            @if ($notificaion->data['asunto'] == 2)
-                                                                Devolución
-                                                            @endif
-                                                        </small>
-                                                            {{$notificaion->data['message']}} a
+                                                            {{$notificaion->data['message']}} ({{$notificaion->data['razon']}}) a
                                                             @if ($notificaion->data['status'] == 1)
                                                                 Abierto
                                                             @endif
@@ -214,6 +207,14 @@
                                                             @if ($notificaion->data['status'] == 3)
                                                                 Cerrado
                                                             @endif
+                                                            <small>
+                                                                @if ($notificaion->data['asunto'] == 1)
+                                                                   (Queja)
+                                                                @endif
+                                                                @if ($notificaion->data['asunto'] == 2)
+                                                                    (Devolución)
+                                                                @endif
+                                                            </small>
                                                         <small>
                                                             <br>
                                                             {{$notificaion->created_at->diffForHumans()}}
