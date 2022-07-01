@@ -15,12 +15,19 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css
             <div class="modal-header">
                 <table border="0" class="table">
                 <tr>
-                <td><center><img src="{{ asset('libs/index/img/logo/logo2.jpeg')}}" style="max-width: 125px;"></center></td>
+                <td>
+                <?php
+                $nombreImagen = "libs/index/img/logo/logo2.jpeg";
+                $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen));
+                ?>
+                    <img src="<?php echo $imagenBase64 ?>" style="max-width: 125px;"/>
+                </td>
                 <td>
                 <p><center>REPORTE DEL TICKET: {{ $ticket->id }}</p> 
                 <p><center>Desarrollado por Innova Technology</p>    
                 <p>Universidad Tecnológica de Nezahualcóyotl, Cto. Rey Nezahualcóyotl, Benito Juárez, C.P: 57000, Cd. Nezahualcóyotl, México. <br>
                         Tel: 55 5441 3182.
+                </td>
                 </tr>
         </table>
             </div>

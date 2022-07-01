@@ -48,7 +48,8 @@ class Reportes extends Controller
         $param['usuarios'] = $usuarios;
 
         $pdf = PDF::loadView('admin.pages.reportes.reporte-pdf',compact('ticket'),$param);
-        return $pdf->download('invoice.pdf');
+        set_time_limit(300);
+        return $pdf->download('reporte.pdf');
 
 
         // return view('admin.pages.reportes.reporte-pdf',compact('ticket'),$param);
