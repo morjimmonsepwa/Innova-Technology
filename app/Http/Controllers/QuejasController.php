@@ -63,7 +63,28 @@ class QuejasController extends Controller
      */
     public function store(Request $request)
     {
-       
+
+        $request->validate([
+            'asunto' => 'required',
+            'motivo' => 'required',
+            'cliente' => 'required',
+            'via' => 'required',
+            'empresa' => 'required',
+            'producto' => 'required',
+            'encargado' => 'required'
+            
+        ],[
+            'asunto.required' => 'El campo asunto es obligatorio',
+            'motivo.required' => 'El campo motivo es obligatorio',
+            'cliente.required' => 'El campo cliente es obligatorio',
+            'via.required' => 'El campo via es obligatorio',
+            'empresa.required' => 'El campo empresa es obligatorio',
+            'producto.required' => 'El campo producto es obligatorio',
+            'encargado.required' => 'El campo encargado es obligatorio'
+
+        ]);
+
+
         $ticket = new Ticket();
 
         $ticket->affair = $request->asunto;
@@ -96,7 +117,28 @@ class QuejasController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'asunto' => 'required',
+            'motivo' => 'required',
+            'cliente' => 'required',
+            'via' => 'required',
+            'empresa' => 'required',
+            'producto' => 'required',
+            'encargado' => 'required'
+            
+        ],[
+            'asunto.required' => 'El campo asunto es obligatorio',
+            'motivo.required' => 'El campo motivo es obligatorio',
+            'cliente.required' => 'El campo cliente es obligatorio',
+            'via.required' => 'El campo via es obligatorio',
+            'empresa.required' => 'El campo empresa es obligatorio',
+            'producto.required' => 'El campo producto es obligatorio',
+            'encargado.required' => 'El campo encargado es obligatorio'
+
+        ]);
         
+
         $ticket = Ticket::findOrFail($id);
 
         $ticket->affair = $request->asunto;
