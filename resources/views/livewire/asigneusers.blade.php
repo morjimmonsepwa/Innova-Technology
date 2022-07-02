@@ -21,7 +21,7 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td>
-                                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                        <img  src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" alt="Avatar" class="avatar">
                                         {{$user->name}}
                                     </td>
                                     <td>
@@ -38,7 +38,7 @@
                             @foreach ($details as $detail)
                                 <tr>
                                     <td>
-                                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                        <img  src="@if( $detail->user->profile_photo_path == null ) {{  $detail->user->profile_photo_url }} @else {{ asset('storage/'. $detail->user->profile_photo_path) }}  @endif" alt="Avatar" class="avatar">
                                         {{$detail->user->name}}
                                     </td>
                                     <td>
