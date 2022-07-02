@@ -85,6 +85,16 @@
                                                         <input type="text" class="form-control" value="{{$user->email}}"  id="email" name="email" >
                                                     </div>
                                                     <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                                        <input type="password" class="form-control" id="passsword" name="passsword" value="{{old('passsword')}}">
+                                                        @error('passsword') <span class="text-danger">{{$message}}</span> @enderror
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                                                        <input type="password" class="form-control" id="confirmed" name="confirmed" value="{{old('confirmed')}}">
+                                                        @error('confirmed') <span class="text-danger">{{$message}}</span> @enderror
+                                                    </div>
+                                                    <div class="mb-3">
                                                         <label class="form-label">Rol</label>
                                                         <select class="form-control" id="rol" name="rol" required>
                                                             <option>Seleccione una opción: </option>
@@ -153,24 +163,33 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" aria-describedby="emailHelp"  id="name" name="name">
+                                    <input type="text" class="form-control" aria-describedby="emailHelp"  id="name" name="name" value="{{old('name')}}">
+                                    @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                    <input type="text" class="form-control"  id="email" name="email" >
+                                    <input type="text" class="form-control"  id="email" name="email" value="{{old('email')}}">
+                                    @error('email') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="passsword" name="passsword">
+                                    <input type="password" class="form-control" id="passsword" name="passsword" value="{{old('passsword')}}">
+                                    @error('passsword') <span class="text-danger">{{$message}}</span> @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                                    <input type="password" class="form-control" id="confirmed" name="confirmed" value="{{old('confirmed')}}">
+                                    @error('confirmed') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Rol</label>
-                                    <select class="form-control" id="rol" name="rol" required>
-                                        <option>Seleccione una opción:</option>
+                                    <select class="form-control" id="rol" name="rol" value="{{old('rol')}}">
+                                        <option value=""null"">Seleccione una opción:</option>
                                         @foreach ($roles as  $role)
-                                            <option value="{{ $role->id}}">{{ $role->name}}</option>
+                                            <option value="{{ $role->id}}">{{$role->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('rol') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">
