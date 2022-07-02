@@ -17,7 +17,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('libs/sbadmin/css/admin.css')}}" rel="stylesheet">
     <link href="{{asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
     @livewireStyles
     
 </head>
@@ -351,10 +351,10 @@
     <script src="{{ asset('libs/sbadmin/bootstrap/js/bootstrap.bundle.min.js')  }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('libs/sbadmin/jquery-easing/jquery.easing.min.js')  }}"></script>
+    {{-- <script src="{{ asset('libs/sbadmin/jquery-easing/jquery.easing.min.js')  }}"></script> --}}
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('libs/sbadmin/js/sb-admin-2.min.js')  }}"></script>
+    {{-- <script src="{{ asset('libs/sbadmin/js/sb-admin-2.min.js')  }}"></script> --}}
 
     <!-- Page level plugins -->
     <script src="{{ asset('libs/sbadmin/chart/Chart.min.js')  }}"></script>
@@ -362,12 +362,12 @@
     <script src="{{ asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.js')  }} "></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset('libs/sbadmin/js/demo/chart-area-demo.js')  }}"></script>
-    <script src="{{ asset('libs/sbadmin/js/demo/chart-pie-demo.js')  }}"></script>
+    {{-- <script src="{{ asset('libs/sbadmin/js/demo/chart-area-demo.js')  }}"></script>
+    <script src="{{ asset('libs/sbadmin/js/demo/chart-pie-demo.js')  }}"></script> --}}
 
     <script src="{{ asset('libs/sbadmin/js/datatable.js')  }}"></script>
     <script src="{{ asset('js/buscador.js')  }}"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    {{-- <script src="sweetalert2.all.min.js"></script> --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

@@ -164,10 +164,11 @@
                                 <div class="mb-3">
                                 <div class="container overflow-hidden">
                                     <div class="container">
+                                        <input type="checkbox" class="form-check-input" id="checkboxAll">Seleccionar Todos
                                         <div class="row row-cols-3">
                                             @foreach ($permisos as $key=>$value ) 
                                                 <div class="col">
-                                                    <input class="form-check-input" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                                    <input class="form-check-input chkboxname" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="{{$key}}">
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">
                                                         {{  
                                                             str_replace('create','crear',
@@ -197,5 +198,13 @@
             </div>
         <!-- Modal Agregar -->
     <!-- Modales -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#checkboxAll').click(function(){
+            $(".chkboxname").prop('checked',$(this).prod('checked'));
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 
 @endsection

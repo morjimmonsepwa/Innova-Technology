@@ -14,6 +14,16 @@ class Informe extends Component
     public $asignado;
     public $nombre;
 
+
+    public $alert;
+    public $nombre_alert;
+    public int $status=1;
+    protected $listeners = ['alert' => 'alert_run'];
+
+    public function alert_run(){
+        $this->alert = true;
+    }
+
     public function render(){
 
         if(Auth::user()->id_rol == 2 ){
@@ -39,7 +49,7 @@ class Informe extends Component
             $ticket = Ticket::findOrFail($id_ticket);
             $ticket->id_assigned = $id_user;
             $ticket->save();
-           
+            $this->emit('alert');
         }
 
     }
@@ -51,14 +61,11 @@ class Informe extends Component
             $ticket = Ticket::findOrFail($id_ticket);
             $ticket->status = $id_estatus;
             $ticket->save();
-           
             event(new StatusEvent($ticket));
+            $this->emit('alert');
 
         }
-
-       
-       
-
     }
+    
 
 }

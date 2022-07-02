@@ -115,4 +115,14 @@
             </div>
         </div>
     </div>
+    @if ( $alert )
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: "Actualización Correcta",
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3e8533'
+            })
+        </script>
+    @endif
 </div>
