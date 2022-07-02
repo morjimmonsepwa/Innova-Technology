@@ -65,6 +65,7 @@
                                                     <div class="mb-3">
                                                         <label for="name" name="name" id="name"  class="form-label">Nombre</label>
                                                         <input type="text" value="{{$role->name}}" name="name" id="name" class="form-control" aria-describedby="nombre">
+                                                        @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                                     </div>
                                                     <label for="permisos" class="form-label">Permisos:</label>
                                                     <div class="mb-3">

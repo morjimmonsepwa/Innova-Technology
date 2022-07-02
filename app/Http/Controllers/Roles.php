@@ -48,8 +48,13 @@ class Roles extends Controller
     public function store(Request $request)
     {
 
-        $new = new Role();
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
 
+        $new = new Role();
         $new->name = $request->input('name');
 
         $valores_permisos = $request->input('permisos');
@@ -73,25 +78,6 @@ class Roles extends Controller
 
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $rol = Role::findOrFail($id);
-        $rol->permisos = json_decode($rol->permisos,true);
-
-
-        $param['permisos'] = Permisos::get(true);
-        $param['rol']=$rol;
-
-        return view('admin.pages.users.roles.edit',$param);
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -101,6 +87,13 @@ class Roles extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+
         $rol = Role::find($id);
 
         $valores_permisos = $request->input('permisos');
