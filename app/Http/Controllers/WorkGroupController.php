@@ -6,6 +6,7 @@ use App\Models\Work_group;
 use App\Models\Detail_group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class WorkGroupController extends Controller
@@ -34,7 +35,7 @@ class WorkGroupController extends Controller
 
         $param['groups'] = $groups;
         $param['details'] = $details;
-
+       
         return view('admin.pages.grupos.grupos',$param);
     }
 
@@ -52,6 +53,7 @@ class WorkGroupController extends Controller
         $group->id_leader = Auth::id();
         $group->save();
 
+        Alert::toast('Guardado Correctamente','success');
         return redirect()->route('index.grupos');
 
     }
@@ -69,6 +71,7 @@ class WorkGroupController extends Controller
         $group->name=$request->name;
         $group->save();
 
+        Alert::toast('Actualizado Correctamente','success');
         return redirect()->route('index.grupos');
     }
 
@@ -81,6 +84,8 @@ class WorkGroupController extends Controller
     public function destroy($id)
     {
         Work_group::destroy('id', $id);
+
+        Alert::toast('Eliminado Correctamente','success');
         return redirect()->route('index.grupos');
     }
 

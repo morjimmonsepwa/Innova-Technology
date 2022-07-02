@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CompanyController extends Controller
 {
@@ -35,6 +36,7 @@ class CompanyController extends Controller
         $empresa->name = $request->name;
         $empresa->save();
 
+        Alert::toast('Guardado Correctamente','success');
         return redirect()->route('index.empresas');
 
     }
@@ -53,6 +55,7 @@ class CompanyController extends Controller
         $empresa->name = $request->name;
         $empresa->save();
 
+        Alert::toast('Actualizado Correctamente','success');
         return redirect()->route('index.empresas');
 
     }
@@ -68,6 +71,8 @@ class CompanyController extends Controller
 
         $empresa = Company::destroy('id', $id);
        
+
+        Alert::toast('Eliminado Correctamente','success');
         return redirect()->route('index.empresas');
 
     }

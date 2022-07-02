@@ -9,7 +9,7 @@ use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\TicketNotification;
 use App\Events\TicketEvent;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class QuejasController extends Controller
@@ -82,6 +82,7 @@ class QuejasController extends Controller
 
         event(new TicketEvent($ticket));
 
+        Alert::toast('Guardado Correctamente','success');
        return redirect()->route('index.quejas');
         
     }
@@ -107,6 +108,7 @@ class QuejasController extends Controller
         $ticket->id_manager = $request->encargado;    
         $ticket->save();
 
+        Alert::toast('Actualizado Correctamente','success');
        return redirect()->route('index.quejas');
 
     }
@@ -121,7 +123,9 @@ class QuejasController extends Controller
     {
         
         $ticket = Ticket::destroy('id', $id);
-       
+        
+
+        Alert::toast('Eliminado Correctamente','success');
         return redirect()->route('index.quejas');   
 
     }

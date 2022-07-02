@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class Users extends Controller
@@ -35,17 +36,6 @@ class Users extends Controller
 
         return view('admin.pages.users.users.index',$param);
 
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -64,19 +54,10 @@ class Users extends Controller
         $new->id_rol = $request->input('rol');
         $new->save();
 
+        Alert::toast('Guardado Correctamente','success');
+
         return redirect()->route('index.users');
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -116,6 +97,8 @@ class Users extends Controller
         $user->id_rol = $request->input('rol');
         $user->save();
 
+        Alert::toast('Actualizado Correctamente','success');
+
         return redirect()->route('index.users');
 
 
@@ -131,6 +114,9 @@ class Users extends Controller
     {
         
         $rol = User::destroy('id', $id);
+
+        Alert::toast('Eliminado Correctamente','success');
+
         return redirect()->route('index.users');
 
     }
