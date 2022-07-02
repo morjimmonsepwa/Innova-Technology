@@ -93,7 +93,6 @@
             <div class= "center">
                 <div class="modal fade" id="usuarios-{{$group->id}}" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     @livewire('asigneusers',['id_group'=>$group->id])
-
                 </div>
             </div>
                 
@@ -147,6 +146,7 @@
                                     <div class="mb-3">
                                         <label for="name" name="name" id="name"  class="form-label">Nombre del Equipo</label>
                                         <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre">
+                                        @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

@@ -48,6 +48,13 @@ class WorkGroupController extends Controller
     public function store(Request $request)
     {
         
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+
+
         $group = new Work_group();
         $group->name = $request->name;
         $group->id_leader = Auth::id();
@@ -67,6 +74,12 @@ class WorkGroupController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+
         $group = Work_group::find($id);
         $group->name=$request->name;
         $group->save();
