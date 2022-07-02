@@ -39,7 +39,7 @@
                         @foreach ($users as $user)
                         <tr>
                             <td class="text-center">
-                                <img class="circle" src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
+                                <img class="avatar" src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
                             </td>
                             <td>
                                 {{$user->name}}
