@@ -25,6 +25,7 @@ class Permisos extends Controller
         $permisos['grupos.store'] = true;
         $permisos['grupos.destroy'] = true;
         $permisos['grupos.update'] = true;
+        $permisos['grupos.asignar'] = true;
 
         $permisos['quejas.index'] = true;
         $permisos['quejas.store'] = true;
@@ -32,9 +33,6 @@ class Permisos extends Controller
         $permisos['quejas.update'] = true;
 
         $permisos['reportes.index'] = true;
-        $permisos['reportes.store'] = true;
-        $permisos['reportes.destroy'] = true;
-        $permisos['reportes.update'] = true;
 
         $permisos['empresas.index'] = true;
         $permisos['empresas.store'] = true;

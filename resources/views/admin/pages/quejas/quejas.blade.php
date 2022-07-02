@@ -17,9 +17,12 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div>
-                    <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
-                    <a href="{{route('index.empresas')}}"><button type="button" class="btn btn-primary">Empresas</button></a>
-                   
+                    @if ( isset(json_decode(Auth::user()->rol->permisos,true)['quejas.store']))
+                        <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @endif
+                    @if ( isset(json_decode(Auth::user()->rol->permisos,true)['empresas.index']))
+                        <a href="{{route('index.empresas')}}"><button type="button" class="btn btn-primary">Empresas</button></a>
+                    @endif
                 </div>
             </div>
         <div class="card-body">
@@ -72,15 +75,20 @@
                                 @endswitch
                             </td>
                             <td >
-                                <a for="#editar-{{$ticket->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$ticket->id}}">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a for="#eliminar-{{$ticket->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$ticket->id}}">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
-                                <a for="#ver-{{$ticket->id}}" type="button" class="btn btn-circle btn-warning" data-bs-toggle="modal" data-bs-target="#ver-{{$ticket->id}}">
-                                    <i class="fas fa-eye"></i>
-                                </a>
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['quejas.update']))
+                                    <a for="#editar-{{$ticket->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$ticket->id}}">
+                                        <i class="fas fa-highlighter"></i>
+                                    </a>
+                                @endif
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['quejas.destroy']))
+                                    <a for="#eliminar-{{$ticket->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$ticket->id}}">
+                                        <i class="fas fa-duotone fa-trash"></i>
+                                    </a>
+                                @else
+                                    <a for="#ver-{{$ticket->id}}" type="button" class="btn btn-circle btn-warning" data-bs-toggle="modal" data-bs-target="#ver-{{$ticket->id}}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                             <!-- Modal Editar--->

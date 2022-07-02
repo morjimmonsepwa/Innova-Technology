@@ -47,55 +47,63 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
+            
 
             <!-- Nav Item - Usuarios -->
-            <li class="nav-item  @if(Route::current()->uri() == 'admin/users' or Route::current()->uri() == 'admin/role' ) active @endif">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
-                    aria-expanded="true" aria-controls="collapseUsers">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Usuarios</span>
-                </a>
-                <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item"  href="{{ route('index.users') }}">Usuarios</a>
-                        <a class="collapse-item" href="{{ route('index.role') }}">Roles & Permisos</a>
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.index']) ||  isset(json_decode(Auth::user()->rol->permisos,true)['role.index']))
+                <hr class="sidebar-divider">
+                <li class="nav-item  @if(Route::current()->uri() == 'admin/users' or Route::current()->uri() == 'admin/role' ) active @endif">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+                        aria-expanded="true" aria-controls="collapseUsers">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Usuarios</span>
+                    </a>
+                    <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.index']) )
+                                <a class="collapse-item"  href="{{ route('index.users') }}">Usuarios</a>
+                            @endif
+                            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.index']) )
+                                <a class="collapse-item" href="{{ route('index.role') }}">Roles & Permisos</a>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            @endif
 
             <!-- Nav Item - Usuarios -->
-            <li class="nav-item  @if(Route::current()->uri() == 'admin/grupos' ) active @endif">
-                <a class="nav-link" href="{{ route('index.grupos')}}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>
-                        Grupos de Trabajo
-                    </span>
-                </a>
-            </li>
-            <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' || Route::current()->uri() == 'admin/empresas' ) active @endif">
-                <a class="nav-link" href="{{ route('index.quejas')}}">
-                    <i class="fas fa-clipboard-list"></i>
-                    <span>
-                        Tickets
-                    </span>
-                </a>
-            </li>
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.index']))
+                <li class="nav-item  @if(Route::current()->uri() == 'admin/grupos' ) active @endif">
+                    <a class="nav-link" href="{{ route('index.grupos')}}">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>
+                            Grupos de Trabajo
+                        </span>
+                    </a>
+                </li>
+            @endif
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['quejas.index']))
+                <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' || Route::current()->uri() == 'admin/empresas' ) active @endif">
+                    <a class="nav-link" href="{{ route('index.quejas')}}">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>
+                            Tickets
+                        </span>
+                    </a>
+                </li>
+            @endif
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' ) active @endif">
-                <a class="nav-link" href="{{ route('index.reportes')}}">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>
-                        Reportes
-                    </span>
-                </a>
-            </li>
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['reportes.index']))
+                <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' ) active @endif">
+                    <a class="nav-link" href="{{ route('index.reportes')}}">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>
+                            Reportes
+                        </span>
+                    </a>
+                </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

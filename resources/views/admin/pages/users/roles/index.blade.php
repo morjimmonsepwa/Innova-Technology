@@ -17,7 +17,9 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div>
-                    <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.store']))
+                        <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @endif
                 </div>
             </div>
         <div class="card-body">
@@ -36,12 +38,16 @@
                             <td>{{ $role->name}}</td>
                             <td>{{ $role->created_at}}</td>
                             <td>
-                                <a for="#editar-{{$role->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$role->id}}">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a for="#eliminar-{{$role->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$role->id}}">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.update']))
+                                    <a for="#editar-{{$role->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$role->id}}">
+                                        <i class="fas fa-highlighter"></i>
+                                    </a>
+                                @endif
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.destroy']))
+                                    <a for="#eliminar-{{$role->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$role->id}}">
+                                        <i class="fas fa-duotone fa-trash"></i>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                         <!-- Modales -->
