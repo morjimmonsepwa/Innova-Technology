@@ -31,6 +31,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+
         $empresa = new Company();
 
         $empresa->name = $request->name;
@@ -50,6 +57,13 @@ class CompanyController extends Controller
      */
     public function update(Request $request,$id)
     {
+
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+
         $empresa = Company::findOrFail($id);
 
         $empresa->name = $request->name;
