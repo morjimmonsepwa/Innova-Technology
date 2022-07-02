@@ -11,7 +11,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Firstname</th>
+                                <th>Nombre</th>
                                 <th>Rol</th>
                                 <th>Estatus</th>
                                 <th>Opción</th>
