@@ -27,8 +27,8 @@
                 </div>
                 <div class="col-md-6">
                 <div class="single-input">
-                    <label for="subject">Tema</label>
-                    <input type="text" id="subject" name="subject" class="form-input" placeholder="Tema">
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" class="form-input" placeholder="Asunto">
                     <i class="lni lni-text-format"></i>
                 </div>
                 </div>
@@ -61,7 +61,8 @@
                     <i class="lni lni-phone"></i>
                 </div>
                 <div class="text">
-                    <p>0445584688443</p>
+                    <p>Director del Proyecto</p>
+                    <p>5564728458</p>
                 </div>
                 </div>
             </div>
@@ -81,7 +82,7 @@
                     <i class="lni lni-map-marker"></i>
                 </div>
                 <div class="text">
-                    <p>Col. Benito Juárez, Cuarta Av., CP. 57000</p>
+                    <p>Universidad Tecnológica de Nezahualcóyotl, Cto. Rey Nezahualcóyotl, Benito Juárez, 57000 Nezahualcóyotl, Méx.</p>
                 </div>
                 </div>
             </div>
