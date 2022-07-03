@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Permisos;
 use Illuminate\Support\Fascades\Validator;
 use App\Models\Role;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class Roles extends Controller
@@ -33,20 +34,10 @@ class Roles extends Controller
         $param['permisos'] = Permisos::get(true);
      
         $param['roles'] = Role::all();
-
-
+        
         return view('admin.pages.users.roles.index',$param);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -57,8 +48,13 @@ class Roles extends Controller
     public function store(Request $request)
     {
 
-        $new = new Role();
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
 
+        $new = new Role();
         $new->name = $request->input('name');
 
         $valores_permisos = $request->input('permisos');
@@ -76,37 +72,10 @@ class Roles extends Controller
 
         $new->save();
 
+        Alert::toast('Guardado Correctamente','success');
+
         return redirect()->route('index.role');
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $rol = Role::findOrFail($id);
-        $rol->permisos = json_decode($rol->permisos,true);
-
-
-        $param['permisos'] = Permisos::get(true);
-        $param['rol']=$rol;
-
-        return view('admin.pages.users.roles.edit',$param);
     }
 
     /**
@@ -118,6 +87,13 @@ class Roles extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+
         $rol = Role::find($id);
 
         $valores_permisos = $request->input('permisos');
@@ -139,6 +115,8 @@ class Roles extends Controller
         $rol->name = $request->input('name');
         
         $rol->save();
+
+        Alert::toast('Actualizado Correctamente','success');
         
         return redirect()->route('index.role');
 
@@ -155,6 +133,7 @@ class Roles extends Controller
 
         $rol = Role::destroy('id', $id);
 
+        Alert::toast('Eliminado Correctamente','success');
 
         return redirect()->route('index.role');
 

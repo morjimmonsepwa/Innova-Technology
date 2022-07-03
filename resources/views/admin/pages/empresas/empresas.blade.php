@@ -64,6 +64,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Nombre</label>
                                                         <input type="text" class="form-control" value="{{$empresa->name}}"  id="name" name="name" placeholder="Ingrese el nombre de empresa">
+                                                        @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -122,6 +123,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Nombre</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre de empresa">
+                                    @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">

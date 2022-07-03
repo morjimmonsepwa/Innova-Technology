@@ -18,7 +18,9 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div>
-                    <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.store']))
+                        <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @endif
                 </div>
             </div>
         <div class="card-body">
@@ -37,7 +39,7 @@
                         @foreach ($users as $user)
                         <tr>
                             <td class="text-center">
-                                <img class="circle" src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
+                                <img class="avatar" src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
                             </td>
                             <td>
                                 {{$user->name}}
@@ -49,12 +51,16 @@
                                 {{$user->rol->name ?? 'Sin Rol'}}
                             </td>
                             <td >
-                                <a for="#editar-{{$user->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$user->id}}">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a for="#eliminar-{{$user->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$user->id}}">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.update']))
+                                    <a for="#editar-{{$user->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$user->id}}">
+                                        <i class="fas fa-highlighter"></i>
+                                    </a>
+                                @endif
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.destroy']))
+                                    <a for="#eliminar-{{$user->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$user->id}}">
+                                        <i class="fas fa-duotone fa-trash"></i>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
 
@@ -77,6 +83,16 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Correo</label>
                                                         <input type="text" class="form-control" value="{{$user->email}}"  id="email" name="email" >
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                                        <input type="password" class="form-control" id="passsword" name="passsword" value="{{old('passsword')}}">
+                                                        @error('passsword') <span class="text-danger">{{$message}}</span> @enderror
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                                                        <input type="password" class="form-control" id="confirmed" name="confirmed" value="{{old('confirmed')}}">
+                                                        @error('confirmed') <span class="text-danger">{{$message}}</span> @enderror
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label">Rol</label>
@@ -147,24 +163,33 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" aria-describedby="emailHelp"  id="name" name="name">
+                                    <input type="text" class="form-control" aria-describedby="emailHelp"  id="name" name="name" value="{{old('name')}}">
+                                    @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                    <input type="text" class="form-control"  id="email" name="email" >
+                                    <input type="text" class="form-control"  id="email" name="email" value="{{old('email')}}">
+                                    @error('email') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="passsword" name="passsword">
+                                    <input type="password" class="form-control" id="passsword" name="passsword" value="{{old('passsword')}}">
+                                    @error('passsword') <span class="text-danger">{{$message}}</span> @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                                    <input type="password" class="form-control" id="confirmed" name="confirmed" value="{{old('confirmed')}}">
+                                    @error('confirmed') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Rol</label>
-                                    <select class="form-control" id="rol" name="rol" required>
-                                        <option>Seleccione una opción:</option>
+                                    <select class="form-control" id="rol" name="rol" value="{{old('rol')}}">
+                                        <option value=""null"">Seleccione una opción:</option>
                                         @foreach ($roles as  $role)
-                                            <option value="{{ $role->id}}">{{ $role->name}}</option>
+                                            <option value="{{ $role->id}}">{{$role->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('rol') <span class="text-danger">{{$message}}</span> @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -177,5 +202,6 @@
         <!-- Modal Agregar -->
     <!-- Modales -->
 
-
 @endsection
+
+

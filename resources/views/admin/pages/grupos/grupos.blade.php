@@ -15,7 +15,9 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div>
-                    <button for="#agregar" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.store']))
+                        <button for="#agregar" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @endif
                 </div>
             </div>
         <div class="card-body row row-cols-3">
@@ -34,10 +36,17 @@
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">Opciones:</div>
-                                            <a class="dropdown-item" for="#editar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#editar-{{$group->id}}">Editar</a>
-                                            <a class="dropdown-item" for="#eliminar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#eliminar-{{$group->id}}">Eliminar</a>
-                                            <a class="dropdown-item" for="#usuarios-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#usuarios-{{$group->id}}">Asignar Usuarios</a>
+                                            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.update']))
+                                                <a class="dropdown-item" for="#editar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#editar-{{$group->id}}">Editar</a>
+                                            @endif
+                                            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.destroy']))
+                                                <a class="dropdown-item" for="#eliminar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#eliminar-{{$group->id}}">Eliminar</a>
+                                            @endif
+                                            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.asignar']))
+                                                <a class="dropdown-item" for="#usuarios-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#usuarios-{{$group->id}}">Asignar Usuarios</a>
+                                            @endif
                                         </div>
+
                                     </div>
                                 </div>
                             <!-- Card Body -->
@@ -84,7 +93,6 @@
             <div class= "center">
                 <div class="modal fade" id="usuarios-{{$group->id}}" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     @livewire('asigneusers',['id_group'=>$group->id])
-
                 </div>
             </div>
                 
@@ -138,6 +146,7 @@
                                     <div class="mb-3">
                                         <label for="name" name="name" id="name"  class="form-label">Nombre del Equipo</label>
                                         <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre">
+                                        @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

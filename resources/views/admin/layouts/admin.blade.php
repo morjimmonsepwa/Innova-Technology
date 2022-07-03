@@ -17,7 +17,9 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('libs/sbadmin/css/admin.css')}}" rel="stylesheet">
     <link href="{{asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
     @livewireStyles
+    
 </head>
 
 <body id="page-top">
@@ -47,55 +49,63 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
+            
 
             <!-- Nav Item - Usuarios -->
-            <li class="nav-item  @if(Route::current()->uri() == 'admin/users' or Route::current()->uri() == 'admin/role' ) active @endif">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
-                    aria-expanded="true" aria-controls="collapseUsers">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Usuarios</span>
-                </a>
-                <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item"  href="{{ route('index.users') }}">Usuarios</a>
-                        <a class="collapse-item" href="{{ route('index.role') }}">Roles & Permisos</a>
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.index']) ||  isset(json_decode(Auth::user()->rol->permisos,true)['role.index']))
+                <hr class="sidebar-divider">
+                <li class="nav-item  @if(Route::current()->uri() == 'admin/users' or Route::current()->uri() == 'admin/role' ) active @endif">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+                        aria-expanded="true" aria-controls="collapseUsers">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Usuarios</span>
+                    </a>
+                    <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.index']) )
+                                <a class="collapse-item"  href="{{ route('index.users') }}">Usuarios</a>
+                            @endif
+                            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.index']) )
+                                <a class="collapse-item" href="{{ route('index.role') }}">Roles & Permisos</a>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            @endif
 
             <!-- Nav Item - Usuarios -->
-            <li class="nav-item  @if(Route::current()->uri() == 'admin/grupos' ) active @endif">
-                <a class="nav-link" href="{{ route('index.grupos')}}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>
-                        Grupos de Trabajo
-                    </span>
-                </a>
-            </li>
-            <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' || Route::current()->uri() == 'admin/empresas' ) active @endif">
-                <a class="nav-link" href="{{ route('index.quejas')}}">
-                    <i class="fas fa-clipboard-list"></i>
-                    <span>
-                        Tickets
-                    </span>
-                </a>
-            </li>
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.index']))
+                <li class="nav-item  @if(Route::current()->uri() == 'admin/grupos' ) active @endif">
+                    <a class="nav-link" href="{{ route('index.grupos')}}">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>
+                            Grupos de Trabajo
+                        </span>
+                    </a>
+                </li>
+            @endif
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['quejas.index']))
+                <li class="nav-item @if(Route::current()->uri() == 'admin/quejas' || Route::current()->uri() == 'admin/empresas' ) active @endif">
+                    <a class="nav-link" href="{{ route('index.quejas')}}">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>
+                            Tickets
+                        </span>
+                    </a>
+                </li>
+            @endif
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' ) active @endif">
-                <a class="nav-link" href="{{ route('index.reportes')}}">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>
-                        Reportes
-                    </span>
-                </a>
-            </li>
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['reportes.index']))
+                <li class="nav-item @if(Route::current()->uri() == 'admin/reportes' ) active @endif">
+                    <a class="nav-link" href="{{ route('index.reportes')}}">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>
+                            Reportes
+                        </span>
+                    </a>
+                </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -138,106 +148,7 @@
 
                         <!-- Nav Item - Alerts -->
                             <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-bell fa-fw"></i>
-                                    <!-- Counter - Alerts -->
-                                    @if (count(auth()->user()->unreadNotifications))
-                                        <span class="badge badge-danger badge-counter">
-                                            {{count(auth()->user()->unreadNotifications)}}+
-                                        </span>
-                                    @endif
-                                </a>
-                                <!-- Dropdown - Alerts -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                    aria-labelledby="alertsDropdown">
-                                    <h6 class="dropdown-header">
-                                        Centro de Alertas
-                                    </h6>
-                                    @foreach (auth()->user()->unreadNotifications as $notificaion)
-                                        @if ($notificaion->type == "App\Notifications\TicketNotification")
-                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                <div class="mr-3">
-                                                    <div class="icon-circle bg-success">
-                                                        <i class="fas fa-check text-white"></i>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="small text-gray-500">
-                                                        {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
-                                                    </div>
-                                                    <span class="font-weight-bold">
-                                                            Registro de 
-                                                            {{$notificaion->data['razon']}}
-                                                            <small>
-                                                                @if ($notificaion->data['asunto'] == 1)
-                                                                    (Queja)
-                                                                @endif
-                                                                @if ($notificaion->data['asunto'] == 2)
-                                                                    (Devolución)
-                                                                @endif
-                                                            </small>
-                                                        <small>
-                                                            <br>
-                                                            {{$notificaion->created_at->diffForHumans()}}
-                                                        </small>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        @endif
-                                        @if ($notificaion->type == "App\Notifications\StatusNotification")
-                                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                                <div class="mr-3">
-                                                    <div class="icon-circle bg-warning">
-                                                        <i class="fas fa-exclamation text-white"></i>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="small text-gray-500">
-                                                        {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
-                                                    </div>
-                                                    <span class="font-weight-bold">
-                                                            {{$notificaion->data['message']}} ({{$notificaion->data['razon']}}) a
-                                                            @if ($notificaion->data['status'] == 1)
-                                                                Abierto
-                                                            @endif
-                                                            @if ($notificaion->data['status'] == 2)
-                                                                Proceso
-                                                            @endif
-                                                            @if ($notificaion->data['status'] == 3)
-                                                                Cerrado
-                                                            @endif
-                                                            <small>
-                                                                @if ($notificaion->data['asunto'] == 1)
-                                                                   (Queja)
-                                                                @endif
-                                                                @if ($notificaion->data['asunto'] == 2)
-                                                                    (Devolución)
-                                                                @endif
-                                                            </small>
-                                                        <small>
-                                                            <br>
-                                                            {{$notificaion->created_at->diffForHumans()}}
-                                                        </small>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        @endif
-                                    @endforeach
-                                    @if (count(auth()->user()->unreadNotifications) == 0)
-                                        <br>
-                                        <center>
-                                            <h6 class="font-weight-bold">
-                                                Sin Notificaciones
-                                            </h6>
-                                        </center>
-                                    @endif
-                                    @if (count(auth()->user()->unreadNotifications) != 0)
-                                        <a class="dropdown-item text-center small text-gray-500" href="{{route('notificaciones.leidas')}}">
-                                            Marcar leídas
-                                        </a>
-                                    @endif
-                                </div>
+                                @livewire('notification')
                             </li>
                          <!-- Nav Item - Alerts -->
 
@@ -341,10 +252,10 @@
     <script src="{{ asset('libs/sbadmin/bootstrap/js/bootstrap.bundle.min.js')  }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('libs/sbadmin/jquery-easing/jquery.easing.min.js')  }}"></script>
+    {{-- <script src="{{ asset('libs/sbadmin/jquery-easing/jquery.easing.min.js')  }}"></script> --}}
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('libs/sbadmin/js/sb-admin-2.min.js')  }}"></script>
+    {{-- <script src="{{ asset('libs/sbadmin/js/sb-admin-2.min.js')  }}"></script> --}}
 
     <!-- Page level plugins -->
     <script src="{{ asset('libs/sbadmin/chart/Chart.min.js')  }}"></script>
@@ -352,14 +263,15 @@
     <script src="{{ asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.js')  }} "></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset('libs/sbadmin/js/demo/chart-area-demo.js')  }}"></script>
-    <script src="{{ asset('libs/sbadmin/js/demo/chart-pie-demo.js')  }}"></script>
+    {{-- <script src="{{ asset('libs/sbadmin/js/demo/chart-area-demo.js')  }}"></script>
+    <script src="{{ asset('libs/sbadmin/js/demo/chart-pie-demo.js')  }}"></script> --}}
 
     <script src="{{ asset('libs/sbadmin/js/datatable.js')  }}"></script>
     <script src="{{ asset('js/buscador.js')  }}"></script>
-    
+    {{-- <script src="sweetalert2.all.min.js"></script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    
+    @include('sweetalert::alert')
 </html>

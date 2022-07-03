@@ -17,7 +17,9 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div>
-                    <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.store']))
+                        <button for="#agregar" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregar">Agregar</button>
+                    @endif
                 </div>
             </div>
         <div class="card-body">
@@ -36,12 +38,16 @@
                             <td>{{ $role->name}}</td>
                             <td>{{ $role->created_at}}</td>
                             <td>
-                                <a for="#editar-{{$role->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$role->id}}">
-                                    <i class="fas fa-highlighter"></i>
-                                </a>
-                                <a for="#eliminar-{{$role->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$role->id}}">
-                                    <i class="fas fa-duotone fa-trash"></i>
-                                </a>
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.update']))
+                                    <a for="#editar-{{$role->id}}" type="button" class="btn btn-circle btn-primary" data-bs-toggle="modal" data-bs-target="#editar-{{$role->id}}">
+                                        <i class="fas fa-highlighter"></i>
+                                    </a>
+                                @endif
+                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.destroy']))
+                                    <a for="#eliminar-{{$role->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$role->id}}">
+                                        <i class="fas fa-duotone fa-trash"></i>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                         <!-- Modales -->
@@ -59,6 +65,7 @@
                                                     <div class="mb-3">
                                                         <label for="name" name="name" id="name"  class="form-label">Nombre</label>
                                                         <input type="text" value="{{$role->name}}" name="name" id="name" class="form-control" aria-describedby="nombre">
+                                                        @error('name') <span class="text-danger">{{$message}}</span> @enderror
                                                     </div>
                                                     <label for="permisos" class="form-label">Permisos:</label>
                                                     <div class="mb-3">
@@ -161,7 +168,7 @@
                                         <div class="row row-cols-3">
                                             @foreach ($permisos as $key=>$value ) 
                                                 <div class="col">
-                                                    <input class="form-check-input" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                                    <input class="form-check-input chkboxname" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="{{$key}}">
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">
                                                         {{  
                                                             str_replace('create','crear',
@@ -191,5 +198,13 @@
             </div>
         <!-- Modal Agregar -->
     <!-- Modales -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#checkboxAll').click(function(){
+            $(".chkboxname").prop('checked',$(this).prod('checked'));
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 
 @endsection

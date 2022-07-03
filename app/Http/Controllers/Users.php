@@ -6,7 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
-
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rules\Password;
 
 class Users extends Controller
 {   
@@ -35,17 +36,6 @@ class Users extends Controller
 
         return view('admin.pages.users.users.index',$param);
 
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -56,6 +46,32 @@ class Users extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'email' => 'required|email:dns',
+            'passsword' => 'required|min:6|',Password::min(8)
+            ->mixedCase()
+            ->letters()
+            ->numbers()
+            ->symbols()
+            ->uncompromised(),
+            'confirmed' => 'required|min:6|same:passsword',
+            'rol' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio',
+            'name.regex' => 'El campo nombre solo permite letras',
+            'email.required' => 'El campo correo es obligatorio',
+            'email.email' => 'El campo correo debe ser un correo valido',
+            'passsword.required' =>'El campo contraseña es obligatorio',
+            'passsword.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
+            'passsword.regex' =>'El campo contraseña es obligatorio',
+            'confirmed.required' =>'El campo confirmación es obligatorio',
+            'confirmed.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
+            'confirmed.same' =>'Las contraseñas no son iguales',
+            'rol.required' => 'El campo rol es obligatorio'
+        ]);
+
         
         $new = new User();
         $new->name = $request->input('name');
@@ -64,38 +80,10 @@ class Users extends Controller
         $new->id_rol = $request->input('rol');
         $new->save();
 
+        Alert::toast('Guardado Correctamente','success');
+
         return redirect()->route('index.users');
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {           
-
-        $user = User::findOrFail($id);
-        $rol = Role::all();
-  
-        $param['roles'] = $rol;
-        $param['user']=$user;
-
-        
-        return view('admin.pages.users.users.edit',$param);
     }
 
     /**
@@ -108,6 +96,39 @@ class Users extends Controller
     public function update(Request $request, $id)
     {
 
+
+        $request->validate([
+            'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'email' => 'required|email:dns',
+            'rol' => 'required'
+        ],[
+            'name.required' => 'El campo nombre es obligatorio',
+            'name.regex' => 'El campo nombre solo permite letras',
+            'email.required' => 'El campo correo es obligatorio',
+            'email.email' => 'El campo correo debe ser un correo valido',
+            'rol.required' => 'El campo rol es obligatorio'
+        ]);
+
+        if($request->input('password') != ''){
+            $request->validate([
+                'passsword' => 'required|min:6|',Password::min(8)
+                ->mixedCase()
+                ->letters()
+                ->numbers()
+                ->symbols()
+                ->uncompromised(),
+                'confirmed' => 'required|min:6|same:passsword'
+            ],[
+                'passsword.required' =>'El campo contraseña es obligatorio',
+                'passsword.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
+                'passsword.regex' =>'El campo contraseña es obligatorio',
+                'confirmed.required' =>'El campo confirmación es obligatorio',
+                'confirmed.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
+                'confirmed.same' =>'Las contraseñas no son iguales'
+            ]);   
+        }
+
+
         $user = User::find($id);
 
         $user->name = $request->input('name');
@@ -115,6 +136,8 @@ class Users extends Controller
         $user->password = bcrypt($request->input('password'));
         $user->id_rol = $request->input('rol');
         $user->save();
+
+        Alert::toast('Actualizado Correctamente','success');
 
         return redirect()->route('index.users');
 
@@ -131,6 +154,9 @@ class Users extends Controller
     {
         
         $rol = User::destroy('id', $id);
+
+        Alert::toast('Eliminado Correctamente','success');
+
         return redirect()->route('index.users');
 
     }

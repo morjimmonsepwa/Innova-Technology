@@ -79,10 +79,9 @@
                         <a class="page-scroll " href="@if(Route::current()->uri() == 'register' or Route::current()->uri() == 'login' ) {{route('index')}} @else #contact @endif">Contacto</a>
                       </li>
                       <li class="nav-item">
-                        <a class="page-scroll @if(Route::current()->uri() == 'register') active @endif"  href="{{ route('register')}}">Registrar</a>
+                        <a href="{{ route('login') }}" class="page-scroll @if(Route::current()->uri() == 'login') active @endif">Iniciar Sesión</a>
                       </li>
                     </ul>
-                    <a href="{{ route('login') }}" class="button button-sm radius-10 d-none d-lg-flex">Iniciar Sesión</a>
                   </div>
                   <!-- navbar collapse -->
                 </nav>

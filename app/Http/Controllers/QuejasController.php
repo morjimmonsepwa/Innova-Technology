@@ -9,7 +9,7 @@ use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\TicketNotification;
 use App\Events\TicketEvent;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class QuejasController extends Controller
@@ -63,7 +63,28 @@ class QuejasController extends Controller
      */
     public function store(Request $request)
     {
-       
+
+        $request->validate([
+            'asunto' => 'required',
+            'motivo' => 'required',
+            'cliente' => 'required',
+            'via' => 'required',
+            'empresa' => 'required',
+            'producto' => 'required',
+            'encargado' => 'required'
+            
+        ],[
+            'asunto.required' => 'El campo asunto es obligatorio',
+            'motivo.required' => 'El campo motivo es obligatorio',
+            'cliente.required' => 'El campo cliente es obligatorio',
+            'via.required' => 'El campo via es obligatorio',
+            'empresa.required' => 'El campo empresa es obligatorio',
+            'producto.required' => 'El campo producto es obligatorio',
+            'encargado.required' => 'El campo encargado es obligatorio'
+
+        ]);
+
+
         $ticket = new Ticket();
 
         $ticket->affair = $request->asunto;
@@ -82,6 +103,7 @@ class QuejasController extends Controller
 
         event(new TicketEvent($ticket));
 
+        Alert::toast('Guardado Correctamente','success');
        return redirect()->route('index.quejas');
         
     }
@@ -95,7 +117,28 @@ class QuejasController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'asunto' => 'required',
+            'motivo' => 'required',
+            'cliente' => 'required',
+            'via' => 'required',
+            'empresa' => 'required',
+            'producto' => 'required',
+            'encargado' => 'required'
+            
+        ],[
+            'asunto.required' => 'El campo asunto es obligatorio',
+            'motivo.required' => 'El campo motivo es obligatorio',
+            'cliente.required' => 'El campo cliente es obligatorio',
+            'via.required' => 'El campo via es obligatorio',
+            'empresa.required' => 'El campo empresa es obligatorio',
+            'producto.required' => 'El campo producto es obligatorio',
+            'encargado.required' => 'El campo encargado es obligatorio'
+
+        ]);
         
+
         $ticket = Ticket::findOrFail($id);
 
         $ticket->affair = $request->asunto;
@@ -107,6 +150,7 @@ class QuejasController extends Controller
         $ticket->id_manager = $request->encargado;    
         $ticket->save();
 
+        Alert::toast('Actualizado Correctamente','success');
        return redirect()->route('index.quejas');
 
     }
@@ -121,7 +165,9 @@ class QuejasController extends Controller
     {
         
         $ticket = Ticket::destroy('id', $id);
-       
+        
+
+        Alert::toast('Eliminado Correctamente','success');
         return redirect()->route('index.quejas');   
 
     }

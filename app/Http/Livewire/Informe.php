@@ -7,11 +7,22 @@ use App\Models\Ticket;
 use App\Models\Detail_group;
 use Illuminate\Support\Facades\Auth;
 use App\Events\StatusEvent;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Informe extends Component
 {
     public $asignado;
     public $nombre;
+
+
+    public $alert;
+    public $nombre_alert;
+    public int $status=1;
+    protected $listeners = ['alert' => 'alert_run'];
+
+    public function alert_run(){
+        $this->alert = true;
+    }
 
     public function render(){
 
@@ -28,7 +39,6 @@ class Informe extends Component
         $param['tickets'] = $tickets;
         $param['users'] = $users;
 
-
         return view('livewire.informe',$param);
     
     }
@@ -39,6 +49,7 @@ class Informe extends Component
             $ticket = Ticket::findOrFail($id_ticket);
             $ticket->id_assigned = $id_user;
             $ticket->save();
+            $this->emit('alert');
         }
 
     }
@@ -50,14 +61,11 @@ class Informe extends Component
             $ticket = Ticket::findOrFail($id_ticket);
             $ticket->status = $id_estatus;
             $ticket->save();
-
             event(new StatusEvent($ticket));
+            $this->emit('alert');
 
         }
-
-       
-       
-
     }
+    
 
 }
