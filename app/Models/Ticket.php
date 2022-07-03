@@ -39,7 +39,11 @@ class Ticket extends Model
                     ),
                     't1.reason',
                     't1.client',
-                    't1.via',
+                    DB::raw('
+                        CASE WHEN t1.via = 1 THEN "Email"
+                        WHEN t1.via = 2 THEN "Llamada"
+                        END'
+                    ),
                     't5.name as id_compania',
                     't1.product',
                     't2.name as generate',

@@ -11286,3 +11286,9 @@ body.sidebar-toggled footer.sticky-footer {
   height: 50px;
   border-radius: 50%;
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: #4e73df;
+  border-color: #4e73df;
+}
