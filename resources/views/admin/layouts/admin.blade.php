@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Innova Technology </title> <link rel="shortcut icon" type="image/ico" href="{{ asset('/libs/index/img/logo/innova.ico') }}">
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('libs/sbadmin/fontawesome/css/all.min.css')}}" rel="stylesheet" type="text/css">

@@ -2,7 +2,7 @@
     <div class="row align-items-center">
         <div class="col-lg-6">
         <div class="about-image wow fadeInLeft" data-wow-delay=".2s">
-            <img src="{{asset('libs/index/img/about/about-3/about-img.jpg') }}" alt="">
+            <img src="{{asset('http://127.0.0.1:8000/libs/index/img/logo/logo2.jpeg') }}" alt="">
         </div>
         </div>
         <div class="col-lg-6">

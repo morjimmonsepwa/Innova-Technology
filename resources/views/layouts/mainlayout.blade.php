@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
   <head>
-    <title>Innova Technology</title>
+    <title>Innova Technology </title> <link rel="shortcut icon" type="image/ico" href="{{ asset('/libs/index/img/logo/innova.ico') }}">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
