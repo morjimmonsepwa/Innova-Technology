@@ -36,7 +36,8 @@ class TicketExport implements FromCollection, WithHeadings,ShouldAutoSize
     
     public function collection()
     {
-        return Ticket::all();
+
+        return Ticket::excel();
     
     }
 }

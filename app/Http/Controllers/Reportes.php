@@ -34,6 +34,8 @@ class Reportes extends Controller
 
         $param['tickets'] = $tickets;
 
+        Ticket::excel();
+
 
         return view('admin.pages.reportes.reportes',$param);
     }
@@ -57,6 +59,8 @@ class Reportes extends Controller
     }
 
     public function excel(){
+
+        
 
         return Excel::download(new TicketExport, 'Ticket.xlsx');
 
