@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Exports\TicketExport;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
 
 class Reportes extends Controller
 {
@@ -30,7 +31,7 @@ class Reportes extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::all();
+        $tickets = Ticket::all()->where('id_manager',Auth::id());
 
         $param['tickets'] = $tickets;
 

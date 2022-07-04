@@ -76,7 +76,7 @@ class Users extends Controller
         $new = new User();
         $new->name = $request->input('name');
         $new->email = $request->input('email');
-        $new->password = bcrypt($request->input('password'));
+        $new->password = bcrypt(rtrim($request->input('passsword')));
         $new->id_rol = $request->input('rol');
         $new->save();
 
@@ -95,7 +95,7 @@ class Users extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $user = User::find($id);
 
         $request->validate([
             'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
@@ -109,7 +109,9 @@ class Users extends Controller
             'rol.required' => 'El campo rol es obligatorio'
         ]);
 
-        if($request->input('password') != ''){
+       
+        if($request->input('passsword') != ''){
+
             $request->validate([
                 'passsword' => 'required|min:6|',Password::min(8)
                 ->mixedCase()
@@ -125,15 +127,14 @@ class Users extends Controller
                 'confirmed.required' =>'El campo confirmación es obligatorio',
                 'confirmed.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
                 'confirmed.same' =>'Las contraseñas no son iguales'
-            ]);   
+            ]);
+
+            $user->password = bcrypt($request->input('passsword'));
+
         }
-
-
-        $user = User::find($id);
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password'));
         $user->id_rol = $request->input('rol');
         $user->save();
 

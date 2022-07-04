@@ -86,12 +86,12 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                                        <input type="password" class="form-control" id="passsword" name="passsword" value="{{old('passsword')}}">
+                                                        <input type="password" class="form-control" id="passsword" name="passsword">
                                                         @error('passsword') <span class="text-danger">{{$message}}</span> @enderror
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
-                                                        <input type="password" class="form-control" id="confirmed" name="confirmed" value="{{old('confirmed')}}">
+                                                        <input type="password" class="form-control" id="confirmed" name="confirmed">
                                                         @error('confirmed') <span class="text-danger">{{$message}}</span> @enderror
                                                     </div>
                                                     <div class="mb-3">
