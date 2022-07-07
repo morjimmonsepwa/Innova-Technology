@@ -13,7 +13,7 @@ class Web extends Controller
 
     public function index(){
 
-        return view('Bienvenido');
+        return view('welcome');
 
     }
 
