@@ -35,9 +35,6 @@ class Reportes extends Controller
 
         $param['tickets'] = $tickets;
 
-        dd(Ticket::excel());
-
-
         return view('admin.pages.reportes.reportes',$param);
     }
 
