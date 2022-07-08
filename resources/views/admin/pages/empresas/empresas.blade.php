@@ -52,28 +52,7 @@
                         <!-- Modales -->
                             <!-- Modal Editar--->
                                 <div class="modal fade" id="editar-{{$empresa->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-m">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Editar Empresa</h5>
-                                            </div>
-                                            <form action="{{route('update.empresas',$empresa->id)}}" method="POST">
-                                                @csrf
-                                                {{ method_field('PATCH')}}
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Nombre</label>
-                                                        <input type="text" class="form-control" value="{{$empresa->name}}"  id="name" name="name" placeholder="Ingrese el nombre de empresa">
-                                                        @error('name') <span class="text-danger">{{$message}}</span> @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                   @livewire('company-edit',['id_company'=>$empresa->id])
                                 </div>
                             <!-- Modal Editar --> 
                             <!-- Modal Eliminar -->
@@ -109,34 +88,8 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-    <!-- Modales -->
-        <!-- Modal Agregar -->
-            <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-m">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Agregar Empresa</h5>
-                        </div>
-                        <form action="{{route('store.empresas')}}" method="POST">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre de empresa">
-                                    @error('name') <span class="text-danger">{{$message}}</span> @enderror
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        <!-- Modal Agregar -->
-    <!-- Modales -->
 
+    @livewire('company')
 
 @endsection
 

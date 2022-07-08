@@ -32,17 +32,6 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required'
-        ],[
-            'name.required' => 'El campo nombre es obligatorio'
-        ]);
-
-        $empresa = new Company();
-
-        $empresa->name = $request->name;
-        $empresa->save();
-
         Alert::toast('Guardado Correctamente','success');
         return redirect()->route('index.empresas');
 
@@ -57,17 +46,6 @@ class CompanyController extends Controller
      */
     public function update(Request $request,$id)
     {
-
-        $request->validate([
-            'name' => 'required'
-        ],[
-            'name.required' => 'El campo nombre es obligatorio'
-        ]);
-
-        $empresa = Company::findOrFail($id);
-
-        $empresa->name = $request->name;
-        $empresa->save();
 
         Alert::toast('Actualizado Correctamente','success');
         return redirect()->route('index.empresas');

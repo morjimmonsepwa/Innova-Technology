@@ -85,8 +85,8 @@ use App\Http\Controllers\CompanyController;
     /* Rutas Administrador Empresas*/
         
         Route::get('/admin/empresas',[CompanyController::class,'index'])->name('index.empresas')->middleware('permisos:empresas.index');
-        Route::post('/admin/empresas',[CompanyController::class,'store'])->name('store.empresas')->middleware('permisos:empresas.store');
-        Route::patch('/admin/empresas/{id}',[CompanyController::class,'update'])->name('update.empresas')->middleware('permisos:empresas.update');
+        Route::get('/admin/empresasstore',[CompanyController::class,'store'])->name('store.empresas')->middleware('permisos:empresas.store');
+        Route::get('/admin/empresas/{id}',[CompanyController::class,'update'])->name('update.empresas')->middleware('permisos:empresas.update');
         Route::put('/admin/empresas/{id}',[CompanyController::class,'destroy'])->name('destroy.empresas')->middleware('permisos:empresas.destroy');
        
     /*********/
