@@ -64,8 +64,8 @@ use App\Http\Controllers\CompanyController;
     /* Rutas Administrador Grupos*/
         
         Route::get('/admin/grupos',[WorkGroupController::class,'index'])->name('index.grupos')->middleware('permisos:grupos.index');
-        Route::post('/admin/grupos',[WorkGroupController::class,'store'])->name('store.grupos')->middleware('permisos:grupos.store');
-        Route::patch('/admin/grupos/{id}',[WorkGroupController::class,'update'])->name('update.grupos')->middleware('permisos:grupos.update');
+        Route::get('/admin/gruposstore',[WorkGroupController::class,'store'])->name('store.grupos')->middleware('permisos:grupos.store');
+        Route::get('/admin/grupos/{id}',[WorkGroupController::class,'update'])->name('update.grupos')->middleware('permisos:grupos.update');
         Route::put('/admin/grupos/{id}',[WorkGroupController::class,'destroy'])->name('destroy.grupos')->middleware('permisos:grupos.destroy');
         
 
