@@ -28,64 +28,12 @@ class Users extends Controller
      */
     public function index()
     {
-        $user=User::all();
-        $rol = Role::all();
 
-        $param['users'] = $user;
-        $param['roles'] = $rol;
-
-        return view('admin.pages.users.users.index',$param);
+        return view('admin.pages.users.users.index');
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-        $request->validate([
-            'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
-            'email' => 'required|email:dns',
-            'passsword' => 'required|min:6|',Password::min(8)
-            ->mixedCase()
-            ->letters()
-            ->numbers()
-            ->symbols()
-            ->uncompromised(),
-            'confirmed' => 'required|min:6|same:passsword',
-            'rol' => 'required'
-        ],[
-            'name.required' => 'El campo nombre es obligatorio',
-            'name.regex' => 'El campo nombre solo permite letras',
-            'email.required' => 'El campo correo es obligatorio',
-            'email.email' => 'El campo correo debe ser un correo valido',
-            'passsword.required' =>'El campo contraseña es obligatorio',
-            'passsword.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
-            'passsword.regex' =>'El campo contraseña es obligatorio',
-            'confirmed.required' =>'El campo confirmación es obligatorio',
-            'confirmed.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
-            'confirmed.same' =>'Las contraseñas no son iguales',
-            'rol.required' => 'El campo rol es obligatorio'
-        ]);
-
-        
-        $new = new User();
-        $new->name = $request->input('name');
-        $new->email = $request->input('email');
-        $new->password = bcrypt(rtrim($request->input('passsword')));
-        $new->id_rol = $request->input('rol');
-        $new->save();
-
-        Alert::toast('Guardado Correctamente','success');
-
-        return redirect()->route('index.users');
-
-    }
-
+    
     /**
      * Update the specified resource in storage.
      *
