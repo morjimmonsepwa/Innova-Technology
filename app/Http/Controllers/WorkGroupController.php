@@ -76,9 +76,13 @@ class WorkGroupController extends Controller
      */
     public function destroy($id)
     {
-        Work_group::destroy('id', $id);
-
-        Alert::toast('Eliminado Correctamente','success');
+        if(Detail_group::where('id_group',$id)->get()->count() <> 0){
+            Alert::toast('Usuarios Asignados','error');
+        }else{
+            Work_group::destroy('id', $id);
+            Alert::toast('Eliminado Correctamente','success');
+        }
+        
         return redirect()->route('index.grupos');
     }
 
