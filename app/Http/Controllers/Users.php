@@ -28,8 +28,21 @@ class Users extends Controller
      */
     public function index()
     {
+        $user=User::all();
+        $rol = Role::all();
 
-        return view('admin.pages.users.users.index');
+        $param['users'] = $user;
+        $param['roles'] = $rol;
+
+        return view('admin.pages.users.users.index',$param);
+
+    }
+
+    public function store(){
+
+        Alert::toast('Agregado Correctamente','success');
+
+        return redirect()->route('index.users');
 
     }
 
