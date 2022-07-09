@@ -148,63 +148,8 @@
 
     <!-- Modales -->
         <!-- Modal Agregar -->
-            <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Agregar Rol</h5>
-                        </div>
-                        <form action="{{ route('store.role')}}" method="POST">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="name" name="name" id="name"  class="form-label">Nombre</label>
-                                    <input type="text" name="name" id="name" class="form-control" aria-describedby="nombre">
-                                </div>
-                                <label for="permisos" class="form-label">Permisos:</label>
-                                <div class="mb-3">
-                                <div class="container overflow-hidden">
-                                    <div class="container">
-                                        <div class="row row-cols-3">
-                                            @foreach ($permisos as $key=>$value ) 
-                                                <div class="col">
-                                                    <input class="form-check-input chkboxname" name="permisos[]" value="{{$key}}" type="checkbox" role="switch" id="{{$key}}">
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault">
-                                                        {{  
-                                                            str_replace('create','crear',
-                                                            str_replace('create','crear',
-                                                            str_replace('edit','editar',
-                                                            str_replace('index','inicio',
-                                                            str_replace('role','roles',
-                                                            str_replace('destroy','eliminar',
-                                                            str_replace('.',' ',
-                                                            $key )))))))
-                                                        }}
-                                                    </label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            @livewire('roles')
         <!-- Modal Agregar -->
     <!-- Modales -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#checkboxAll').click(function(){
-            $(".chkboxname").prop('checked',$(this).prod('checked'));
-        });
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 
 @endsection

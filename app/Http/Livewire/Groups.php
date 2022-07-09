@@ -12,11 +12,6 @@ class Groups extends Component
     //parametros de store
     public $name;
 
-
-    public $alert;
-    public int $status=1;
-    protected $listeners = ['alert' => 'alert_run'];
-
     protected $rules = [
             'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/'
         ];
@@ -25,10 +20,6 @@ class Groups extends Component
         $this->validateOnly($propertyName);
     }
 
-
-    public function alert_run(){
-		$this->alert = true;
-    }
 
     public function render()
     {

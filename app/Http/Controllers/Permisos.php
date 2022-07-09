@@ -9,7 +9,7 @@ class Permisos extends Controller
     
     public static function get($array = false){
 
-        $permisos['dashboard'] = true;
+        $permisos['dashboard.index'] = true;
 
         $permisos['usuarios.index'] = true;
         $permisos['usuarios.store'] = true;

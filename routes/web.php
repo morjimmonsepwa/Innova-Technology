@@ -28,7 +28,7 @@ use App\Http\Controllers\CompanyController;
 
     /* Rutas Administrador */
         
-        Route::get('/dashboard',[Web::class,'dashboard'])->name('dashboard')->middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->middleware('permisos:dashboard');
+        Route::get('/dashboard',[Web::class,'dashboard'])->name('dashboard')->middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->middleware('permisos:dashboard.index');
 
     /*********/
 
@@ -46,7 +46,7 @@ use App\Http\Controllers\CompanyController;
      /* Rutas Administrador Roles*/
         
         Route::get('/admin/role',[Roles::class,'index'])->name('index.role')->middleware('permisos:role.index');
-        Route::post('/admin/role',[Roles::class,'store'])->name('store.role')->middleware('permisos:role.store');
+        Route::get('/admin/rolestore',[Roles::class,'store'])->name('store.role')->middleware('permisos:role.store');
         Route::patch('/admin/role/{id}',[Roles::class,'update'])->name('update.role')->middleware('permisos:role.update');
         Route::put('/admin/role/{id}',[Roles::class,'destroy'])->name('destroy.role')->middleware('permisos:role.destroy');
 

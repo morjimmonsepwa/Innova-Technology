@@ -47,31 +47,7 @@ class Roles extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'name' => 'required'
-        ],[
-            'name.required' => 'El campo nombre es obligatorio'
-        ]);
-
-        $new = new Role();
-        $new->name = $request->input('name');
-
-        $valores_permisos = $request->input('permisos');
-
-        if($request->input('permisos')!=''){
-            
-            foreach($valores_permisos as $key=>$value){
-                $permisos [$value] = true;
-            }
-
-            $new->permisos = json_encode($permisos);
-        }else{
-            $new->permisos=null;
-        }
-
-        $new->save();
-
+        
         Alert::toast('Guardado Correctamente','success');
 
         return redirect()->route('index.role');
