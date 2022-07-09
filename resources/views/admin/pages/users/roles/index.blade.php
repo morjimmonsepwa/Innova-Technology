@@ -44,9 +44,11 @@
                                     </a>
                                 @endif
                                 @if ( isset(json_decode(Auth::user()->rol->permisos,true)['role.destroy']))
+                                @if ($role->id <> 7 and $role->id <> 2)
                                     <a for="#eliminar-{{$role->id}}" type="button" class="btn btn-circle btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar-{{$role->id}}">
                                         <i class="fas fa-duotone fa-trash"></i>
                                     </a>
+                                @endif
                                 @endif
                             </td>
                         </tr>

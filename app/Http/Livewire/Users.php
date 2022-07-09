@@ -35,7 +35,7 @@ class Users extends Component{
 
     public function render(){
 
-        $rol = Role::all();
+        $rol = Role::where('id','<>',2)->get();
 
       
         $param['roles'] = $rol;
