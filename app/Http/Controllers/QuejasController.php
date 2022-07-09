@@ -63,46 +63,7 @@ class QuejasController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'asunto' => 'required',
-            'motivo' => 'required',
-            'cliente' => 'required',
-            'via' => 'required',
-            'empresa' => 'required',
-            'producto' => 'required',
-            'encargado' => 'required'
-            
-        ],[
-            'asunto.required' => 'El campo asunto es obligatorio',
-            'motivo.required' => 'El campo motivo es obligatorio',
-            'cliente.required' => 'El campo cliente es obligatorio',
-            'via.required' => 'El campo via es obligatorio',
-            'empresa.required' => 'El campo empresa es obligatorio',
-            'producto.required' => 'El campo producto es obligatorio',
-            'encargado.required' => 'El campo encargado es obligatorio'
-
-        ]);
-
-
-        $ticket = new Ticket();
-
-        $ticket->affair = $request->asunto;
-        $ticket->reason = $request->motivo;   
-        $ticket->client = $request->cliente;   
-        $ticket->via = $request->via;   
-        $ticket->id_business = $request->empresa;   
-        $ticket->product = $request->producto;
-        $ticket->id_generate = Auth::id();      
-        $ticket->id_manager = $request->encargado;    
-        $ticket->status = 1;   
-        $ticket->save();
-
-        // Se consulta el id del usuario encargado para envio de notificacion
-        // User::findOrFail($request->encargado)->notify(new TicketNotification($ticket));
-
-        event(new TicketEvent($ticket));
-
+      
         Alert::toast('Guardado Correctamente','success');
        return redirect()->route('index.quejas');
         

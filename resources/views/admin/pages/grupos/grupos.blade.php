@@ -20,10 +20,10 @@
                     @endif
                 </div>
             </div>
-        <div class="card-body row row-cols-3">
+        <div class="card-body row">
             <!-- Dropdown Card Example -->
                 @foreach ($groups as $group)
-                    <div class="col">
+                    <div class="col-xl-4 col-md-6 mb-4">
                         <div class="card shadow mb-4 border-left-info">
                             <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between col">
@@ -59,7 +59,6 @@
                         </div>
                     </div>
                 
-            
             <!-- Modal Editar -->
                 <div class= "center">
                     <div class="modal fade" id="editar-{{$group->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

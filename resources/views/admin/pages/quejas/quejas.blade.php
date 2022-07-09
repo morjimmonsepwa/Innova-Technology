@@ -105,7 +105,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Asunto</label>
                                                         <select class="form-control" id="asunto" name="asunto">
-                                                            <option>Seleccione una opción: </option>
+                                                            <option value=""null"">Seleccione una opción: </option>
                                                             @switch($ticket->affair)
                                                                 @case(1)
                                                                     <option selected value="1">Queja</option>
@@ -144,7 +144,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Empresa</label>
                                                         <select class="form-control" id="empresa" name="empresa">
-                                                            <option>Seleccione una opción: </option>
+                                                            <option value=""null"">Seleccione una opción: </option>
                                                             @foreach ($empresas as $empresa)
                                                                 @if ($empresa->id == $ticket->id_business)
                                                                     <option selected value="{{$empresa->id}}">{{$empresa->name}}</option>
@@ -161,7 +161,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Encargado</label>
                                                         <select class="form-control" id="encargado" name="encargado">
-                                                            <option>Seleccione una opción: </option>
+                                                            <option value=""null"">Seleccione una opción: </option>
                                                             @foreach ($usuarios as $usuario)
                                                                 @if ($usuario->id == $ticket->id_manager)
                                                                     <option selected value="{{$usuario->id}}">{{$usuario->name}}</option>
@@ -300,77 +300,7 @@
     <!-- /.container-fluid -->
     <!-- Modales -->
         <!-- Modal Agregar -->
-            <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Agregar Ticket </h5>
-                        </div>
-                        <form action="{{route('store.quejas')}}" method="POST">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label class="form-label">Asunto</label>
-                                <select class="form-control" value="{{old('asunto"')}}" id="asunto" name="asunto">
-                                    <option value=""null"">Seleccione una opción: </option>
-                                    <option value="1">Queja</option>
-                                    <option value="2">Devolución</option>
-                                </select>
-                                @error('asunto') <span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Motivo</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" value="{{old('motivo')}}" id="motivo" name="motivo" placeholder="Ingrese el motivo de la queja o devolución">
-                                @error('motivo') <span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Cliente</label>
-                                <input type="text" class="form-control"  value="{{old('cliente')}}" id="cliente" name="cliente" placeholder="Ingrese el nombre del cliente">
-                                @error('cliente') <span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Vía Queja</label>
-                                <select class="form-control" value="{{old('via')}}" id="via" name="via">
-                                    <option  value=""null"">Seleccione una opción: </option>
-                                    <option value="1">Email</option>
-                                    <option value="2">Llamada</option>
-                                </select>
-                                @error('via') <span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Empresa</label>
-                                <select class="form-control" value="{{old('empresa')}}" id="empresa" name="empresa">
-                                    <option  value=""null"">Seleccione una opción: </option>
-                                    @foreach ($empresas as $empresa)
-                                        <option value="{{$empresa->id}}">{{$empresa->name}}</option>
-                                    @endforeach
-                                </select>
-                                @error('empresa') <span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Producto</label>
-                                <input type="text" class="form-control"  value="{{old('producto')}}" id="producto" name="producto" placeholder="Ingrese el nombre del producto">
-                                @error('producto') <span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Encargado</label>
-                                <select class="form-control" value="{{old('encargado')}}" id="encargado" name="encargado">
-                                    <option  value=""null"">Seleccione una opción: </option>
-                                    @foreach ($usuarios as $usuario)
-                                        <option value="{{$usuario->id}}">{{$usuario->name}}</option>
-                                    @endforeach
-                                </select>
-                                @error('encargado') <span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
+          @livewire('ticket')
         <!-- Modal Agregar -->
     <!-- Modales -->
 
