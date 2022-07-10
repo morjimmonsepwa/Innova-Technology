@@ -79,7 +79,7 @@
                         <a class="page-scroll " href="@if(Route::current()->uri() == 'register' or Route::current()->uri() == 'login' ) {{route('index')}} @else #contact @endif">Contacto</a>
                       </li>
                       <li class="nav-item">
-                        <a href="{{ route('login') }}" class="page-scroll @if(Route::current()->uri() == 'login') active @endif">Iniciar Sesión</a>
+                        <a href="{{ route('login') }}" class="@if(Route::current()->uri() == 'login') active @endif">Iniciar Sesión</a>
                       </li>
                     </ul>
                   </div>

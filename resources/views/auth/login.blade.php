@@ -1,6 +1,3 @@
-@extends('layouts.mainlayout')
-
-@section('contenido')
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -36,11 +33,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <a href="{{route('index')}}"><button type="button" class="btn btn-light">Regresar</button></a>
                 <x-jet-button class="ml-4">
-                    {{ __('Login') }}
+                    {{ __('Entrar') }}
                 </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
-@endsection
