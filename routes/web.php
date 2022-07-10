@@ -37,7 +37,7 @@ use App\Http\Controllers\CompanyController;
         
         Route::get('/admin/users',[Users::class,'index'])->name('index.users')->middleware('permisos:usuarios.index');
         Route::get('/admin/usersstore',[Users::class,'store'])->name('store.users')->middleware('permisos:usuarios.store');
-        Route::patch('/admin/users/{id}',[Users::class,'update'])->name('update.users')->middleware('permisos:usuarios.update');
+        Route::get('/admin/users/{id}',[Users::class,'update'])->name('update.users')->middleware('permisos:usuarios.update');
         Route::put('/admin/users/{id}',[Users::class,'destroy'])->name('destroy.users')->middleware('permisos:usuarios.destroy');
 
     /*********/

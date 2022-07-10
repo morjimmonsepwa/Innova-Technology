@@ -56,53 +56,9 @@ class Users extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-
-        $request->validate([
-            'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
-            'email' => 'required|email:dns',
-            'rol' => 'required'
-        ],[
-            'name.required' => 'El campo nombre es obligatorio',
-            'name.regex' => 'El campo nombre solo permite letras',
-            'email.required' => 'El campo correo es obligatorio',
-            'email.email' => 'El campo correo debe ser un correo valido',
-            'rol.required' => 'El campo rol es obligatorio'
-        ]);
-
        
-        if($request->input('passsword') != ''){
-
-            $request->validate([
-                'passsword' => 'required|min:6|',Password::min(8)
-                ->mixedCase()
-                ->letters()
-                ->numbers()
-                ->symbols()
-                ->uncompromised(),
-                'confirmed' => 'required|min:6|same:passsword'
-            ],[
-                'passsword.required' =>'El campo contraseña es obligatorio',
-                'passsword.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
-                'passsword.regex' =>'El campo contraseña es obligatorio',
-                'confirmed.required' =>'El campo confirmación es obligatorio',
-                'confirmed.min' =>'El campo contraseña debe ser mayor a 6 caracteres',
-                'confirmed.same' =>'Las contraseñas no son iguales'
-            ]);
-
-            $user->password = bcrypt($request->input('passsword'));
-
-        }
-
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->id_rol = $request->input('rol');
-        $user->save();
-
         Alert::toast('Actualizado Correctamente','success');
-
         return redirect()->route('index.users');
-
 
     }
 

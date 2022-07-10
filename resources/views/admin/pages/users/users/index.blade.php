@@ -68,52 +68,7 @@
                             <!-- Modal Editar -->
                                 <div class="modal fade" id="editar-{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Editar Usuario</h5>
-                                            </div>
-                                            <form action="{{ route('update.users',$user->id) }}" method="POST">
-                                                @csrf
-                                                {{ method_field('PATCH') }}
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Nombre</label>
-                                                        <input type="text" class="form-control" value="{{$user->name}}" aria-describedby="emailHelp" id="name" name="name">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Correo</label>
-                                                        <input type="text" class="form-control" value="{{$user->email}}"  id="email" name="email" >
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                                        <input type="password" class="form-control" id="passsword" name="passsword">
-                                                        @error('passsword') <span class="text-danger">{{$message}}</span> @enderror
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
-                                                        <input type="password" class="form-control" id="confirmed" name="confirmed">
-                                                        @error('confirmed') <span class="text-danger">{{$message}}</span> @enderror
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Rol</label>
-                                                        <select class="form-control" id="rol" name="rol" required>
-                                                            <option>Seleccione una opción: </option>
-                                                            @foreach ($roles as  $role)
-                                                                @if ($role->id == $user->id_rol)
-                                                                    <option selected value="{{ $role->id}}">{{$role->name}}</option>
-                                                                @else
-                                                                    <option  value="{{ $role->id}}">{{$role->name}}</option>
-                                                                @endif
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                        @livewire('user-edit',['user_id'=>$user->id])
                                     </div>
                                 </div>
                             <!-- Modal Editar -->           
@@ -155,7 +110,7 @@
             @livewire('users')
         <!-- Modal Agregar -->
     <!-- Modales -->
-
+            
 @endsection
 
 
