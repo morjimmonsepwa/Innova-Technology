@@ -75,7 +75,7 @@ use App\Http\Controllers\CompanyController;
         
         Route::get('/admin/quejas',[QuejasController::class,'index'])->name('index.quejas')->middleware('permisos:quejas.index');
         Route::get('/admin/quejasstora',[QuejasController::class,'store'])->name('store.quejas')->middleware('permisos:quejas.store');
-        Route::patch('/admin/quejas/{id}',[QuejasController::class,'update'])->name('update.quejas')->middleware('permisos:quejas.update');
+        Route::get('/admin/quejas/{id}',[QuejasController::class,'update'])->name('update.quejas')->middleware('permisos:quejas.update');
         Route::put('/admin/quejas/{id}',[QuejasController::class,'destroy'])->name('destroy.quejas')->middleware('permisos:quejas.destroy');
        
 

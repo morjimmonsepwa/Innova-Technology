@@ -78,39 +78,7 @@ class QuejasController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $request->validate([
-            'asunto' => 'required',
-            'motivo' => 'required',
-            'cliente' => 'required',
-            'via' => 'required',
-            'empresa' => 'required',
-            'producto' => 'required',
-            'encargado' => 'required'
-            
-        ],[
-            'asunto.required' => 'El campo asunto es obligatorio',
-            'motivo.required' => 'El campo motivo es obligatorio',
-            'cliente.required' => 'El campo cliente es obligatorio',
-            'via.required' => 'El campo via es obligatorio',
-            'empresa.required' => 'El campo empresa es obligatorio',
-            'producto.required' => 'El campo producto es obligatorio',
-            'encargado.required' => 'El campo encargado es obligatorio'
-
-        ]);
         
-
-        $ticket = Ticket::findOrFail($id);
-
-        $ticket->affair = $request->asunto;
-        $ticket->reason = $request->motivo;   
-        $ticket->client = $request->cliente;   
-        $ticket->via = $request->via;   
-        $ticket->id_business = $request->empresa;   
-        $ticket->product = $request->producto;   
-        $ticket->id_manager = $request->encargado;    
-        $ticket->save();
-
         Alert::toast('Actualizado Correctamente','success');
        return redirect()->route('index.quejas');
 
