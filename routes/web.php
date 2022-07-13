@@ -8,7 +8,7 @@ use App\Http\Controllers\Reportes;
 use App\Http\Controllers\WorkGroupController;
 use App\Http\Controllers\QuejasController;
 use App\Http\Controllers\CompanyController;
-
+use App\Http\Controllers\Evaluacion;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,6 +90,15 @@ use App\Http\Controllers\CompanyController;
         Route::put('/admin/empresas/{id}',[CompanyController::class,'destroy'])->name('destroy.empresas')->middleware('permisos:empresas.destroy');
        
     /*********/
+
+    /* Rutas Administrador Evaluación*/
+        
+        Route::get('/admin/evaluacion',[Evaluacion::class,'index'])->name('index.evaluacion');
+       
+       
+    /*********/
+
+
 
     /* Ruta Marcar ver notificaicones*/ 
 

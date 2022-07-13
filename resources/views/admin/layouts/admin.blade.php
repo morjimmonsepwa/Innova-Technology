@@ -107,6 +107,18 @@
                 </li>
             @endif
 
+            <!-- Nav Item - Pages Collapse Menu -->
+           
+                <li class="nav-item @if(Route::current()->uri() == 'admin/evaluacion') active @endif">
+                    <a class="nav-link" href="{{ route('index.evaluacion')}}">
+                        <i class="fas fa-chart-area"></i>
+                        <span>
+                            Evaluación al Desempeño
+                        </span>
+                    </a>
+                </li>
+           
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -135,6 +147,7 @@
                             </div>
                         </div>
                     </form>
+
 
                     <!-- Topbar Navbar Menu --> 
                     <ul class="navbar-nav ml-auto">
@@ -261,6 +274,8 @@
     <script src="{{ asset('libs/sbadmin/chart/Chart.min.js')  }}"></script>
     <script src="{{ asset('libs/sbadmin/datatables/jquery.dataTables.min.js')  }} "></script>
     <script src="{{ asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.js')  }} "></script>
+    <script src="{{ asset('libs/sbadmin/chart/chart-bar-demo.js')  }}"></script>
+    <script src="{{ asset('libs/sbadmin/chart/chart-pie-demo.js')  }}"></script>
 
     <!-- Page level custom scripts -->
     {{-- <script src="{{ asset('libs/sbadmin/js/demo/chart-area-demo.js')  }}"></script>
