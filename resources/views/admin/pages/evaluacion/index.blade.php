@@ -83,7 +83,8 @@
                                                 <br>
                                                 <div class="card shadow mb-4">
                                                     <div class="chart-pie pt-4">
-                                                        <canvas id="myPieChart"></canvas>
+                                                        {{-- <canvas id="myPieChart"></canvas> --}}
+                                                        <div id="chartdiv"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,6 +103,16 @@
         </div>
     </div>
 </div>
+
+
+<!-- Styles -->
+<style>
+    #chartdiv {
+      width: 100%;
+      height: 300px;
+    }
+    </style>
+    
 @endsection
 
 

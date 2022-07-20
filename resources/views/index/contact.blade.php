@@ -20,8 +20,8 @@
                    <a class="text-white" href="tel:5564728458"><i class="lni lni-phone"></i></a>
                 </div>
                 <div class="text">
-                    <p>Director del Proyecto</p>
-                    <a href="tel:5564728458">5564728458</a>
+                    <p>Innova Technology</p>
+                    <a href="tel:5536618440">5536618440</a>
                 </div>
                 </div>
             </div>

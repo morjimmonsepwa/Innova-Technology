@@ -29,7 +29,7 @@
         <div class="single-team wow fadeInUp" data-wow-delay=".6s">
             <div class="info">
             <h6>Jazmin</h6>
-            <p>Diseñadora</p>
+            <p>Analista</p>
             </div>
         </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="single-team wow fadeInUp" data-wow-delay=".8s">
             <div class="info">
             <h6>Andrea</h6>
-            <p>BD</p>
+            <p>DBA</p>
             </div>
         </div>
         </div>

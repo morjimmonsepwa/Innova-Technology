@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <!-- Chatbot WSP-->
+    <div class="btn-whatsapp">
+        <a href="https://api.whatsapp.com/send?phone=525536618440&text=Hola 👋🏼 me gustaría conocer el segumiento 🤳🏼 de mi ticket 🧾😃" target="_blank">
+        <img src="http://s2.accesoperu.com/logos/btn_whatsapp.png" alt="">
+        </a>
+    </div>
+    <!--              wsp          -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +24,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('libs/sbadmin/css/admin.css')}}" rel="stylesheet">
+    <link href="{{asset('libs/sbadmin/css/whatsapp.css')}}" rel="stylesheet">
     <link href="{{asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
     @livewireStyles
@@ -117,6 +126,7 @@
                         </span>
                     </a>
                 </li>
+           
            
 
             <!-- Divider -->
@@ -231,6 +241,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
     
 
     <!-- Logout Modal-->
@@ -271,7 +282,10 @@
     {{-- <script src="{{ asset('libs/sbadmin/js/sb-admin-2.min.js')  }}"></script> --}}
 
     <!-- Page level plugins -->
-    <script src="{{ asset('libs/sbadmin/chart/Chart.min.js')  }}"></script>
+    {{-- <script src="{{ asset('libs/sbadmin/chart/Chart.min.js')  }}"></script> --}}
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     <script src="{{ asset('libs/sbadmin/datatables/jquery.dataTables.min.js')  }} "></script>
     <script src="{{ asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.js')  }} "></script>
     <script src="{{ asset('libs/sbadmin/chart/chart-bar-demo.js')  }}"></script>
