@@ -107,6 +107,10 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="mb-3">
+                                                    <label class="form-label">Número de Ticket</label>
+                                                    <input type="text" class="form-control" aria-describedby="emailHelp" value ="{{$ticket->reason}}" id="motivo" name="motivo" placeholder="Ingrese el número de ticket" disabled>
+                                                </div>
+                                                <div class="mb-3">
                                                     <label class="form-label">Asunto</label>
                                                     <select class="form-control" id="asunto" name="asunto" disabled>
                                                         <option>Seleccione una opción: </option>
