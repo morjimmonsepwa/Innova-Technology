@@ -71,25 +71,25 @@ series.states.create("hidden", {
 // Set data
 // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
 series.data.setAll([{
-  category: "Lithuania",
+  category: "Innova",
   value: 501.9
 }, {
-  category: "Czechia",
+  category: "Monserrat",
   value: 301.9
 }, {
-  category: "Ireland",
+  category: "Luis",
   value: 201.1
 }, {
-  category: "Germany",
+  category: "Jazmin",
   value: 165.8
 }, {
-  category: "Australia",
+  category: "Andrea",
   value: 139.9
 }, {
-  category: "Austria",
+  category: "Administrador",
   value: 128.3
 }, {
-  category: "UK",
+  category: "Operador",
   value: 99
 }]);
 

@@ -63,17 +63,47 @@
                                                               <div class="col">
                                                                 <select class="form-control" aria-label=".form-select-sm example">
                                                                     <option selected>Seleccionar Año</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
+                                                                    @for($i=date('o'); $i>=1910; $i--)
+                                                                        @if ($i == date('o'))
+                                                                            <option value="{{$i}}">{{$i}}</option>
+                                                                        @else
+                                                                            <option value="{{$i}}">{{$i}}</option>
+                                                                        @endif
+                                                                    @endfor
                                                                 </select>
                                                               </div>
                                                               <div class="col">
                                                                 <select class="form-control" aria-label=".form-select-sm example">
-                                                                    <option selected>Seleccionar Mes</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
+                                                                <option selected>Seleccionar Mes</option>
+                                                                <option>Enero</option>
+                                                                <option>Febrero</option>
+                                                                <option>Marzo</option>
+                                                                <option>Abril</option>
+                                                                <option>Mayo</option>
+                                                                <option>Junio</option>
+                                                                <option>Julio</option>
+                                                                <option>Agosto</option>
+                                                                <option>Septiembre</option>
+                                                                <option>Octubre</option>
+                                                                <option>Noviembre</option>
+                                                                <option>Diciembre</option>
+                                                                    <!--<?php
+                                                                        $Meses = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
+                                                                        for ($i=1; $i<=12; $i++) {
+                                                                            if ($i == date('m'))
+                                                                        echo '<option value="'.$i.'"selected>'.$Meses[($i)-1].'</option>';
+                                                                            else
+                                                                        echo '<option value="'.$i.'">'.$Meses[($i)-1].'</option>';
+                                                                        }
+                                                                    ?>-->
+                                                                    <!--<option selected>Seleccionar Mes</option>
+                                                                        @for ($i=1; $i<=12; $i++) 
+                                                                        @if ($i == date('m'))
+                                                                            <option value="{{$i}}">{{$i}}</option>
+                                                                        @else
+                                                                            <option value="{{$i}}">{{$i}}</option>
+                                                                        @endif
+                                                                    @endfor-->
                                                                 </select>
                                                               </div>
                                                             </div>
