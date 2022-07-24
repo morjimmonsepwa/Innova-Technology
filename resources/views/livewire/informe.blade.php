@@ -19,6 +19,7 @@
                             <th>Generado Por</th>
                             <th>Asignado a</th>
                             <th>Status</th>
+                            <th>Adjuntar</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -31,6 +32,7 @@
                             <th>Generado Por</th>
                             <th>Asignado a</th>
                             <th>Status</th>
+                            <th>Adjuntar</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -107,6 +109,9 @@
                                                 <option  value="3" selected class="text-danger">Cerrado</option>
                                             @endif
                                     </select>
+                                </td>
+                                <td> 
+                                    <input type="file" class="form-control-file" id="adjuntar">
                                 </td>
                             </tr>
                         @endforeach

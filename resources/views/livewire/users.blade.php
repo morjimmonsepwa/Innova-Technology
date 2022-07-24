@@ -32,7 +32,7 @@
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Rol</label>
                                     <select class="form-control" id="rol" wire:model="rol" >
-                                        <option value=""null"">Seleccione una opción:</option>
+                                        <option value="null">Seleccione una opción:</option>
                                         @foreach ($roles as  $role)
                                             <option value="{{ $role->id}}">{{$role->name}}</option>
                                         @endforeach

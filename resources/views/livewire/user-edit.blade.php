@@ -28,7 +28,7 @@
                     <div class="mb-3">
                         <label class="form-label">Rol</label>
                         <select class="form-control" id="id_rol" wire:model="id_rol" >
-                            <option value=""null"">Seleccione una opción: </option>
+                            <option value="null">Seleccione una opción: </option>
                             @foreach ($roles as  $role)
                                 @if ($role->id = $id_rol)
                                     <option selected value="{{ $role->id}}">{{$role->name}}</option>

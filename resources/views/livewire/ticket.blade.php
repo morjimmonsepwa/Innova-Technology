@@ -14,8 +14,8 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Asunto</label>
-                        <select class="form-control" value="{{old('asunto"')}}" id="asunto" wire:model="asunto">
-                            <option value=""null"">Seleccione una opción: </option>
+                        <select class="form-control" value="{{old('asunto')}}" id="asunto" wire:model="asunto">
+                            <option value="null">Seleccione una opción: </option>
                             <option value="1">Queja</option>
                             <option value="2">Devolución</option>
                         </select>
@@ -34,7 +34,7 @@
                     <div class="mb-3">
                         <label class="form-label">Vía Queja</label>
                         <select class="form-control" value="{{old('via')}}" id="via" wire:model="via">
-                            <option  value=""null"">Seleccione una opción: </option>
+                            <option  value="null">Seleccione una opción: </option>
                             <option value="1">Email</option>
                             <option value="2">Llamada</option>
                         </select>
@@ -43,7 +43,7 @@
                     <div class="mb-3">
                         <label class="form-label">Empresa</label>
                         <select class="form-control" value="{{old('empresa')}}" id="empresa" wire:model="empresa">
-                            <option  value=""null"">Seleccione una opción: </option>
+                            <option  value="null">Seleccione una opción: </option>
                             @foreach ($empresas as $empresa)
                                 <option value="{{$empresa->id}}">{{$empresa->name}}</option>
                             @endforeach
@@ -58,7 +58,7 @@
                     <div class="mb-3">
                         <label class="form-label">Encargado</label>
                         <select class="form-control" value="{{old('encargado')}}" id="encargado" wire:model="encargado">
-                            <option  value=""null"">Seleccione una opción: </option>
+                            <option  value="null">Seleccione una opción: </option>
                             @foreach ($usuarios as $usuario)
                                 <option value="{{$usuario->id}}">{{$usuario->name}}</option>
                             @endforeach
