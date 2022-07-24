@@ -26,7 +26,7 @@ return new class extends Migration
             $table->bigInteger('id_manager')->unsigned()->nullable();
             $table->bigInteger('id_assigned')->unsigned()->nullable();
             $table->integer('status');
-            $table->text('adjuntar_evidencia');
+            $table->text('adjuntar');
             $table->timestamps();
 
 
