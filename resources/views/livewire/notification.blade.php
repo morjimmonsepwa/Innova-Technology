@@ -1,6 +1,6 @@
 <div>
     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" wire:poll.3s.keep-alive>
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" wire:poll.30s.keep-alive>
         <i class="fas fa-bell fa-fw"></i>
         <!-- Counter - Alerts -->
         @if (count(auth()->user()->unreadNotifications))
