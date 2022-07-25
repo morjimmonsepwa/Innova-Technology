@@ -15,12 +15,17 @@ class GroupsEdit extends Component
     protected $listeners = ['alert' => 'alert_run'];
 
     protected $rules = [
-            'name' => 'regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/'
-        ];
+        'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/'
+    ];
 
     public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
+
+    protected $messages = [
+        'name.required' => 'El campo nombre es requerido.',
+        'name.regex' => 'Ingresar solo letras.',
+    ];
 
     public function name($name){
 

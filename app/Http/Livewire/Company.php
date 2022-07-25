@@ -14,8 +14,14 @@ class Company extends Component
 
 
      protected $rules = [
-             'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/'
-         ];
+        'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/'
+    ];
+    
+    
+    protected $messages = [
+        'name.required' => 'El campo nombre es requerido.',
+        'name.regex' => 'Ingresar solo letras.',
+    ];
  
      public function updated($propertyName){
          $this->validateOnly($propertyName);

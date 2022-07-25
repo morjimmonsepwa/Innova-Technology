@@ -24,9 +24,23 @@ class Users extends Component{
             'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
             'email' => 'required|email:dns',
             'passsword' => 'required|min:6|',
-            'confirmed' => 'required|min:6|same:passsword',
+            'confirmed' => 'required|same:passsword',
             'rol' => 'required'
         ];
+        
+    protected $messages = [
+        'name.required' => 'El campo nombre es requerido.',
+        'name.regex' => 'Ingresar solo letras.',
+        'email.required' => 'El campo correo es requerido.',
+        'email.email' => 'Debe ser una dirección de correo válida.',
+        'passsword.required' => 'El campo contraseña es requerido.',
+        'passsword.min' => 'La contraseña debe ser mayor a 6 caracteres.',
+        'passsword.required' => 'El campo contraseña es requerido.',
+        'confirmed.required' => 'El campo confirmar es requerido.',
+        'confirmed.same' => 'No coincide la contraseña.',
+        'rol.required' => 'El campo rol es requerido.'
+        
+    ];
 
     public function updated($propertyName){
 
@@ -64,4 +78,3 @@ class Users extends Component{
    
 
 }
-

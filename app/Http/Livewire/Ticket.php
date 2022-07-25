@@ -43,19 +43,18 @@ class Ticket extends Component
     }
 
     protected $rules = [
-            'asunto' => 'required',
-            'motivo' => 'required',
-            'cliente' => 'required',
-            'via' => 'required',
-            'empresa' => 'required',
-            'producto' => 'required',
-            'encargado' => 'required'
+        'asunto' => 'required',
+        'motivo' => 'required',
+        'cliente' => 'required',
+        'via' => 'required',
+        'empresa' => 'required',
+        'producto' => 'required',
+        'encargado' => 'required'
     ];
 
     public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
-
 
     public function store(){
   

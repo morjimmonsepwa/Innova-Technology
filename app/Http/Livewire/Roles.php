@@ -11,13 +11,19 @@ class Roles extends Component
     public $name;
     public $permiso;
 
-        protected $rules = [
-            'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/'
-        ];
+    protected $rules = [
+        'name' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/'
+    ];
 
     public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
+    
+    protected $messages = [
+        'name.required' => 'El campo nombre es requerido.',
+        'name.regex' => 'Ingresar solo letras.',
+    ];
+
 
 
     public function render()
