@@ -32,6 +32,12 @@ return new class extends Migration
         $new->permisos = Permisos::get();
         $new->save();
 
+        $new = new Role();
+        $new->id=7;
+        $new->name = 'Lider de Proyectos';
+        $new->permisos = Permisos::get();
+        $new->save();
+
     }
 
     /**

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->text('folio');
+            // $table->text('folio');
             $table->integer('affair');
             $table->string('reason');
             $table->string('client');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->bigInteger('id_manager')->unsigned()->nullable();
             $table->bigInteger('id_assigned')->unsigned()->nullable();
             $table->integer('status');
-            $table->text('adjuntar');
+            $table->text('adjuntar')->nullable();
             $table->timestamps();
 
 

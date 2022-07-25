@@ -21,6 +21,7 @@ class Ticket extends Component
     public $producto;
     public $encargado;
     public $empresa;
+    public $numero;
 
     // $this->asunto;
     // $this->motivo; 
@@ -28,6 +29,10 @@ class Ticket extends Component
     // $this->via;
     // $this->producto;
     // $this->encargado;
+
+    public function mount(){
+        $this->numero = substr((mt_rand()), 0, 8);
+    }
 
 
     public function render()

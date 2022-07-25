@@ -6,11 +6,6 @@
         <form wire:submit.prevent="update" method="POST">
             <div class="modal-body">
                 <div class="mb-3">
-                    <label class="form-label">Número de Ticket</label>
-                    <input type="text" class="form-control" aria-describedby="emailHelp" wire:model="motivo" id="motivo"  placeholder="Ingrese el número de ticket">
-                    @error('motivo') <span class="text-danger">{{$message}}</span> @enderror
-                </div>
-                <div class="mb-3">
                     <label class="form-label">Asunto</label>
                     <select class="form-control" id="asunto" wire:model="asunto">
                         <option value=""null"">Seleccione una opción: </option>

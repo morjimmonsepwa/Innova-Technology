@@ -16,7 +16,7 @@
                             <th>Cliente</th>
                             <th>Vía</th>
                             <th>Producto</th>
-                            <th>Generado Por</th>
+                            <th>Generó</th>
                             <th>Asignado a</th>
                             <th>Status</th>
                             <th>Adjuntar</th>
@@ -29,7 +29,7 @@
                             <th>Cliente</th>
                             <th>Vía Queja</th>
                             <th>Producto</th>
-                            <th>Generado Por</th>
+                            <th>Generó</th>
                             <th>Asignado a</th>
                             <th>Status</th>
                             <th>Adjuntar</th>
@@ -111,7 +111,13 @@
                                     </select>
                                 </td>
                                 <td> 
-                                    <input type="file" class="form-control-file" id="adjuntar">
+                                    <div class="mb-3">
+                                        @if ($ticket->id_assigned == Auth::user()->id)
+                                            <a href="">Descargar Evidencia</a> 
+                                        @else
+                                            <input class="form-control col-lg-6" type="file" name="" id="">
+                                        @endif
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

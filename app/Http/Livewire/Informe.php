@@ -26,11 +26,11 @@ class Informe extends Component
 
     public function render(){
 
-        if(Auth::user()->id_rol == 2 ){
+        if(Auth::user()->id_rol == 7 ){
             $tickets = Ticket::where('id_manager',Auth::id())->get();
         }
 
-        if(Auth::user()->id_rol != 2 ){
+        if(Auth::user()->id_rol != 7 ){
             $tickets = Ticket::where('id_assigned',Auth::id())->get();
         }
 
