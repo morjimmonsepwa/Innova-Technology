@@ -27,9 +27,9 @@ class GroupsEdit extends Component
         'name.regex' => 'Ingresar solo letras.',
     ];
 
-    public function name($name){
+    public function mount(){
 
-        $this->name=$name;
+        $this->name= Work_group::findOrFail($this->id_group)->select('name')->get()[0]['name'];
      
     }
 
