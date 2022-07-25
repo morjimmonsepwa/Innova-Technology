@@ -26,6 +26,8 @@
     <link href="{{asset('libs/sbadmin/css/admin.css')}}" rel="stylesheet">
     <link href="{{asset('libs/sbadmin/css/whatsapp.css')}}" rel="stylesheet">
     <link href="{{asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
     {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
     @livewireStyles
     
@@ -127,8 +129,6 @@
                     </a>
                 </li>
            
-           
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -148,8 +148,12 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <select class="selectpicker form-control bg-light border-0 small" data-live-search="true">
+                                <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+                                <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                                <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+                              </select>                              
+                            {{-- <input type="text" class="" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2"> --}}
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -280,6 +284,12 @@
 
     <!-- Custom scripts for all pages-->
     {{-- <script src="{{ asset('libs/sbadmin/js/sb-admin-2.min.js')  }}"></script> --}}
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 
     <!-- Page level plugins -->
     {{-- <script src="{{ asset('libs/sbadmin/chart/Chart.min.js')  }}"></script> --}}
