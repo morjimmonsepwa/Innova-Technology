@@ -145,26 +145,13 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <select class="selectpicker form-control bg-light border-0 small" data-live-search="true">
-                                <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-                                <option data-tokens="mustard">Burger, Shake and a Smile</option>
-                                <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-                              </select>                              
-                            {{-- <input type="text" class="" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2"> --}}
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    
+                    @livewire('search')
 
 
                     <!-- Topbar Navbar Menu --> 
                     <ul class="navbar-nav ml-auto">
+                        
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
