@@ -31,7 +31,14 @@ class Reportes extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::all()->where('id_manager',Auth::id());
+
+        if(Auth::user()->id_rol == 7 ){
+            $tickets = Ticket::all()->where('id_manager',Auth::id());
+        }
+
+        if(Auth::user()->id_rol != 7 ){
+            $tickets = Ticket::where('id_assigned',Auth::id())->get();
+        }
 
         $param['tickets'] = $tickets;
 
