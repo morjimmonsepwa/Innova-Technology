@@ -39,6 +39,9 @@ class Permisos extends Controller
         $permisos['empresas.destroy'] = true;
         $permisos['empresas.update'] = true;
 
+
+        $permisos['evaluacion.index'] = true;
+
         
         if ( $array ) {
             $return = $permisos;

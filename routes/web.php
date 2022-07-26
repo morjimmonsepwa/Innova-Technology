@@ -93,7 +93,7 @@ use App\Http\Controllers\Evaluacion;
 
     /* Rutas Administrador Evaluación*/
         
-        Route::get('/admin/evaluacion',[Evaluacion::class,'index'])->name('index.evaluacion');
+        Route::get('/admin/evaluacion',[Evaluacion::class,'index'])->name('index.evaluacion')->middleware('permisos:evaluacion.index');
        
        
     /*********/

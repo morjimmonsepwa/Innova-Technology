@@ -119,7 +119,7 @@
             @endif
 
             <!-- Nav Item - Pages Collapse Menu -->
-           
+            @if ( isset(json_decode(Auth::user()->rol->permisos,true)['evaluacion.index']))
                 <li class="nav-item @if(Route::current()->uri() == 'admin/evaluacion') active @endif">
                     <a class="nav-link" href="{{ route('index.evaluacion')}}">
                         <i class="fas fa-chart-area"></i>
@@ -128,7 +128,7 @@
                         </span>
                     </a>
                 </li>
-           
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
