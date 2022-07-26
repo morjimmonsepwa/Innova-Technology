@@ -69,14 +69,17 @@
                                 <td>
                                     <select wire:change="asignar($event.target.value,{{$ticket->id}})" class="form-control col-lg-8" id="asignado" name="asignado">
                                         <option value="0">Sin Asignación</option>
-                                        @foreach ($users as $user)
-                                            @if ($ticket->id_assigned == $user->id)
-                                                <option selected value="{{$user->id}}">{{$user->name}}</option>
-                                            @else
-                                                <option value="{{$user->id}}">{{$user->name}}</option>
-                                            @endif
-                                        @endforeach
-                                       
+                                        @if ($ticket->id_assigned == Auth::user()->id)
+                                            <option selected value="{{Auth::user()->id}}">{{Auth::user()->name}}</option>
+                                        @else
+                                            @foreach ($users as $user)
+                                                @if ($ticket->id_assigned == $user->id)
+                                                    <option selected value="{{$user->id}}">{{$user->name}}</option>
+                                                @else
+                                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </td>
                                 <td>
