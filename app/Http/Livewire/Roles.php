@@ -38,7 +38,7 @@ class Roles extends Component
 
         $validatedData = $this->validate();
 
-        $guardar = $this->permiso;
+        $guardar = $this->permiso ?? array();
         $permisos = array();
         $permisosfn = array();
 
