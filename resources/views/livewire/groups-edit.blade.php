@@ -10,7 +10,7 @@
                     <form wire:submit.prevent="edit" method="POST">
                         <div class="mb-3">
                             <label for="name" name="name" id="name"  class="form-label">Nombre del Equipo</label>
-                            <input type="text" wire:model="name" id="name" class="form-control" aria-describedby="nombre" placeholder="{{$grupo->name}}">
+                            <input type="text" wire:model="name" id="name" class="form-control" aria-describedby="nombre">
                             @error('name') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="modal-footer">
