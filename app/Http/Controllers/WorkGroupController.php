@@ -29,14 +29,8 @@ class WorkGroupController extends Controller
      */
     public function index()
     {
-        $groups = Work_group::all()->where('id_leader',Auth::id());
 
-        $details = Detail_group::all()->take($groups->count()*4);
-
-        $param['groups'] = $groups;
-        $param['details'] = $details;
-       
-        return view('admin.pages.grupos.grupos',$param);
+        return view('admin.pages.grupos.grupos');
     }
 
     /**
@@ -68,23 +62,5 @@ class WorkGroupController extends Controller
         
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Work_group  $work_group
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        if(Detail_group::where('id_group',$id)->get()->count() <> 0){
-            Alert::toast('Usuarios Asignados','error');
-        }else{
-            Work_group::destroy('id', $id);
-            Alert::toast('Eliminado Correctamente','success');
-        }
-        
-        return redirect()->route('index.grupos');
-    }
 
-    
 }

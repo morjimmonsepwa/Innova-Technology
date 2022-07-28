@@ -1,0 +1,79 @@
+<div>
+    <div class="card-body row">
+        <!-- Dropdown Card Example -->
+            @foreach ($groups as $group)
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card shadow mb-4 border-left-info">
+                        <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between col">
+                                <h6 class="m-0 font-weight-bold text-primary">Grupo de Trabajo:  {{$group->name}}</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">Opciones:</div>
+                                        @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.update']))
+                                            <a class="dropdown-item" for="#editar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#editar-{{$group->id}}">Editar</a>
+                                        @endif
+                                        @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.destroy']))
+                                            <a class="dropdown-item" for="#eliminar-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#eliminar-{{$group->id}}">Eliminar</a>
+                                        @endif
+                                        @if ( isset(json_decode(Auth::user()->rol->permisos,true)['grupos.asignar']))
+                                            <a class="dropdown-item" for="#usuarios-{{$group->id}}" type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#usuarios-{{$group->id}}">Asignar Usuarios</a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            @foreach ($details as $detail)
+                                @if ($detail->id_group == $group->id)
+                                    <img class="avatar" alt="Avatar" src="@if( $detail->user->profile_photo_path == null ) {{  $detail->user->profile_photo_url}} @else {{ asset('storage/'. $detail->user->profile_photo_path) }}  @endif" />
+                                @endif   
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            
+        <!-- Modal Editar -->
+            <div class= "center">
+                <div class="modal fade" id="editar-{{$group->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    @livewire('groups-edit',['id_group'=>$group->id])
+                </div>
+            </div>
+        <!-- Modal Editar -->
+            <!-- Modal Usuarios -->
+            <div class= "center">
+                <div class="modal fade" id="usuarios-{{$group->id}}" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    @livewire('asigneusers',['id_group'=>$group->id])
+                </div>
+            </div>   
+        <!-- Modal Usuarios -->
+        <!-- Modal Eliminar -->
+            <div class="Center">
+                <div class="modal fade" tabindex="-3" id="eliminar-{{$group->id}}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">¡Atención!</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Estas Seguro de Eliminar?</p><small>{{$group->name}}</small>
+                            </div>
+                            <div class="modal-footer">
+                                <button wire:click="destroy({{$group->id}})" type="submit" class="btn btn-primary">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Modal Editar -->
+        @endforeach
+         <!-- Dropdown Card Example -->
+    </div>
+</div>
