@@ -274,23 +274,18 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.2/dist/chart.min.js"></script>
+
 
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"></script>
 
     <!-- Page level plugins -->
-    {{-- <script src="{{ asset('libs/sbadmin/chart/Chart.min.js')  }}"></script> --}}
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     <script src="{{ asset('libs/sbadmin/datatables/jquery.dataTables.min.js')  }} "></script>
     <script src="{{ asset('libs/sbadmin/datatables/dataTables.bootstrap4.min.js')  }} "></script>
-    <script src="{{ asset('libs/sbadmin/chart/chart-bar-demo.js')  }}"></script>
-    <script src="{{ asset('libs/sbadmin/chart/chart-pie-demo.js')  }}"></script>
 
-    <!-- Page level custom scripts -->
-    {{-- <script src="{{ asset('libs/sbadmin/js/demo/chart-area-demo.js')  }}"></script>
-    <script src="{{ asset('libs/sbadmin/js/demo/chart-pie-demo.js')  }}"></script> --}}
+
 
     <script src="{{ asset('libs/sbadmin/js/datatable.js')  }}"></script>
     <script src="{{ asset('js/buscador.js')  }}"></script>
