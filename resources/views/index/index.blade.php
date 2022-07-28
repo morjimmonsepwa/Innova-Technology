@@ -15,7 +15,7 @@
         <div class="col-lg-6">
         <div class="hero-content-wrapper">
             <h4 class="wow fadeInUp" data-wow-delay=".2s">Innova Technology</h4>
-            <h2 class="mb-30 wow fadeInUp" data-wow-delay=".4s">Control de Tickets</h2>
+            <h2 class="mb-20 wow fadeInUp" data-wow-delay=".4s">Control de Quejas y Devoluciones</h2>
             <p class="mb-50 wow fadeInUp" data-wow-delay=".6s">&nbsp;</p>
             <p class="mb-50 wow fadeInUp" data-wow-delay=".6s">Gestiona las quejas y devoluciones de tus productos en tu empresa.</p>
         </div>

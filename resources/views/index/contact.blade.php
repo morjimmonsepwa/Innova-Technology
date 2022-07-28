@@ -28,10 +28,10 @@
             <div class="col-lg-12 col-md-6">
                 <div class="single-item">
                 <div class="icon">
-                    <a class="text-white" href="mailto:innovatechnology@gmail.com"><i class="lni lni-envelope"></i></a>
+                    <a class="text-white" href="mailto:innovatechnology-ct2022@outlook.com"><i class="lni lni-envelope"></i></a>
                 </div>
                 <div class="text">
-                    <a href="mailto:innovatechnology@gmail.com">innovatechnology@gmail.com</a>
+                    <a href="mailto:innovatechnology-ct2022@outlook.com">innovatechnology-ct2022@outlook.com</a>
                 </div>
                 </div>
             </div>
