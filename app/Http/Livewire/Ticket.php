@@ -23,12 +23,6 @@ class Ticket extends Component
     public $empresa;
     public $numero;
 
-    // $this->asunto;
-    // $this->motivo; 
-    // $this->cliente,
-    // $this->via;
-    // $this->producto;
-    // $this->encargado;
 
     public function mount(){
         $this->numero = substr((mt_rand()), 0, 8);
@@ -49,11 +43,11 @@ class Ticket extends Component
 
     protected $rules = [
         'asunto' => 'required',
-        'motivo' => 'required',
-        'cliente' => 'required',
+        'motivo' => 'required|min:4',
+        'cliente' => 'required|min:4',
         'via' => 'required',
         'empresa' => 'required',
-        'producto' => 'required',
+        'producto' => 'required|min:3',
         'encargado' => 'required'
     ];
 

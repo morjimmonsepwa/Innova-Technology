@@ -51,11 +51,11 @@ class TicketEdit extends Component
 
     protected $rules = [
         'asunto' => 'required',
-        'motivo' => 'required',
-        'cliente' => 'required',
+        'motivo' => 'required|min:4',
+        'cliente' => 'required|min:4',
         'via' => 'required',
-        'company' => 'required',
-        'producto' => 'required',
+        'empresa' => 'required',
+        'producto' => 'required|min:3',
         'encargado' => 'required'
     ];
 
