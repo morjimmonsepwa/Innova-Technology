@@ -69,5 +69,45 @@ class Ticket extends Model
 
     }
 
+    public static function status_abierto($id_user){
+
+        return DB::table('tickets as t1')
+            ->select(
+                DB::raw('count(t1.status) as status'
+                )
+            )
+            ->where('t1.id_assigned',$id_user)
+            ->where('t1.status',1)
+        ->get();
+
+    }
+
+
+    public static function status_proceso($id_user){
+
+        return DB::table('tickets as t1')
+            ->select(
+                DB::raw('count(t1.status) as status'
+                )
+            )
+            ->where('t1.id_assigned',$id_user)
+            ->where('t1.status',2)
+        ->get();
+
+    }
+
+    public static function status_cerrado($id_user){
+
+        return DB::table('tickets as t1')
+            ->select(
+                DB::raw('count(t1.status) as status'
+                )
+            )
+            ->where('t1.id_assigned',$id_user)
+            ->where('t1.status',3)
+        ->get();
+
+    }
+
 
 }

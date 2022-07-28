@@ -11,153 +11,77 @@
 @endsection
 
 @section('contenido')
-
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Foto</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr>
-                            <td class="text-center">
-                                <img class="avatar" src="@if( $user->profile_photo_path == null ) {{  $user->profile_photo_url }} @else {{ asset('storage/'. $user->profile_photo_path) }}  @endif" />
-                            </td>
-                            <td>
-                                {{$user->name}}
-                            </td>
-                            <td>
-                                {{$user->email}}
-                            </td>
-                            <td class="text-center">
-                                @if ( isset(json_decode(Auth::user()->rol->permisos,true)['usuarios.update']))
-                                    <a for="#ver-{{$user->id}}" type="button" class="btn btn-circle btn-warning" data-bs-toggle="modal" data-bs-target="#ver-{{$user->id}}">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                @endif
-                            </td>
-                        </tr>
-                        <!-- Modales -->
-                            <!-- Modal Ver-->
-                            <div class="modal fade" id="ver-{{$user->id}}" tabindex="-3" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Evaluación</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row g-3 align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="container">
-                                                        {{-- <div class="row">
-                                                          <div class="col">
-                                                            <select class="form-control" aria-label=".form-select-sm example">
-                                                                <option selected>Seleccionar Año</option>
-                                                                @for($i=date('o'); $i>=1910; $i--)
-                                                                    @if ($i == date('o'))
-                                                                        <option value="{{$i}}">{{$i}}</option>
-                                                                    @else
-                                                                        <option value="{{$i}}">{{$i}}</option>
-                                                                    @endif
-                                                                @endfor
-                                                            </select>
-                                                          </div>
-                                                          <div class="col">
-                                                            <select class="form-control" aria-label=".form-select-sm example">
-                                                            <option selected>Seleccionar Mes</option>
-                                                            <option>Enero</option>
-                                                            <option>Febrero</option>
-                                                            <option>Marzo</option>
-                                                            <option>Abril</option>
-                                                            <option>Mayo</option>
-                                                            <option>Junio</option>
-                                                            <option>Julio</option>
-                                                            <option>Agosto</option>
-                                                            <option>Septiembre</option>
-                                                            <option>Octubre</option>
-                                                            <option>Noviembre</option>
-                                                            <option>Diciembre</option>
-                                                                <!--<?php
-                                                                    $Meses = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
-                                                                    for ($i=1; $i<=12; $i++) {
-                                                                        if ($i == date('m'))
-                                                                    echo '<option value="'.$i.'"selected>'.$Meses[($i)-1].'</option>';
-                                                                        else
-                                                                    echo '<option value="'.$i.'">'.$Meses[($i)-1].'</option>';
-                                                                    }
-                                                                ?>-->
-                                                                <!--<option selected>Seleccionar Mes</option>
-                                                                    @for ($i=1; $i<=12; $i++) 
-                                                                    @if ($i == date('m'))
-                                                                        <option value="{{$i}}">{{$i}}</option>
-                                                                    @else
-                                                                        <option value="{{$i}}">{{$i}}</option>
-                                                                    @endif
-                                                                @endfor-->
-                                                            </select>
-                                                          </div>
-                                                        </div> --}}
-                                                    </div> 
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-10 offset-md-1">
-                                                        <body>
-                                                            <canvas id="myChart" height="100px"></canvas>
-                                                        </body>
-                                                          
-                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-                                                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                                                          
-                                                        <script type="text/javascript">
-                                                          
-                                                        const ctx = document.getElementById('myChart').getContext('2d');
-                                                        const myChart = new Chart(ctx, {
-                                                            type: 'pie',
-                                                            data: {
-                                                                labels: [
-                                                                    'Cerrados',
-                                                                    'Abiertos',
-                                                                    'Proceso'
-                                                                ],
-                                                                datasets: [{
-                                                                    label: 'My First Dataset',
-                                                                    data: [300, 50, 100],
-                                                                    backgroundColor: [
-                                                                    'rgb(255, 99, 132)',
-                                                                    'rgb(54, 162, 235)',
-                                                                    'rgb(255, 205, 86)'
-                                                                    ],
-                                                                    hoverOffset: 4
-                                                                }]
-                                                            },
-                                                        });
-                                                        </script>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="list-group">
+                        @if (Auth::user()->id_rol == 2)
+                            @foreach  ($users as $item)
+                                <a href="{{route('index.evaluacion',$item->id)}}" class="list-group-item list-group-item-action @if($item->id == $id_user) active  @endif">
+                                    {{$item->name}}
+                                        <br>
+                                    {{$item->email}}
+                                </a>
+                            @endforeach
+                        @else
+                            @foreach  ($detalle as $item)
+                                <a href="{{route('index.evaluacion',$item->id)}}" class="list-group-item list-group-item-action @if($item->id == $id_user) active  @endif">
+                                    {{$item->name}}
+                                        <br>
+                                    {{$item->email}}
+                                </a>
+                            @endforeach
+                        @endif
+                        </div> 
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <body wire:ignore.self>
+                                    <canvas id="myChart" height="100px"></canvas>
+                                </body>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                <script type="text/javascript">
+                                    
+                                const ctx = document.getElementById('myChart').getContext('2d');
+                                const myChart = new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                        labels: [
+                                            'Cerrados',
+                                            'Abiertos',
+                                            'Proceso'
+                                        ],
+                                        datasets: [{
+                                            label: 'My First Dataset',
+                                            data: 
+                                                {{$data}}
+                                            ,
+                                            backgroundColor: [
+                                            'rgb(255, 99, 132)',
+                                            'rgb(92, 205, 70)',
+                                            'rgb(255, 205, 86)'
+                                            ],
+                                            hoverOffset: 4
+                                        }]
+                                    },
+                                });
+                                </script>
                             </div>
-                        <!-- Modal Ver --> 
-                    <!-- Modales -->
-                    @endforeach 
-                    </tbody>
-                </table>
+                            @foreach ($users as $user)
+                                @if ($user->id == $id_user)
+                                    <h5>{{$user->name}}</h5>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

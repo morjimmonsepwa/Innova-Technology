@@ -121,7 +121,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             @if ( isset(json_decode(Auth::user()->rol->permisos,true)['evaluacion.index']))
                 <li class="nav-item @if(Route::current()->uri() == 'admin/evaluacion') active @endif">
-                    <a class="nav-link" href="{{ route('index.evaluacion')}}">
+                    <a class="nav-link" href="{{ route('index.evaluacion',0)}}">
                         <i class="fas fa-chart-area"></i>
                         <span>
                             Evaluación al Desempeño
