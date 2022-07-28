@@ -8,7 +8,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input type="text" class="form-control" placeholder="{{$empresa->name}}"  id="name" wire:model="name">
+                        <input type="text" class="form-control"  id="name" wire:model="name">
                         @error('name') <span class="text-danger">{{$message}}</span> @enderror
                     </div>
                 </div>
