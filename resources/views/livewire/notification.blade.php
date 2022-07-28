@@ -84,6 +84,36 @@
                     </div>
                 </a>
             @endif
+            @if ($notificaion->type == "App\Notifications\AsignarNotificacion")
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-success">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">
+                            {{$notificaion->created_at->format('l jS \\of F Y h:i:s A')}}
+                        </div>
+                        <span class="font-weight-bold">
+                                Asignación de 
+                                {{$notificaion->data['razon']}}
+                                <small>
+                                    @if ($notificaion->data['asunto'] == 1)
+                                        (Queja)
+                                    @endif
+                                    @if ($notificaion->data['asunto'] == 2)
+                                        (Devolución)
+                                    @endif
+                                </small>
+                            <small>
+                                <br>
+                                {{$notificaion->created_at->diffForHumans()}}
+                            </small>
+                        </span>
+                    </div>
+                </a>
+            @endif
         @endforeach
         @if (count(auth()->user()->unreadNotifications) == 0)
             <br>

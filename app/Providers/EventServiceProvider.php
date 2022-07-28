@@ -10,6 +10,8 @@ use App\Events\TicketEvent;
 use App\Listeners\TicketListener;
 use App\Events\StatusEvent;
 use App\Listeners\StatusListener;
+use App\Events\AsignarEvent;
+use App\Listeners\AsignarListener;
 
 
 class EventServiceProvider extends ServiceProvider
@@ -28,6 +30,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         StatusEvent::class => [
             StatusListener::class,
+        ],
+        AsignarEvent::class => [
+            AsignarListener::class,
         ],
     ];
 

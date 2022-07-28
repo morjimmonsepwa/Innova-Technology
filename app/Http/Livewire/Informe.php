@@ -7,6 +7,7 @@ use App\Models\Ticket;
 use App\Models\Detail_group;
 use Illuminate\Support\Facades\Auth;
 use App\Events\StatusEvent;
+use App\Events\AsignarEvent;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class Informe extends Component
@@ -49,6 +50,7 @@ class Informe extends Component
             $ticket = Ticket::findOrFail($id_ticket);
             $ticket->id_assigned = $id_user;
             $ticket->save();
+            event(new AsignarEvent($ticket));
             $this->emit('alert');
         }
 
