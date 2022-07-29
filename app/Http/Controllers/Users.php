@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Detail_group;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\Rules\Password;
 
@@ -70,12 +71,19 @@ class Users extends Controller
      */
     public function destroy($id)
     {
+
+        $verifica = empty(Detail_group::where('id_user',$id)->get()[0]['id_user']);
+
+        if($verifica){
+            $rol = User::destroy('id', $id);
+            Alert::toast('Eliminado Correctamente','success');
+            return redirect()->route('index.users');
+        }else{
+            Alert::toast('Usuario Asignado a Grupo','error');
+            return redirect()->route('index.users');
+        }
+
         
-        $rol = User::destroy('id', $id);
-
-        Alert::toast('Eliminado Correctamente','success');
-
-        return redirect()->route('index.users');
 
     }
 }

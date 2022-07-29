@@ -54,9 +54,9 @@
                                     type: 'pie',
                                     data: {
                                         labels: [
-                                            'Cerrados',
                                             'Abiertos',
-                                            'Proceso'
+                                            'Proceso',
+                                            'Cerrados'
                                         ],
                                         datasets: [{
                                             label: 'My First Dataset',
@@ -64,9 +64,9 @@
                                                 {{$data}}
                                             ,
                                             backgroundColor: [
-                                            'rgb(255, 99, 132)',
                                             'rgb(92, 205, 70)',
-                                            'rgb(255, 205, 86)'
+                                            'rgb(255, 205, 86)',
+                                            'rgb(255, 99, 132)'
                                             ],
                                             hoverOffset: 4
                                         }]
