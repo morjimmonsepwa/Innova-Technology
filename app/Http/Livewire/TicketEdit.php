@@ -29,7 +29,7 @@ class TicketEdit extends Component
         $this->asunto =$ticket->affair;
         $this->motivo =$ticket->reason; 
         $this->cliente =$ticket->client;
-        $this->via =$ticket->via;
+        $this->via = $ticket->via;
         $this->producto =$ticket->product;
         $this->encargado =$ticket->id_manager;
         $this->company =$ticket->id_business;
@@ -54,7 +54,7 @@ class TicketEdit extends Component
         'motivo' => 'required|min:4',
         'cliente' => 'required|min:4',
         'via' => 'required',
-        'empresa' => 'required',
+        'company' => 'required',
         'producto' => 'required|min:3',
         'encargado' => 'required'
     ];
