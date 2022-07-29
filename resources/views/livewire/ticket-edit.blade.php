@@ -1,10 +1,10 @@
 <div>
-    <div class="modal-content" wire:ignore.self>
+    <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Editar</h5>
         </div>
         <form wire:submit.prevent="update" method="POST">
-            <div class="modal-body">
+            <div class="modal-body" wire:ignore>
                 <div class="mb-3">
                     <label class="form-label">Asunto</label>
                     <select class="form-control" id="asunto" wire:model="asunto">
